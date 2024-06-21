@@ -2,6 +2,140 @@
 ---
 
 @string{aps = {American Physical Society,}}
+@string{tit = {IEEE Transactions on Information Theory}}
+@string{isit = {IEEE International Symposium on Information Theory}}
+@string{allerton = {Allerton Conference on Communication, Control, and Computing}}
+@string{jmlr ={Journal of Machine Learning Research (JMLR)}}
+@string{icml ={International Conference on Machine Learning (ICML)}}
+@string{twc ={IEEE Transactions on  Wireless Communication}}
+@string{milcom = {IEEE Military Communications Conference (MILCOM)}}
+
+
+@article{xxJMLR24,
+  abbr={JMLR},
+  bibtex_show={true},
+  title={Neural Feature Learning in Function Space},
+  author={Xu, Xiangxiang and Zheng, Lizhong},
+  journal=jmlr,
+  volume ={25},
+  number={142},
+  year={2024},
+  html={https://jmlr.org/papers/volume25/23-1202/23-1202.pdf},
+  abstract = {We present a novel framework for learning system design with neural feature extractors. First, we introduce the feature geometry, which unifies statistical dependence and feature representations in a function space equipped with inner products. This connection defines function-space concepts on statistical dependence, such as norms, orthogonal projection, and spectral decomposition, exhibiting clear operational meanings. In particular, we associate each learning setting with a dependence component and formulate learning tasks as finding corresponding feature approximations. We propose a nesting technique, which provides systematic algorithm designs for learning the optimal features from data samples with off-the-shelf network architectures and optimizers. We further demonstrate multivariate learning applications, including conditional inference and multimodal learning, where we present the optimal features and reveal their connections to classical approaches.},
+  selected = {true}
+}
+
+@article{RyuICML24,
+  abbr={ICML},
+  bibtex_show={true},
+  title={Operator SVD with Neural Networks via Nested Low-Rank Approximation},
+  author={Ryu, J Jon and Xu, Xiangxiang and Erol, HS and Bu, Yuheng and Zheng, Lizhong and Wornell, Gregory W.},
+  journal=icml,
+  year={2024},
+  html={https://arxiv.org/html/2402.03655v1},
+  abstract = {Computing eigenvalue decomposition (EVD) of a given linear operator, or finding its leading eigenvalues and eigenfunctions, is a fundamental task in many machine learning and scientific computing problems. For high-dimensional eigenvalue problems, training neural networks to parameterize the eigenfunctions is considered as a promising alternative to the classical numerical linear algebra techniques. This paper proposes a new optimization framework based on the low-rank approximation characterization of a truncated singular value decomposition, accompanied by new techniques called nesting for learning the top-L singular values and singular functions in the correct order. The proposed method promotes the desired orthogonality in the learned functions implicitly and efficiently via an unconstrained optimization formulation, which is easy to solve with off-the-shelf gradient-based optimization algorithms. We demonstrate the effectiveness of the proposed optimization framework for use cases in computational physics and machine learning.},
+  selected = {true}
+}
+
+@article{xxAllerton23,
+    abbr= {Allerton},
+    bibtex_show={true},
+    title={Sequential Dependence Decomposition and Feature Learning},
+    author={Xu, Xiangxiang and Zheng, Lizhong},
+    journal =allerton,
+    year = {2023},
+    html ={https://ieeexplore.ieee.org/document/10313384},
+    abstract ={In this paper, we introduce an approach to decompose statistical dependence and learn informative features from sequential data. We first present a sequential decomposition of dependence, which extends the chain rule of mutual information. To learn this decomposition from data, we investigate the optimal feature representations associated with decomposed dependence modes and develop corresponding learning algorithms. Specifically, for stationary processes, we demonstrate applications of the learned features in computing optimal Markov approximation and testing the order of Markov processes.}
+}
+
+@article{xzaAllerton23,
+    abbr= {Allerton},
+    bibtex_show={true},
+    title={Neural Feature Learning for Engineering Problems.},
+    author={Xu, Xiangxiang and Zheng, Lizhong and Agrawal, Ishank},
+    journal =allerton,
+    year = {2023},
+    html ={https://ieeexplore.ieee.org/document/10313476},
+    abstract = {Using deep neural networks as elements of engineering solutions can potentially enhance the overall performance of the system. However, most existing practices that use DNNs as black boxes make integrating DNN modules in engineering systems hard. In this paper, we address one of such difficulties: in engineering solutions, we often look for parameterized solutions that perform well in a collection of scenarios. In most problems, this means the DNN modules are trained and used in different environments. Instead of using a transfer learning or multi-task learning formulation, which are common in the literature, we argue that such problems are intrinsically about the multivariate dependence between the input, the target, and the environment parameters. Using an example of symbol detection over wireless fading channels with interference, we demonstrate that such problems can generally be formulated as a decomposition of multivariate dependence. We establish a geometric structure for the space of feature functions, based on which we develop new metrics to measure the information contents of features. We also develop some basic neural network architectures to perform geometric operations on features. With these building blocks, we discuss the steps to build a receiver that does not require any online training but can adapt to different fading scenarios when given the channel state information (CSI). We also discuss some key issues and steps to include DNN modules in general engineering systems.}
+}
+
+@article{erolISIT23,
+    abbr= {ISIT},
+    bibtex_show={true},
+    title={On Semi-Supervised Estimation of Distributions.},
+    author={Erol, H.S. Melihcan and Sula, Erixhen and Zheng, Lizhong and Agrawal, Ishank},
+    journal =isit,
+    year = {2023},
+    html ={https://ieeexplore.ieee.org/document/10206752},
+    abstract = {We study the problem of estimating the joint probability mass function (pmf) over two random variables. In particular, the estimation is based on the observation of m samples containing both variables and n samples missing one fixed variable. We adopt the minimax framework with l^p loss functions, and we show that the composition of uni-variate minimax estimators achieves minimax risk with the optimal first-order constant for p ≥ 2, in the regime m = o(n).}
+}
+
+@article{xxlISIT23,
+    abbr= {ISIT},
+    bibtex_show={true},
+    title={Kernel Subspace and Feature Extraction.},
+    author={Xu, Xiangxiang and Zheng, Lizhong and Agrawal, Ishank},
+    journal =isit,
+    year = {2023},
+    html ={https://ieeexplore.ieee.org/document/10206532},
+    abstract = {We study kernel methods in machine learning from the perspective of feature subspace. We establish a one-to-one correspondence between feature subspaces and kernels and propose an information-theoretic measure for kernels. In particular, we construct a kernel from Hirschfeld–Gebelein–Rényi maximal correlation functions, coined the maximal correlation kernel, and demonstrate its information-theoretic optimality. We use the support vector machine (SVM) as an example to illustrate a connection between kernel methods and feature extraction approaches. We show that the kernel SVM on maximal correlation kernel achieves minimum prediction error. Finally, we interpret the Fisher kernel as a special maximal correlation kernel and establish its optimality.}
+}
+
+@article{huangFN24,
+    abbr= {FN},
+    bibtex_show={true},
+    title={Universal Features for High-Dimensional Learning and Inference},
+    author={Huang, Shao-Lun and Makur, Anuran and Wornell, Gregory W. and Zheng, Lizhong},
+    journal ={Foundations and Trends, in Communications and Information Theory},
+    volume =  {21},
+    number = {1-2},
+    pages = {1-299},
+    html = {https://www.nowpublishers.com/article/Details/CIT-107},
+    publisher = {NOW publishers},
+    year = {2024},
+    abstract ={This monograph develops unifying perspectives on the problem of identifying universal low-dimensional features from high-dimensional data for inference tasks in settings involving learning. For such problems, natural notions of universality are introduced, and a local equivalence among them is established. The analysis is naturally expressed via information geometry, which provides both conceptual and computational insights. The development reveals the complementary roles of the singular value decomposition, Hirschfeld-Gebelein-Rényi maximal correlation, the canonical correlation and principle component analyses of Hotelling and Pearson, Tishby’s information bottleneck, Wyner’s and Gács-Körner common information, Ky Fan k-norms, and Breiman and Friedman’s alternating conditional expectations algorithm. Among other uses, the framework facilitates understanding and optimizing aspects of learning systems, including multinomial logistic (softmax) regression and neural network architecture, matrix factorization methods for collaborative filtering and other applications, rank-constrained multivariate linear regression, and forms of semi-supervised learning.},
+    selected = {true}
+}
+@article{jereJSTSP24,
+    abbr= {JSTSP},
+    bibtex_show={true},
+    title={Universal Approximation of Linear Time-Invariant (LTI) Systems through RNNs: Power of Randomness in Reservoir Computing},
+    author={Jere, Shashank and  Zheng, Lizhong and Said, Karim and Liu, Lingjia},
+    journal ={IEEE Journal of Selected Topics in Signal Processing},
+    pages = {1-14},
+    html = {https://arxiv.org/abs/2308.02464},
+    year = {2024},
+    abstract ={Recurrent neural networks (RNNs) are known to be universal approximators of dynamic systems under fairly mild and general assumptions. However, RNNs usually suffer from the issues of vanishing and exploding gradients in standard RNN training. Reservoir computing (RC), a special RNN where the recurrent weights are randomized and left untrained, has been introduced to overcome these issues and has demonstrated superior empirical performance especially in scenarios where training samples are extremely limited. On the other hand, the theoretical grounding to support this observed performance has not yet been fully developed. In this work, we show that RC can universally approximate a general linear time-invariant (LTI) system. Specifically, we present a clear signal processing interpretation of RC and utilize this understanding in the problem of approximating a generic LTI system. Under this setup, we analytically characterize the optimum probability density function for configuring (instead of training and/or randomly generating) the recurrent weights of the underlying RNN of the RC. Extensive numerical evaluations are provided to validate the optimality of the derived distribution for configuring the recurrent weights of the RC to approximate a general LTI system. Our work results in clear signal processing-based model interpretability of RC and provides theoretical explanation/justification for the power of randomness in randomly generating instead of training RC's recurrent weights. Furthermore, it provides a complete optimum analytical characterization for configuring the untrained recurrent weights, marking an important step towards explainable machine learning (XML) to incorporate domain knowledge for efficient learning.}
+}
+
+@article{liTWC23,
+    abbr= {TWC},
+    bibtex_show={true},
+    title={Real-Time Machine Learning for Multi-User Massive MIMO: Symbol Detection Using Multi-Mode StructNet},
+    author={Li, Lianjun and Xu, Jiarui and  Zheng, Lizhong and Liu, Lingjia},
+    journal = twc,
+    volume ={22},
+    number ={12},
+    pages = {9172-9186},
+    html = {https://ieeexplore.ieee.org/document/10109683},
+    year = {2023},
+    abstract ={In this paper, we develop a learning-based symbol detection algorithm for massive MIMO-OFDM systems. To exploit the structure information inherited in the received signals from massive antenna array, multi-mode reservoir computing is adopted as the building block to facilitate over-the-air training in time domain. In addition, alternating recursive least square optimization method, and decision feedback mechanism are utilized in our algorithm to achieve the real-time learning capability. That is, the neural network is trained purely online with its weights updated on an OFDM symbol basis to promptly and adaptively track the dynamic environment. Furthermore, an online learning-based module is devised to compensate the nonlinear distortion caused by RF circuit components. On top of that, a learning-efficient classifier named StructNet is introduced in frequency domain to further improve the symbol detection performance by utilizing the QAM constellation structural pattern. Evaluation results demonstrate that our algorithm achieves substantial gain over traditional model-based approach and state-of-the-art learning-based techniques under dynamic channel environment and RF circuit nonlinear distortion. Moreover, empirical result reveals our NN model is robust to training label error, which benefits the decision feedback mechanism.}
+}
+@article{jereTWC23,
+    abbr= {TWC},
+    bibtex_show={true},
+    title={Channel Equalization Through Reservoir Computing: A Theoretical Perspective.},
+    author={Jere, Shashank and Safavinejad, Ramin and  Zheng, Lizhong and Liu, Lingjia},
+    journal = twc,
+    volume ={12},
+    number ={5},
+    pages = {774-778},
+    html = {https://ieeexplore.ieee.org/document/10009000},
+    year = {2023},
+    abstract ={Deep learning practice, including in wireless communications, often relies on trial and error to optimize neural network (NN) structures and their corresponding hyperparameters. We show that Reservoir Computing, especially the Echo State Network (ESN), is an ideal learning-based equalizer for a general fading channel and for an ESN equalizing a channel with known statistics, theoretically derive its optimum reservoir weights which are randomly initialized in state-of-the-art and lack interpretability. The theoretical results are validated with simulations. In contrast to existing literature, this letter analytically adapts the NN structure to the problem being addressed, guaranteeing optimum equalization under known channel statistics.}
+}
+
+
 
 @book{einstein1920relativity,
   title={Relativity: the Special and General Theory},
