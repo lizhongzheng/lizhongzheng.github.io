@@ -100,7 +100,7 @@ This optimization is in fact a well-studied one. For the case with finite alphab
 
 ---
 Definition: Rank-1 Approximation
-: For a function $B \in \mathcal {F_{X\times Y}}$, and a given reference distribution $R_{\mathsf {xy}} = R_\mathsf x R_\mathsf y$, the rank-1 approximation of $B$ is a map: $B \mapsto (\sigma, f^\ast, g^\ast)$,
+: For a function $$B \in \mathcal {F_{X\times Y}}$$, and a given reference distribution $$R_{\mathsf {xy}} = R_\mathsf x R_\mathsf y$$, the rank-1 approximation of $$B$$ is a map: $$B \mapsto (\sigma, f^\ast, g^\ast)$$,
 : $$
 (\sigma, f^\ast, g^\ast)\stackrel{\Delta}{=} \arg\min_{\sigma, f, g} \; \Vert B - \sigma\cdot f\otimes g\Vert^2
 $$
@@ -224,7 +224,7 @@ This maximal correlation coefficient $$\rho_{\mathrm{HGR}}$$ is used as a measur
 
 ### Divergence and Fisher Information
 
-As we stated with the [definition of modes](#a-single-mode), writing the PMI function as sum of product functions puts the model $P_{\mathsf {xy}}$ on an exponential family. Locally, the behavior of such exponential family is fully determined by the [Fisher information](https://en.wikipedia.org/wiki/Fisher_information). For example, if
+As we stated with the [definition of modes](#a-single-mode), writing the PMI function as sum of product functions puts the model $$P_{\mathsf {xy}}$$ on an exponential family. Locally, the behavior of such exponential family is fully determined by the [Fisher information](https://en.wikipedia.org/wiki/Fisher_information). For example, if
 $$\mathrm{PMI}= \log\frac{P_{\mathsf{xy}}}{P_\mathsf x P_\mathsf y} = \sum_{i=1}^k f_i \otimes g_i,$$
 
 then the conditional distribution $$P_{\mathsf {x \vert y}}(\cdot \vert y)$$, for different values of $$y$$, are on a $$k$$ - dimensional exponential family with $$f_i(\cdot), i=1, \ldots, k$$ as the natural statistics, and $$g_i(y), i=1, \ldots k$$ as the corresponding parameters. The Fisher information for this family is a $$k\times k$$ matrix $$\mathcal I$$, with entries
@@ -251,7 +251,7 @@ Applying this fact to the PMI function, we have the following statement.
 Property 4: Mutual Information
 : $$\frac{1}{2} \Vert \mathrm{PMI} \Vert^2 \approx D(P_{\mathsf {xy}} \Vert P_\mathsf x P_\mathsf y) = I(\mathsf x; \mathsf y)$$
 
-: where $$I(\mathsf x; \mathsf y)$ is the [mutual information](https://en.wikipedia.org/wiki/Mutual_information) between $\mathsf x$ and $\mathsf y$, which is another popular way to measure how much the two random variables depend on each other.
+: where $$I(\mathsf x; \mathsf y)$$ is the [mutual information](https://en.wikipedia.org/wiki/Mutual_information) between $$\mathsf x$$ and $$\mathsf y$$, which is another popular way to measure how much the two random variables depend on each other.
 
 ---
 
@@ -263,12 +263,12 @@ Property 5: Decomposition of the Mutual Information
 
 ---
 
-This is probably the cleanest way to understand the modal decomposition: it breaks the mutual information into the sum of a number of modes, as the (squared) strengths of these modes add up to the mutual information. As stated earlier, it is often difficult to learn or to store the PMI function in practice due to the high dimensionality of the data. In these cases, it is a good idea to approximate the PMI function with a truncated version that only keeps the first $k$ strongest modes. This not only gives the best rank-limited approximation of the joint distribution, as stated in equation (2) in the [definition](#definition-modal-decomposition-zeta), but also captures the most significant dependence relation (the most strongly correlated feature pairs), and in that sense makes the approximation useful in inference tasks.
+This is probably the cleanest way to understand the modal decomposition: it breaks the mutual information into the sum of a number of modes, as the (squared) strengths of these modes add up to the mutual information. As stated earlier, it is often difficult to learn or to store the PMI function in practice due to the high dimensionality of the data. In these cases, it is a good idea to approximate the PMI function with a truncated version that only keeps the first $$k$$ strongest modes. This not only gives the best rank-limited approximation of the joint distribution, as stated in equation (2) in the [definition](#definition-modal-decomposition-zeta), but also captures the most significant dependence relation (the most strongly correlated feature pairs), and in that sense makes the approximation useful in inference tasks.
 
 
 ##  **Demo:** Modal Decomposition and Neural Networks
 
-To wrap up this introduction page, we will show one simple example, where we have a small synthesized dataset to train a simple neural network. When the training procedure converges, we demonstrate that the learned features match with the result of the $\zeta$ operation. The purpose of this numerical example is to show that, with a simple dataset and a carefully chosen neural network, the learning in the **neural network** is indeed finding a low rank approximation to the true model, which is consistent with the **modal decomposition** operation defined in this page.
+To wrap up this introduction page, we will show one simple example, where we have a small synthesized dataset to train a simple neural network. When the training procedure converges, we demonstrate that the learned features match with the result of the $$\zeta$$ operation. The purpose of this numerical example is to show that, with a simple dataset and a carefully chosen neural network, the learning in the **neural network** is indeed finding a low rank approximation to the true model, which is consistent with the **modal decomposition** operation defined in this page.
 
 
 Here is a [colab demo](https://colab.research.google.com/drive/1n4qk69shPL0LvGcaUJ4WIeJJRdyp2zA-?usp=sharing) for illustrating the connection. A more theoretical discussion can be found in [this paper](https://doi.org/10.3390/e24010135).
