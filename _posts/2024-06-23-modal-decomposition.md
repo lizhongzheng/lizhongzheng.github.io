@@ -316,3 +316,8 @@ To wrap up this introduction page, we will show one simple example, where we hav
 Here is a [colab demo](https://colab.research.google.com/drive/1n4qk69shPL0LvGcaUJ4WIeJJRdyp2zA-?usp=sharing) for illustrating the connection. A more theoretical discussion can be found in [this paper](https://doi.org/10.3390/e24010135).
 
 
+
+<br> 
+
+---
+This post is based on the joint work with [Dr. Xiagxiang Xu](https://www.linkedin.com/in/xiangxiangxu/).

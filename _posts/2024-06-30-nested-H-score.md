@@ -147,3 +147,10 @@ As in the previous post, we can also apply the nested H-score on sequential data
 
 ## Going Forward
 Nested H-Score Networks is our way to make projections in the space of feature functions, using interconnected neural networks. This is a fundamental operation in the functional space. In fact, in many learning problems, especially when the problem is more complex, such as with multi-modal data, multiple tasks, distributed learning constraints, time-varying models, privacy/security/fairness requirements, or when there is external knowledge that needs to be incorporated in the learning, such projection operations become critical. In our next post, we will give one of such examples with a multi-terminal learning problem. 
+
+
+
+<br> 
+
+---
+This post is based on the joint work with [Dr. Xiagxiang Xu](https://www.linkedin.com/in/xiangxiangxu/).
