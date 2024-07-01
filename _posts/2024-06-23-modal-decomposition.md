@@ -3,12 +3,14 @@ title: "Modal Decomposition"
 layout: post
 tags: H-Score modal-decomposition
 categories: ML-Theory
+featured: true
 authors:
  - name: Lizhong Zheng
  - name: Xiangxiang Xu
 toc:
  beginning: true
  
+
 ---
 
 
