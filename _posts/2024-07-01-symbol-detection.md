@@ -83,7 +83,7 @@ To see how this works, consider an example shown in the following figure:
 
 <br>
 
-Here, we use the color "red" for $$\mathsf{x}_1 = +1$$, and "blue" for $$\mathsf{x}_1=-1$$. When we transmit $$\mathsf{x}_1= +1$$, the interferer transmits a randomly independently chosen point in his 16-QAM constellation. This causes the noiseless signal $$h_1 \mathsf{x}_1 + h_2 \mathsf{x}_2$$ to be one of the $$16$$ red dots in the figure. If we transmit $$\mathsf{x}_1 = -1$$, this signal before adding noise is one of the $16$ blue dots. The additive noise $$\mathsf {w}$$ is then added to the chosen dot, which makes the received symbol $$\mathsf{y}$$ to be somewhere around. 
+Here, we use the color "red" for $$\mathsf{x}_1 = +1$$, and "blue" for $$\mathsf{x}_1=-1$$. When we transmit $$\mathsf{x}_1= +1$$, the interferer transmits a randomly independently chosen point in his 16-QAM constellation. This causes the noiseless signal $$h_1 \mathsf{x}_1 + h_2 \mathsf{x}_2$$ to be one of the $$16$$ red dots in the figure. If we transmit $$\mathsf{x}_1 = -1$$, this signal before adding noise is one of the $$16$$ blue dots. The additive noise $$\mathsf {w}$$ is then added to the chosen dot, which makes the received symbol $$\mathsf{y}$$ to be somewhere around. 
 
 Our goal is to observe the received symbol $$\mathsf{y}$$ and decide whether it was a red or a blue dot transmitted. Mathematically, the decision is between two **mixed Gaussian distributiions**. The case shown above is considered a "good" case with weak interference. That is, even with the interference, the red and the blue cases are rather separable. As long as the addtivie noise $$\mathsf {w}$$ is not too large, one can simply draw a line to separate the red and the blue cases rather well. In fact, most of the current commercial wireless communication systems use linear decision function. That is, a straight line is drawn in this figure to separate the red and the blue. 
 
@@ -96,6 +96,17 @@ Unfortunately, the configuration of these "dots" is determined by the fading coe
 
 
 ### Why is this difficult?
+
+Analytically, the optimal decision using likelihood ratio test (LRT) is not difficult to find. The likelihood function of both the red and the blue cases are simply mixture Gaussian densities: the average of $$16$$ equally weighted Gaussian densities. The log likelihood ratio function can be rather non-linear. Examples are shown in the figure, respectively corresponding to the 3 cases above. The color code represents the scalar value of this function: red for positive values, which means $$\mathsf{x}_1=+1$$ is more likely, and blue for $$\mathsf{x}_1=-1$$. A simply threshold test can cut out the decision regions. 
+
+|![test image](/assets/img/SymbolDetectionPlots/decision23.png){: width="300" style="float:left; padding-right:50px"}|![test image](/assets/img/SymbolDetectionPlots/decision33.png){: width="300" style="float:left; padding-right:50px"}|![test image](/assets/img/SymbolDetectionPlots/decision43.png){: width="300" style="float:left; padding-right:50px"}|
+|<b> Case 1 </b>|<b> Case 2 </b>|<b> Case 3 </b>|
+
+In practice, however, this analytically optimal decision is rarely implemented for some practical reasons. 
+
+* sensitive to parameter change
+* online training expensive
+* performance metric not average
 
 ### Why is this a common problem?
 
