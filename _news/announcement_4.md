@@ -5,5 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I gave a keynote at <a href="http://www.icccn.org/icccn24/program/keynote-speakers/index.html">ICCCN'2024</a>
-.   
+I gave a keynote at ICCCN'2024.
