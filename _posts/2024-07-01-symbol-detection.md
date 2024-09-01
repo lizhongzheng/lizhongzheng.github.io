@@ -113,6 +113,15 @@ Another difficulty in this problem is the **high accuracy requirement**. Symbol 
 
 ### Why is this a common problem?
 
+The reason that we like this symbol detection problem is because it is a very typical case for using neural networks in engineering problems. There is clearly a potential of remarkable performance gain, which can come from 
+
+1. the use of neural networks in the place of specialized non-linear circuits; 
+2. the training which allows the system to adapt to specific environments. 
+
+The difficulties are also clear:
+
+
+
 ## A solution using nested H-score networks
 
 ### $$\blacktriangle$$ Demo: Pytorch implemntation
