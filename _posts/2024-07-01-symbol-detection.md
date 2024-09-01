@@ -120,6 +120,7 @@ The reason that we like this symbol detection problem is because it is a very ty
 
 The difficulties are also clear:
 
+1. the situations where we want to use the neural networks are almost always different from those we have in the training set; 
 
 
 ## A solution using nested H-score networks
