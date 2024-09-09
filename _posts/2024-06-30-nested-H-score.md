@@ -12,7 +12,7 @@ toc:
 
 
 > ### The Key Points
-> In our previous posts, we started to develop a geometric view of the feature extraction problem. We started with the geometry of functional spaces by defining inner products and distances and then relating the task of finding information-carrying features to finding approximations of functions in this space. Based on this approach, we proposed the use of the H-Score networks as one method to learn informative feature functions from data using neural networks. In this post, we describe a new architecture, the **nested H-Score network**, which is used to make projections in the functional space with neural networks. Projections are perhaps the most fundamental geometric operations, which are now made possible and efficient through the training of neural networks. We will show by some examples how to use this method to regulate the feature functions, incorporate external knowledge, prioritize or separate information sources, which are the critical step towards multi-variate and distributed learning problems.
+> In our previous posts, we started to develop a geometric view of the feature extraction problem. We started with the geometry of functional spaces by defining inner products and distances and then relating the task of finding information-carrying features to finding approximations of functions in this space. Based on this approach, we proposed the use of the H-Score networks as one method to learn informative feature functions from data using neural networks. In this post, we describe a new architecture, the **nested H-Score network**, which is used to make projections in the functional space with neural networks. Projections are perhaps the most fundamental geometric operations, which are now made possible and efficient through the training of neural networks. We will show some examples of how to use this method to regulate the feature functions, incorporate external knowledge, and prioritize or separate information sources, which are the critical steps toward multi-variate and distributed learning problems.
 
 
 |![test image](/assets/img/Hscorenetwork.png){: width="250" }|
@@ -87,7 +87,7 @@ With a batch of samples $$(x_i, y_i), i=1, \ldots, n$$, the network is trained w
 
 
 
-To see how this achieves the goal it might be easier to look at a slightly different way to train the network, namely the **sequential training**. Here, we first only use the top H-Score to train the feature function $$\bar{g}$$ only. From the definition of the [H-Score](https://lizhongzheng.github.io/blog/2024/H-Score/), we know this finds $$\bar{g}^\ast$$ by solving the following optimization.
+To see how this achieves the goal, it might be easier to look at a slightly different way to train the network, namely the **sequential training**. Here, we first only use the top H-Score to train the feature function $$\bar{g}$$. From the definition of the [H-Score](https://lizhongzheng.github.io/blog/2024/H-Score/), we know this finds $$\bar{g}^\ast$$ by solving the following optimization.
 
 $$
 \begin{align}
@@ -108,7 +108,7 @@ This can be read as the rank-$$1$$ approximation to $$(\mathrm{PMI}- \bar{f}\oti
 
 A few remarks are in order now.
 
-1. One should check that at this point if we freeze the choicec $$f^\ast, g^\ast$$ and allow $$\bar{g}$$ to update, $$\bar{g}^\ast$$ defined in (1) actually maximizes both H-Scores. Thus if we turn the sequential training into iteratively optimized $$\bar{g}$$ and $$f, g$$, we get the same results.
+1. One should check that at this point if we freeze the choice $$f^\ast, g^\ast$$ and allow $$\bar{g}$$ to update, $$\bar{g}^\ast$$ defined in (1) actually maximizes both H-Scores. Thus if we turn the sequential training into iteratively optimized $$\bar{g}$$ and $$f, g$$, we get the same results.
 
 2. In practice, we would not wait for the convergence of one step before starting the next, and thus the proposed training procedure is what we call
    **simultaneous training**, where all neural networks are updated simultaneously. It can be shown that in this setup, the results are the same as those from the sequential training. However, in our later examples of using the nested H-Score architectures, often with subtle variations, we need to discuss in each case whether this still holds.
@@ -124,7 +124,7 @@ We now go back to the problem that motivated this study:
 
 We would like to emphasize the importance of this step: we are deviating from the standard operation of neural networks, which generate feature functions that are in the form of an arbitrary linear combination of the standard orthonormal and ordered modes. This is one key reason that the learning results of neural networks have little hope of allowing any interpretation. Sorting out the features in a standard form is an important starting point if we want to control, measure, and reuse the learned features. 
 
-As we will use the nested structure repeatedly, to avoid having too many lines in our figures, we will adopt a new **concatenation** symbol, "$$\,+\hspace{-.7em}+\,$$", where simply takes all the inputs to form a vector output. In some drawings, such an operation to merge data is simply denoted by a dot in the graph, but here, we use the special symbol to emphasize the change of dimensionality. For example, the concatenation operation in the nest H-Score network is replaced with a new figure as follows.
+As we will use the nested structure repeatedly, to avoid having too many lines in our figures, we will adopt a new **concatenation** symbol, "$$\,+\hspace{-.7em}+\,$$", where simply takes all the inputs to form a vector output. In some drawings, such an operation to merge data is simply denoted by a dot in the graph, but here, we use a special symbol to emphasize the change of dimensionality. For example, the concatenation operation in the nest H-Score network is replaced with a new figure as follows.
 
 |![test image](/assets/img/concatenation.png){: width="250" }|
 |<b> The Concatenation Symbol </b>|
@@ -138,10 +138,10 @@ Now the nested H-Score network that would generate orthogonal modes in descendin
 
 <br>
 
-In the figure, we used the notation $$f_{[k]} = [f_1, \ldots, f_k]$$. Again, it is easier to understand the operation from sequential training. We can first train the $$f_1, g_1$$ block with the top H-Score box, and this finds the first mode $$f^\ast_1, g^\ast_1 = \zeta_1(P_{\mathsf {xy}})$$. After that, we train $$f_2, g_2$$ with the first mode frozen. The nested network ensures that the resulting mode to be orthogonal to the first mode, which by definition is the second mode $$\zeta_2(P_{\mathsf {xy}})$$. Following this sequence, we can get the $$k^{th}$$ mode that is orthogonal to all the previous $$k-1$$ ones. It takes proof to state that we can indeed simultaneously train all sub-networks, which we omit from this page.
+In the figure, we used the notation $$f_{[k]} = [f_1, \ldots, f_k]$$. Again, it is easier to understand the operation from sequential training. We can first train the $$f_1, g_1$$ block with the top H-Score box, and this finds the first mode $$f^\ast_1, g^\ast_1 = \zeta_1(P_{\mathsf {xy}})$$. After that, we train $$f_2, g_2$$ with the first mode frozen. The nested network ensures that the resulting mode is orthogonal to the first mode, which by definition is the second mode $$\zeta_2(P_{\mathsf {xy}})$$. Following this sequence, we can get the $$k^{th}$$ mode that is orthogonal to all the previous $$k-1$$ ones. It takes proof to state that we can indeed simultaneously train all sub-networks, which we omit from this page.
 
 ### $$\blacktriangle$$ Pytorch Implementations
-The [first colab demo](https://colab.research.google.com/drive/1C9mdtDZ7GFvyiYxEboemJ3Ed18sUMkVB?usp=sharing) illustrates how to implement a nested H-score network in pytorch, where we compare the extracted modes with the theoretical results.
+The [first Colab demo](https://colab.research.google.com/drive/1C9mdtDZ7GFvyiYxEboemJ3Ed18sUMkVB?usp=sharing) illustrates how to implement a nested H-score network in PytTorch, where we compare the extracted modes with the theoretical results.
 
 As in the previous post, we can also apply the nested H-score on sequential data. In [the second demo](https://colab.research.google.com/drive/1JtjS1LfWpf0eWx3xWTKYlW1myCTE4vqb#scrollTo=mcfGopzulQsY), we compare the nested H-score with the vanilla H-score, which also demonstrates the impact of feature dimension.
 
