@@ -121,7 +121,12 @@ The reason that we like this symbol detection problem is because it is a very ty
 The difficulties are also clear:
 
 1. the situations where we want to use the neural networks are almost always different from those we have in the training set; 
+2. what we hope to get from the neural networks is not just the optimal solution in one specific case, but a collection of optimal solutions, controlled by parameters (in this example, the channel coefficients.)
+3. we also have knowledge of specific structures of the data, (for example the repetitive patterns in the above plots,) which we hope to "tell" the neural network so it does not require more samples to learn this known fact. 
 
+At a higher level, the issue is that neural networks are often operated as blackboxes. In the engineering problems, there is often the need to *inject* the external domain knowledge into the neural networks, in order to control the learning procedure, impose restrictions on learning results, reuse learning results as environment changes, and reduce the overall learning costs. 
+
+The goal of this page is to develop a general solution to this family of problems. 
 
 ## A solution using nested H-score networks
 
