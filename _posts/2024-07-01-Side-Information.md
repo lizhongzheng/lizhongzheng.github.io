@@ -13,7 +13,7 @@ toc:
 
 
 > ### The Key Points
->  We introduce our first  multi-variate feature extraction problem, the problem of learning with side information. Here, we wish to extract a $$k$$-dimensional feature of the data $$\mathsf x$$ that carries useful information to infer the value of the label $$\mathsf y$$, while excluding the information that a jointly distributed side information $$\mathsf s$$ can provide. We use this example to develop the underlying geometric structure of multi-variate dependence and demonstrate how to use the nested H-Score networks to make projections according to these structures to get good solutions.
+>  We introduce our first  multi-variate feature extraction problem, the problem of learning with side information. Here, we wish to extract a $$k$$-dimensional feature of the data $$\mathsf x$$ that carries useful information to infer the value of the label $$\mathsf y$$ while excluding the information that a jointly distributed side information $$\mathsf s$$ can provide. We use this example to develop the underlying geometric structure of multi-variate dependence and demonstrate how to use the nested H-Score networks to make projections according to these structures to get good solutions.
 
 ## Previously
 We started by observing that the dependence between two random variables $$\mathsf x$$ and $$\mathsf y$$ can be decomposed into a number of modes, each mode as a simple correlation between a feature $$f_i(\mathsf x)$$ and a feature $$g_i(\mathsf y)$$. We formulated the [modal decomposition](https://lizhongzheng.github.io/blog/2024/modal-decomposition/) as the optimization problem
@@ -37,7 +37,7 @@ $$
 
 <br>
 
-We showed that maximizing the H-score is equivalent as solving the optimization problem in (1), only without some of the constraints. As a step to enrich our toolbox for extracting feature functions, we also developed the [Nested H-Score networks](https://lizhongzheng.github.io/blog/2024/nested-H-score/) to learn feature functions that are orthogonal to a given functional subspace. We give examples to demonstrate that such a projection operation in the functional space can be quite versatile, including enforcing all the desired constraints in the original modal decomposition problem (1).
+We showed that maximizing the H-score is equivalent to solving the optimization problem in (1) but without some of the constraints. As a step to enrich our toolbox for extracting feature functions, we also developed the [Nested H-Score networks](https://lizhongzheng.github.io/blog/2024/nested-H-score/) to learn feature functions that are orthogonal to a given functional subspace. We give examples to demonstrate that such a projection operation in the functional space can be quite versatile, including enforcing all the desired constraints in the original modal decomposition problem (1).
 
 These previous results now include the main tools we need to proceed: to find a limited number of information-carrying feature functions and to make projections in functional space, which can all be learned directly from data using interconnected neural networks. In this page, we start to make the case that these are the critical building blocks for more complex multi-variate learning problems.
 
@@ -54,7 +54,7 @@ We consider the multi-variate learning problem as shown in the figure. Here, we 
 
 As a starting point, we assume we have plenty of samples $$(x_i, y_i, s_i), i=1, \ldots$$ jointly sampled from the unknown model. Also, we assume that the decision-maker employs the optimal way to combine the side information $$\mathsf s$$ and the received $$k$$ features of $$\mathsf x$$ to estimate the value of $$\mathsf y$$. We can imagine a neural network is used to learn this decision function perfectly. The focus of this problem is how to find the $$k$$ feature functions to best facilitate this decision-making.
 
-The main tension of the problem is on having a limited number of $$k$$ features, which is often a much lower dimensional representation of the data $$\mathsf x$$. Intuitively, we want the features to be about the dependence between $$\mathsf x$$ and $$\mathsf y$$ so that we can make good predictions, yet we would like to avoid reporting any information that the side information $$\mathsf s$$ can provide. Related problems can be found in the context of [protecting sensitive information](https://en.wikipedia.org/wiki/Information-theoretic_security), [fairness in machine learning](https://en.wikipedia.org/wiki/Fairness_(machine_learning)), and many other [multi-terminal information theory](http://web.eng.ucsd.edu/~yhk/nit.html) problems. The difficulty here is that we would like to learn these feature functions using neural networks and thus enjoy the computational efficiency and flexibility therein, but we have the additional task to tune the feature functions to avoid overlapping contents. It turns out that what we need is a projection operation in the functional space.
+The main tension of the problem is on having a limited number of $$k$$ features, which is often a much lower dimensional representation of the data $$\mathsf x$$. Intuitively, we want the features to be about the dependence between $$\mathsf x$$ and $$\mathsf y$$ so that we can make good predictions, yet we would like to avoid reporting any information that the side information $$\mathsf s$$ can provide. Related problems can be found in the context of [protecting sensitive information](https://en.wikipedia.org/wiki/Information-theoretic_security), [fairness in machine learning](https://en.wikipedia.org/wiki/Fairness_(machine_learning)), and many other [multi-terminal information theory](http://web.eng.ucsd.edu/~yhk/nit.html) problems. The difficulty here is that we would like to learn these feature functions using neural networks and thus enjoy the computational efficiency and flexibility therein, but we have the additional task of tuning the feature functions to avoid overlapping contents. It turns out that what we need is a projection operation in the functional space.
 
 <br>
 
@@ -84,7 +84,7 @@ Definition: Markov Component and Conditional Dependence Components
  \pi_M \stackrel{\Delta}{=}\Pi_M(\mathrm{PMI}_{\mathsf{x; s,y}}) = \arg\min_{\pi \in \mathcal M}\; \left\Vert \mathrm{PMI}_{\mathsf{x; s,y}} - \pi\right\Vert^2
  $$
 
-The optimization is overall all valid PMI functions $$\pi \in \mathcal M$$, i.e. with a corresponding joint distribution of $$\mathsf{x, s, y}$$ that satisfies the Markov constraint $$\mathsf {x-s-y} $$. The norm $$\Vert\cdot \Vert$$ in the objective function is defined on the functional space with reference distribution $$R_{\mathsf {xsy}} = P_{\mathsf x}P_{\mathsf{sy}}$$.
+The optimization is overall all valid PMI functions $$\pi \in \mathcal M$$, i.e., with a corresponding joint distribution of $$\mathsf{x, s, y}$$ that satisfies the Markov constraint $$\mathsf {x-s-y} $$. The norm $$\Vert\cdot \Vert$$ in the objective function is defined on the functional space with reference distribution $$R_{\mathsf {xsy}} = P_{\mathsf x}P_{\mathsf{sy}}$$.
 
 Definition: Conditional Dependence Component
 
@@ -98,7 +98,7 @@ $$
 
 <br>
 
-By definition, $$\pi_C$$ is the error of a linear projection, so we have $$\pi_C \perp \mathcal M$$, and the Pythagorean relation
+By definition, $$\pi_C$$ is the error of a linear projection, so we have $$\pi_C \perp \mathcal M$$, and the Pythagorean relation.
 
 $$
 \begin{align*}
@@ -128,7 +128,7 @@ The figure shows a solution to use nested H-Score networks to learn the modal de
 
 A slightly subtle point here is that in order to make the learned $$f, g$$ feature functions to be orthogonal to $$\mathcal{M}$$, we need to make sure that  $$\mathrm{span}(\bar{f} \otimes \bar{g})$$ is large enough to cover $$\mathcal M$$. In particular, the dimensionality, i.e.,$$\bar{k}$$ the number of nodes at the output layer of the $$\bar{f}$$ and  $$\bar{g}$$ networks, need to be large enough. More precisely, we will need $$\bar{k} \geq \mathrm{rank} (P_{\mathsf {xs}})$$. This is feasible, particularly if the side information $$\mathsf s$$ is a small categorical variable. In such "nice" cases, we can show that the learned $$f, g$$ feature functions, with expressive neural networks and a sufficient amount of training, are the desired modal decomposition of the $$\pi_C$$ component and hence are the optimal choice of features for the side information problem. A proof of this can be found in this [paper](http://lizhongzheng.mit.edu/sites/default/files/documents/Multivariate%20Feature%20Extraction.pdf).
 
-In the case that we cannot guarantee that $$\bar{k}$$ is "large enough", the situation is a bit more complex. Optimizing the top H-Score would fix $$\bar{f}, \bar{g}$$ on a $$\bar{k}$$ dimensional subspace of $$\mathcal M$$, and the nested structure guarantees that $$f, g$$ are trained to be orthogonal to this subspace, instead of $$\mathcal M$$, and thus can have components in $$\mathcal M$$. In the context of learning with side information, this means that the extracted features would have some reduced level of repetitive information of the side information $$\mathsf s$$, but not completely repetition-free.
+In the case that we cannot guarantee that $$\bar{k}$$ is "large enough," the situation is a bit more complex. Optimizing the top H-Score would fix $$\bar{f}, \bar{g}$$ on a $$\bar{k}$$ dimensional subspace of $$\mathcal M$$, and the nested structure guarantees that $$f, g$$ are trained to be orthogonal to this subspace, instead of $$\mathcal M$$, and thus can have components in $$\mathcal M$$. In the context of learning with side information, this means that the extracted features would have some reduced level of repetitive information of the side information $$\mathsf s$$, but not completely repetition-free.
 
 
 ### Pytorch Implementation
