@@ -28,7 +28,7 @@ toc:
 
 ## Modal Decomposition of Statistical Dependence
 
-Let's start by motivating and defining the concept of modal decomposition
+Let's start by motivating and defining the concept of modal decomposition.
 
 ### Inner Product of Functions
 
@@ -94,7 +94,7 @@ To make an inference of $$\mathsf y$$, we only need to know the value $$f(\maths
 In fact, the only thing we can infer about $$\mathsf y$$ is the value of $$g(\mathsf y)$$.
 In general, we could extrapolate from this observation to state that if the PMI function is the sum of a limited number of product functions, then that correspondingly limits the scope of inference tasks we can hope to solve while allowing us to only look at a limited set of statistics, or **features**, of the data.
 
->Here, to clarify the terminology, we refer to **feature functions** of a random variable as real-valued functions on the alphabet, such as $$f: \mathcal X \to \mathbb R$$. Feature functions are often evaluated with the observed data samples, and the function values, which we refer to as **features**, are used for further inference and learning tasks instead of the raw data. Thus, these features are indeed the `information carrying device`. Since any known shifting and scaling do not change the information contents that these features carry, for convenience, we sometimes require a standard form, that the feature functions satisfying $$\mathbb E[f(\mathsf x)] = 0$$ and $$\mathbb E[f^2(\mathsf x)]=1$$, where both expectations are taken w.r.t. the reference distribution $$R_\mathsf x$$.
+>Here, to clarify the terminology, we refer to **feature functions** of a random variable as real-valued functions on the alphabet, such as $$f: \mathcal X \to \mathbb R$$. Feature functions are often evaluated with the observed data samples, and the function values, which we refer to as **features**, are used for further inference and learning tasks instead of the raw data. Thus, these features are indeed the `information carrying device.` Since any known shifting and scaling do not change the information contents that these features carry, for convenience, we sometimes require a standard form, that the feature functions satisfying $$\mathbb E[f(\mathsf x)] = 0$$ and $$\mathbb E[f^2(\mathsf x)]=1$$, where both expectations are taken w.r.t. the reference distribution $$R_\mathsf x$$.
 
 When we write a product function like the one above in this standard form, we need to write out the scaling factor explicitly. That is, instead of $$f\otimes g$$, we need to write $$\sigma f\otimes g$$, with $$\sigma \geq 0$$. We call this triple, $$(\sigma, f, g)$$, a single **mode**. That is, a mode consists of a strength $$\sigma$$, and a pair of feature functions in $$\mathcal {F_X}$$ and $$\mathcal {F_Y}$$.
 
@@ -103,7 +103,7 @@ When we write a product function like the one above in this standard form, we ne
 
 ### Modal Decomposition: the Definition
 
-Obviously, for a given PMI function, there are many ways to write it into a sum of modes. We hope to have as few modes as possible. In some cases, we might even wish to compromise the precision of the sum and try to have a reasonable approximation of the given PMI with a sum of even fewer modes. That is, for a given finite $$k$$, we would like to solve the problem
+Obviously, there are many ways to write a given PMI function into a sum of modes. We hope to have as few modes as possible. In some cases, we might even wish to compromise the precision of the sum and try to have a reasonable approximation of the given PMI with a sum of even fewer modes. That is, for a given finite $$k$$, we would like to solve the problem.
 
 $$
 \min_{ (\sigma_i, f_i, g_i), i=1, \ldots, k} \, \left \Vert \mathrm{PMI} - \sum_{i=1}^k \sigma_i f_i\otimes g_i\right\Vert^2
@@ -136,7 +136,7 @@ $$
 \end{align*}
 $$
 
-Based on this we have the following definition of modal decomposition.
+Based on this, we have the following definition of modal decomposition.
 
 <br>
 
@@ -161,21 +161,21 @@ A few remarks are in order.
 
 1. The following facts are similar to those of SVD, following similar proof, which we omit:
 - $$\sigma_1 \geq \sigma_2 \geq \ldots$$ in descending order
-- $$\langle f^\ast_i, f^\ast_j \rangle = \langle g^\ast_i, g^\ast_j \rangle = \delta_{ij}$$, i.e. the feature functions in different modes are orthogonal to each other.
+- $$\langle f^\ast_i, f^\ast_j \rangle = \langle g^\ast_i, g^\ast_j \rangle = \delta_{ij}$$, i.e., the feature functions in different modes are orthogonal to each other.
 
 2. We denote this decomposition as $$\lbrace\zeta_i \rbrace (P_{\mathsf {xy}})$$, or simply $$\zeta(P_{\mathsf {xy}})$$, which should be read as "the $$\zeta$$-operation for the $$\mathsf{x-y}$$ dependence defined by the joint distribution $$P_{\mathsf{xy}}$$". While we write the functional decomposition as an L2 approximation to the PMI function, the PMI is not the unique way to describe the dependence. Later, we will have examples where it is convenient to use a slightly different target function, with the resulting choices of the feature functions also being a bit different. We consider all such operations to decompose the dependence as the same general idea.
-3. The definition says that for each model $$P_{\mathsf {xy}}$$ there is an ideal sequence of modes for the orthogonal decomposition. In practice, we do not observe either the model or the s. We will show later that learning algorithms often try to learn an approximate version of the modes. For example, it is common to only learn the first $$k$$ modes, or to learn the decomposition of an empirical distribution from a finite dataset, or to have extra restrictions of the learned features due to the limited expressive power of a network, etc. In more complex problems, sometimes it might not even be clear which dependence we are trying to decompose. The purpose of defining the $$\zeta$$ operation is to help us clarify what type of compromises are taken in finding a computable approximate solution to the idealized decomposition problem.
+3. The definition says that for each model $$P_{\mathsf {xy}}$$ there is an ideal sequence of modes for the orthogonal decomposition. In practice, we do not observe either the model or the s. We will show later that learning algorithms often try to learn an approximate version of the modes. For example, it is common only to learn the first $$k$$ modes, to learn the decomposition of an empirical distribution from a finite dataset, or to have extra restrictions of the learned features due to the limited expressive power of a network, etc. In more complex problems, sometimes it might not even be clear which dependence we are trying to decompose. The purpose of defining the $$\zeta$$ operation is to help us clarify what type of compromises are taken in finding a computable approximate solution to the idealized decomposition problem.
 
 
 <br>
 
 ## Properties of Modal Decomposition
 
-There are many nice properties of this modal decomposition. The best way to see them is to go through our [survey paper](http://lizhongzheng.mit.edu/sites/default/files/documents/mace_final.pdf). On this page, we will only state some of them as facts without any proof and sometimes with intuitive but not-so-precise statements. The central point of this is to make the following statement
+There are many nice properties of this modal decomposition. The best way to see them is to go through our [survey paper](http://lizhongzheng.mit.edu/sites/default/files/documents/mace_final.pdf). On this page, we will only state some of them as facts without any proof and sometimes with intuitive but not-so-precise statements. The central point of this is to make the following statement.
 
 > `Modal decomposition`, the $$\zeta$$ operation of a model $$P_{\mathsf {xy}}$$, decomposes the dependence between two random variables $$\mathsf x$$ and $$\mathsf y$$ into a sequence of pairwise correlation between  features $$f^\ast_i(\mathsf x)$$ and $$g^\ast_i(\mathsf y)$$, with correlation coefficient $$\sigma_i$$, for $$i=1, 2, \ldots$$.
 
-This statement is important since in both learning the model $$P_{\mathsf {xy}}$$ and using it for inference tasks, we no longer have to carry the entire model, which is often far too complex. Instead, we can learn and use only a subset of modes. Because we have $$\sigma_i$$'s to quantify the strengths of these modes, we would know exactly how to choose the more important modes and how good is the resulting approximate model.
+This statement is important since in both learning the model $$P_{\mathsf {xy}}$$ and using it for inference tasks. We no longer have to carry the entire model, which is often far too complex. Instead, we can learn and use only a subset of modes. Because we have $$\sigma_i$$'s to quantify the strengths of these modes, we would know exactly how to choose the more important modes and how good is the resulting approximate model.
 
 One technical issue is the **local assumption**. Many nice properties and connections for the modal decomposition are asymptotic statements, proved in the limiting regime where $$P_{\mathsf {xy}}, P_\mathsf x \cdot P_\mathsf y$$, and $$R_\mathsf x\cdot R_\mathsf y$$ are all "close" to each other. Such local assumptions are indeed a fundamental concept: The space of probability distributions is not a linear vector space but a manifold. The local assumption allows us to focus on a neighborhood that can be approximated by the tangent plane of the manifold and, hence, get the geometry linearized. Details of this can be found in the literature of [information geometry](https://www.amazon.com/Information-Translations-Mathematical-Monographs-Tanslations/dp/0821843028) and [correspondence analysis](https://en.wikipedia.org/wiki/Correspondence_analysis). A quick example is that the following approximation to the PMI function is often used in our development with the assumption that the precision is acceptable.
 
@@ -190,7 +190,7 @@ This inevitably leads to some technical details when making mathematical stateme
 
 ### The Conditional Expectation Operator
 
-Now we enter the regime with the local assumptions. That is, the $$\mathrm{PMI}$$ and $$\widetilde{\mathrm{PMI}}$$ are now considered the same function. For convenience, we will just take the reference $$R_\mathsf x = P_\mathsf x, R_\mathsf y= P_\mathsf y$$ to further simplify things.
+Now, we enter the regime with the local assumptions. That is, the $$\mathrm{PMI}$$ and $$\widetilde{\mathrm{PMI}}$$ are now considered the same function. For convenience, we will just take the reference $$R_\mathsf x = P_\mathsf x, R_\mathsf y= P_\mathsf y$$ to further simplify things.
 
 We start with the interesting fact about $${\mathrm{PMI}}$$: when viewed as an operator on the functional space, it is closely related to the conditional expectation operator.
 
@@ -209,7 +209,7 @@ Property 1
 
 ---
 
-We write sum over $$x$$ in the above, which, of course, can be turned into integral when $$x$$ is continuous-valued. The $${\mathrm{PMI}}$$ function does not directly act on the input $$a(\cdot)$$, but instead needs an extra $$P_\mathsf x(x)$$ multiplied. This is "natural" if we think of integrals under the measure specified by the reference.
+We write sum over $$x$$ in the above, which, of course, can be turned into an integral when $$x$$ is continuous-valued. The $${\mathrm{PMI}}$$ function does not directly act on the input $$a(\cdot)$$, but instead needs an extra $$P_\mathsf x(x)$$ multiplied. This is "natural" if we think of integrals under the measure specified by the reference.
 
 One can also define a transpose operator $$B^T: \mathcal {F_Y}\to \mathcal {F_X}$$, for $$b \in \mathcal {F_Y}$$,
 
@@ -235,7 +235,7 @@ Property 2: Mode Correlation
 
 : That is, each $$g^\ast_j$$ is the image of the $$B(\cdot)$$ operator acting on $$f^\ast_j$$, scaled by the corresponding $$\sigma_i$$, and vice versa.
 
-: Now we have
+: Now, we have
 
 : $$
 \mathbb E_{\mathsf{x,y} \sim P_{\mathsf{x,y}}} [ f^\ast_i (\mathsf x) \cdot g^\ast_j(\mathsf y)] = \mathbb E_{\mathsf x\sim P_\mathsf x} [f^\ast_i (\mathsf x) \cdot \mathbb E[ g^\ast_j(\mathsf y)|\mathsf x]] = \mathbb E_{\mathsf x\sim P_\mathsf x} [f^\ast_i (\mathsf x) \cdot \sigma_j \cdot f^\ast_j(\mathsf x)] = \sigma_i\cdot \delta_{ij}
@@ -303,7 +303,7 @@ Property 5: Decomposition of the Mutual Information
 
 ---
 
-This is probably the cleanest way to understand the modal decomposition: it breaks the mutual information into the sum of a number of modes, as the (squared) strengths of these modes add up to the mutual information. As stated earlier, it is often difficult to learn or to store the PMI function in practice due to the high dimensionality of the data. In these cases, it is a good idea to approximate the PMI function with a truncated version that only keeps the first $$k$$ strongest modes. This not only gives the best rank-limited approximation of the joint distribution, as stated in equation (2) in the [definition](#definition-modal-decomposition-zeta), but also captures the most significant dependence relation (the most strongly correlated feature pairs) and in that sense makes the approximation useful in inference tasks.
+This is probably the cleanest way to understand the modal decomposition: it breaks the mutual information into the sum of a number of modes, as the (squared) strengths of these modes add up to the mutual information. As stated earlier, it is often difficult to learn or store the PMI function in practice due to the high dimensionality of the data. In these cases, it is a good idea to approximate the PMI function with a truncated version that only keeps the first $$k$$ strongest modes. This not only gives the best rank-limited approximation of the joint distribution, as stated in equation (2) in the [definition](#definition-modal-decomposition-zeta), but also captures the most significant dependence relation (the most strongly correlated feature pairs) and in that sense makes the approximation useful in inference tasks.
 
 
 <br>

@@ -130,6 +130,8 @@ The goal of this page is to develop a generic solution to this family of problem
 
 ## A solution using nested H-score networks
 
+We write the channel state information as one random variable $$\mathsf{s} = [h_1, h_2]^T$$. 
+
 ### $$\blacktriangle$$ Demo: Pytorch implemntation
 
 ## The Lessons
