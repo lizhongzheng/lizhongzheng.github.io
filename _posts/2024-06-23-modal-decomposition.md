@@ -5,24 +5,19 @@ tags: H-Score modal-decomposition
 categories: ML-Theory
 featured: true
 authors:
- - name: Lizhong Zheng
- - name: Xiangxiang Xu
+  - name: Lizhong Zheng
+  - name: Xiangxiang Xu
 toc:
- beginning: true
- 
-
+  beginning: true
 ---
-
 
 > ### The Key Points
 >
->`Statistical dependence` is the reason that we can guess the value of one random variable based on the observation of another. This is the basis of most inference problems like decision-making, estimation, prediction, classification, etc.
+> `Statistical dependence` is the reason that we can guess the value of one random variable based on the observation of another. This is the basis of most inference problems like decision-making, estimation, prediction, classification, etc.
 >
->It is, however, a somewhat ill-posed question to ask, "How much does a random variable $$\mathsf x$$ depend on another random variable $$\mathsf y$$." It turns out that, in general, statistical dependence should be understood and quantified as a high dimensional relation: two random variables are dependent through a number of **orthogonal modes**, and each mode can have a different **strength**.
+> It is, however, a somewhat ill-posed question to ask, "How much does a random variable $$\mathsf x$$ depend on another random variable $$\mathsf y$$." It turns out that, in general, statistical dependence should be understood and quantified as a high dimensional relation: two random variables are dependent through a number of **orthogonal modes**, and each mode can have a different **strength**.
 >
->The goal of this page is to define these modes mathematically, explain why they are important in practice, and show by examples that many statistical concepts and learning algorithms are directly related to this modal decomposition idea. With that, we will also build the mathematical foundation and notations for the more advanced processing using modal decomposition in the later pages.
-
-
+> The goal of this page is to define these modes mathematically, explain why they are important in practice, and show by examples that many statistical concepts and learning algorithms are directly related to this modal decomposition idea. With that, we will also build the mathematical foundation and notations for the more advanced processing using modal decomposition in the later pages.
 
 <br>
 
@@ -31,7 +26,6 @@ toc:
 Let's start by motivating and defining the concept of modal decomposition.
 
 ### Inner Product of Functions
-
 
 We start by defining an **inner product** in the functional space. Given an alphabet $$\mathcal X$$, the space of all real-valued functions,
 
@@ -45,13 +39,10 @@ $$
 \langle f_1, f_2\rangle \stackrel{\Delta}{=} \mathbb E_{\mathsf x \sim R_\mathsf x}[f_1(\mathsf x) \cdot f_2(\mathsf x)]
 $$
 
-
->**Note:**
->In almost all cases, we can, without loss of generality, restrict functions to have zero mean w.r.t. $$R_\mathsf x$$. Thus, the inner product is really the covariance of $$f_1(\mathsf x)$$ and $$f_2(\mathsf x)$$. Furthermore, on this page, we would not change the reference distribution once chosen, so we could use the above notation for inner products. Otherwise, we could put a subscript to indicate the reference, like $$\langle f_1, f_2\rangle_{R_\mathsf x}$$.
-
+> **Note:**
+> In almost all cases, we can, without loss of generality, restrict functions to have zero mean w.r.t. $$R_\mathsf x$$. Thus, the inner product is really the covariance of $$f_1(\mathsf x)$$ and $$f_2(\mathsf x)$$. Furthermore, on this page, we would not change the reference distribution once chosen, so we could use the above notation for inner products. Otherwise, we could put a subscript to indicate the reference, like $$\langle f_1, f_2\rangle_{R_\mathsf x}$$.
 
 We can similarly define the inner product on the space of functions on a different alphabet $$\mathcal Y$$, with respect to a reference distribution $$R_\mathsf y$$.
-
 
 <br>
 
@@ -73,9 +64,8 @@ $$
 \lim_{n\to \infty} \left\Vert \mathrm{PMI} - \sum_{i=1}^n f_i \otimes g_i \right\Vert^2 = \lim_{n\to \infty} \mathbb E_{\mathsf {x,y} \sim R_\mathsf xR_\mathsf y}\left[ \left(\mathrm{PMI}(\mathsf {x, y}) - \sum_{i=1}^n f_i(\mathsf x) g_i(\mathsf y) \right)^2\right]  = 0
 $$
 
->**Note:**
->In other words, this assumption says that the PMI function can be approached, in an L2 sense, by the sum of a countable collection of product functions, with L2 defined w.r.t. the given reference distribution. This assumption is always true for the cases that both $$\mathcal X$$ and $$\mathcal Y$$ are discrete alphabets. For more general cases, the assumption of a countable basis in the L2 sense is a commonly used assumption, which is not restrictive at all in most practical applications, and convenient for us to rule out some of the "unpleasant" distributions.
-
+> **Note:**
+> In other words, this assumption says that the PMI function can be approached, in an L2 sense, by the sum of a countable collection of product functions, with L2 defined w.r.t. the given reference distribution. This assumption is always true for the cases that both $$\mathcal X$$ and $$\mathcal Y$$ are discrete alphabets. For more general cases, the assumption of a countable basis in the L2 sense is a commonly used assumption, which is not restrictive at all in most practical applications, and convenient for us to rule out some of the "unpleasant" distributions.
 
 <br>
 
@@ -87,17 +77,15 @@ $$
 \log \frac{P_{\mathsf {xy}}(x,y)}{P_\mathsf x(x) P_\mathsf y(y)} = f(x) \cdot g(y), \qquad \forall x, y.
 $$
 
-
 This can be rewritten as $$P_{\mathsf {y\vert x}}(y\vert x) = P_\mathsf y (y) \cdot \exp(f(x)\cdot g(y)), \forall x, y$$.
 That is, the conditional distribution is on a 1-D exponential family with $$g(\mathsf y)$$ as the natural statistic.
 To make an inference of $$\mathsf y$$, we only need to know the value $$f(\mathsf x)$$, which is a sufficient statistic.
 In fact, the only thing we can infer about $$\mathsf y$$ is the value of $$g(\mathsf y)$$.
 In general, we could extrapolate from this observation to state that if the PMI function is the sum of a limited number of product functions, then that correspondingly limits the scope of inference tasks we can hope to solve while allowing us to only look at a limited set of statistics, or **features**, of the data.
 
->Here, to clarify the terminology, we refer to **feature functions** of a random variable as real-valued functions on the alphabet, such as $$f: \mathcal X \to \mathbb R$$. Feature functions are often evaluated with the observed data samples, and the function values, which we refer to as **features**, are used for further inference and learning tasks instead of the raw data. Thus, these features are indeed the `information carrying device.` Since any known shifting and scaling do not change the information contents that these features carry, for convenience, we sometimes require a standard form, that the feature functions satisfying $$\mathbb E[f(\mathsf x)] = 0$$ and $$\mathbb E[f^2(\mathsf x)]=1$$, where both expectations are taken w.r.t. the reference distribution $$R_\mathsf x$$.
+> Here, to clarify the terminology, we refer to **feature functions** of a random variable as real-valued functions on the alphabet, such as $$f: \mathcal X \to \mathbb R$$. Feature functions are often evaluated with the observed data samples, and the function values, which we refer to as **features**, are used for further inference and learning tasks instead of the raw data. Thus, these features are indeed the `information carrying device.` Since any known shifting and scaling do not change the information contents that these features carry, for convenience, we sometimes require a standard form, that the feature functions satisfying $$\mathbb E[f(\mathsf x)] = 0$$ and $$\mathbb E[f^2(\mathsf x)]=1$$, where both expectations are taken w.r.t. the reference distribution $$R_\mathsf x$$.
 
 When we write a product function like the one above in this standard form, we need to write out the scaling factor explicitly. That is, instead of $$f\otimes g$$, we need to write $$\sigma f\otimes g$$, with $$\sigma \geq 0$$. We call this triple, $$(\sigma, f, g)$$, a single **mode**. That is, a mode consists of a strength $$\sigma$$, and a pair of feature functions in $$\mathcal {F_X}$$ and $$\mathcal {F_Y}$$.
-
 
 <br>
 
@@ -109,17 +97,17 @@ $$
 \min_{ (\sigma_i, f_i, g_i), i=1, \ldots, k} \, \left \Vert \mathrm{PMI} - \sum_{i=1}^k \sigma_i f_i\otimes g_i\right\Vert^2
 $$
 
-
 This optimization is, in fact, a well-studied one. For the case with finite alphabets, the target PMI function can be thought as a $$\vert\mathcal X\vert \times \vert\mathcal Y\vert$$ matrix, with the $$(x,y)$$ entry being the function value $$\mathrm {PMI}(x,y)$$; and the above optimization problem is solved by finding the [singular value decomposition (SVD)](https://en.wikipedia.org/wiki/Singular_value_decomposition) of this matrix. The result is a decomposition, which is a diagonalization, turning the PMI matrix into the sum of orthogonal rank-1 matrices, each of which corresponds to one mode in our definition. Here, we will define the modal decomposition with a sequential construction, which is indeed a standard way to define SVD.
-
 
 <br>
 
 ---
+
 Definition: Rank-1 Approximation
 : For a function $$B \in \mathcal {F_{X\times Y}}$$, and a given reference distribution $$R_{\mathsf {xy}} = R_\mathsf x R_\mathsf y$$, the rank-1 approximation of $$B$$ is a map: $$B \mapsto (\sigma, f^\ast, g^\ast)$$,
 : $$
-(\sigma, f^\ast, g^\ast)\stackrel{\Delta}{=} \arg\min_{\sigma, f, g} \; \Vert B - \sigma\cdot f\otimes g\Vert^2
+(\sigma, f^\ast, g^\ast)\stackrel{\Delta}{=} \arg\min\_{\sigma, f, g} \; \Vert B - \sigma\cdot f\otimes g\Vert^2
+
 $$
 : where the optimization has the constraints: $$\sigma \geq 0$$, $$f^\ast \in \mathcal {F_X}, g^\ast\in \mathcal {F_Y}$$, are standard feature functions, i.e., $$f^\ast, g^\ast$$ both have zero mean and unit variance w.r.t. $$R_\mathsf{x}, R_\mathsf{y}$$, respectively.
 
@@ -129,11 +117,14 @@ $$
 
 We will state here without proof an intuitive property of this approximation, which we will use rather frequently: the approximation error is orthogonal to the optimal feature functions, i.e.
 
+
 $$
+
 \begin{align*}
-&\sum_{x\in \mathcal X} \; R_{\mathsf x}(x) \cdot \left[ \left(B(x,y) - \sigma\cdot f^\ast (x) g^\ast (y)\right) \cdot f^\ast (x) \right] = 0 , \qquad \forall y\\
-&\sum_{y\in \mathcal Y} \; R_{\mathsf y}(y) \cdot \left[ \left(B(x,y) - \sigma\cdot f^\ast (x) g^\ast (y)\right) \cdot g^\ast (y) \right] = 0 , \qquad \forall x
+&\sum*{x\in \mathcal X} \; R*{\mathsf x}(x) \cdot \left[ \left(B(x,y) - \sigma\cdot f^\ast (x) g^\ast (y)\right) \cdot f^\ast (x) \right] = 0 , \qquad \forall y\\
+&\sum*{y\in \mathcal Y} \; R*{\mathsf y}(y) \cdot \left[ \left(B(x,y) - \sigma\cdot f^\ast (x) g^\ast (y)\right) \cdot g^\ast (y) \right] = 0 , \qquad \forall x
 \end{align*}
+
 $$
 
 Based on this, we have the following definition of modal decomposition.
@@ -144,12 +135,18 @@ Based on this, we have the following definition of modal decomposition.
 Definition: Modal Decomposition $$\zeta$$
 
 : For a given joint distribution $$P_{\mathsf {xy}}$$ on $$\mathcal {X \times Y}$$ and a reference distribution $$R_{\mathsf {xy}} = R_\mathsf x R_\mathsf y$$. We denote the rank-1 approximation of the PMI as
-: $$
-\zeta_1(P_{\mathsf {xy}}) = (\sigma_1, f_1^\ast, g_1^\ast) \stackrel{\Delta}{=} \arg \min_{\sigma, f, g}\;\left\Vert \left(\log \frac{P_{\mathsf {xy}}}{P_\mathsf xP_\mathsf y}\right) - \sigma\cdot f\otimes g\right\Vert^2
+:
+$$
+
+\zeta*1(P*{\mathsf {xy}}) = (\sigma*1, f_1^\ast, g_1^\ast) \stackrel{\Delta}{=} \arg \min*{\sigma, f, g}\;\left\Vert \left(\log \frac{P*{\mathsf {xy}}}{P*\mathsf xP\_\mathsf y}\right) - \sigma\cdot f\otimes g\right\Vert^2
+
 $$
 : and for $$i=2, 3, \ldots$$, $$\zeta_i$$ as the rank-1 approximation of the approximation error of all the previous steps:
-: $$
-\zeta_i(P_{\mathsf{xy}}) = (\sigma_i, f_i^\ast, g_i^\ast ) \stackrel{\Delta}{=} \arg\min_{\sigma, f, g} \left\Vert\left(\mathrm{PMI} - \sum_{j=1}^{i-1} \sigma_j \cdot f_j^\ast \otimes g_j^\ast \right) - \sigma\cdot f\otimes g\right\Vert^2
+:
+$$
+
+\zeta*i(P*{\mathsf{xy}}) = (\sigma*i, f_i^\ast, g_i^\ast ) \stackrel{\Delta}{=} \arg\min*{\sigma, f, g} \left\Vert\left(\mathrm{PMI} - \sum\_{j=1}^{i-1} \sigma_j \cdot f_j^\ast \otimes g_j^\ast \right) - \sigma\cdot f\otimes g\right\Vert^2
+
 $$
 : Collectively, $$\lbrace \zeta_i \rbrace : P_{\mathsf {xy}} \mapsto \lbrace(\sigma_i, f^\ast_i, g^\ast_i), i=1, 2, \ldots\rbrace$$ is called the **modal decomposition operation**
 
@@ -179,8 +176,11 @@ This statement is important since in both learning the model $$P_{\mathsf {xy}}$
 
 One technical issue is the **local assumption**. Many nice properties and connections for the modal decomposition are asymptotic statements, proved in the limiting regime where $$P_{\mathsf {xy}}, P_\mathsf x \cdot P_\mathsf y$$, and $$R_\mathsf x\cdot R_\mathsf y$$ are all "close" to each other. Such local assumptions are indeed a fundamental concept: The space of probability distributions is not a linear vector space but a manifold. The local assumption allows us to focus on a neighborhood that can be approximated by the tangent plane of the manifold and, hence, get the geometry linearized. Details of this can be found in the literature of [information geometry](https://www.amazon.com/Information-Translations-Mathematical-Monographs-Tanslations/dp/0821843028) and [correspondence analysis](https://en.wikipedia.org/wiki/Correspondence_analysis). A quick example is that the following approximation to the PMI function is often used in our development with the assumption that the precision is acceptable.
 
+
 $$
-\mathrm{PMI}(x,y) = \log \left( \frac{P_{\mathsf {xy}}(x,y)}{P_\mathsf x(x) P_\mathsf y(y)} \right)\approx \widetilde{\mathrm{PMI}}(x,y) = \frac{P_{\mathsf {xy}}(x,y) - P_\mathsf x(x) P_\mathsf y(y)}{P_\mathsf x(x) P_\mathsf y(y)}
+
+\mathrm{PMI}(x,y) = \log \left( \frac{P*{\mathsf {xy}}(x,y)}{P*\mathsf x(x) P*\mathsf y(y)} \right)\approx \widetilde{\mathrm{PMI}}(x,y) = \frac{P*{\mathsf {xy}}(x,y) - P*\mathsf x(x) P*\mathsf y(y)}{P*\mathsf x(x) P*\mathsf y(y)}
+
 $$
 
 This inevitably leads to some technical details when making mathematical statements. Different statements might require different strengths of the local assumptions, and in some cases, one can even circumvent such assumptions by making a slightly different statement. To avoid leading our readers into such discussions, we will simply call all of such things the "local approximation" and assume they are given for all statements regardless of what is needed. Furthermore, we will hide the rest of these statements in a toggled block. If the reader is comfortable with our main message about decomposing the dependence and not interested in the mathematical steps, this [link](#an-example-of-numerical-computation-of-modal-decomposition) can be used to skip to the algorithm part of our story.
@@ -199,13 +199,16 @@ We start with the interesting fact about $${\mathrm{PMI}}$$: when viewed as an o
 ---
 Property 1
 : Let $$B : \mathcal {F_X} \to \mathcal {F_Y}$$ be defined as: for $$a\in \mathcal {F_X}$$, $$B(a) \in \mathcal {F_Y}$$ with
-: $$
- \begin{align*}
- \left(B(a)\right) (y) &\stackrel{\Delta}{=} \sum_{x\in \mathcal X} {\mathrm{PMI}}(x,y)\cdot (P_\mathsf x (x) \cdot a(x))\\
- &= \sum_{x\in \mathcal X}\frac{P_{\mathsf {xy}}(x,y) - P_\mathsf x(x) P_\mathsf y(y)}{P_\mathsf x(x) P_\mathsf y(y)} \cdot  (P_\mathsf x(x) \cdot a(x))\\
- &= \mathbb E [a(\mathsf x) | \mathsf y = y ]
- \end{align*}
- $$
+:
+$$
+
+\begin{align*}
+\left(B(a)\right) (y) &\stackrel{\Delta}{=} \sum*{x\in \mathcal X} {\mathrm{PMI}}(x,y)\cdot (P*\mathsf x (x) \cdot a(x))\\
+&= \sum*{x\in \mathcal X}\frac{P*{\mathsf {xy}}(x,y) - P*\mathsf x(x) P*\mathsf y(y)}{P*\mathsf x(x) P*\mathsf y(y)} \cdot (P\_\mathsf x(x) \cdot a(x))\\
+&= \mathbb E [a(\mathsf x) | \mathsf y = y ]
+\end{align*}
+
+$$
 
 ---
 
@@ -213,8 +216,11 @@ We write sum over $$x$$ in the above, which, of course, can be turned into an in
 
 One can also define a transpose operator $$B^T: \mathcal {F_Y}\to \mathcal {F_X}$$, for $$b \in \mathcal {F_Y}$$,
 
+
 $$
-\left(B^T(b)\right)(x) = \sum_{y\in \mathcal Y}\frac{P_{\mathsf {xy}}(x,y) - P_\mathsf x(x) P_\mathsf y(y)}{P_\mathsf x(x) P_\mathsf y(y)} \cdot  (P_\mathsf y(y) \cdot b(y))=  \mathbb E[b(\mathsf y)|\mathsf x=x], \forall x.
+
+\left(B^T(b)\right)(x) = \sum*{y\in \mathcal Y}\frac{P*{\mathsf {xy}}(x,y) - P*\mathsf x(x) P*\mathsf y(y)}{P*\mathsf x(x) P*\mathsf y(y)} \cdot (P\_\mathsf y(y) \cdot b(y))= \mathbb E[b(\mathsf y)|\mathsf x=x], \forall x.
+
 $$
 
 
@@ -228,17 +234,23 @@ What this property says is that the model $$\mathrm{PMI}$$ that we try to learn 
 
 ---
 Property 2: Mode Correlation
-: $$
- (B(f^\ast_j))(y) = \sum_x \left(\sum_i \sigma_i \cdot f^\ast_i(x) g^\ast_i(y)\right) \cdot \left(P_{\mathsf x}(x) \cdot f^\ast_j(x)\right) = \sigma_j g^\ast_j(y), \quad \forall y
- $$
+:
+$$
+
+(B(f^\ast*j))(y) = \sum_x \left(\sum_i \sigma_i \cdot f^\ast_i(x) g^\ast_i(y)\right) \cdot \left(P*{\mathsf x}(x) \cdot f^\ast_j(x)\right) = \sigma_j g^\ast_j(y), \quad \forall y
+
+$$
 : since $$\mathbb E[f^\ast_i(\mathsf x) f^\ast_j(\mathsf x)] = \delta_{ij}$$. With the same math, we also have $$B^T(g^\ast_j) = \sigma_j \cdot f^\ast_j$$.
 
 : That is, each $$g^\ast_j$$ is the image of the $$B(\cdot)$$ operator acting on $$f^\ast_j$$, scaled by the corresponding $$\sigma_i$$, and vice versa.
 
 : Now, we have
 
-: $$
-\mathbb E_{\mathsf{x,y} \sim P_{\mathsf{x,y}}} [ f^\ast_i (\mathsf x) \cdot g^\ast_j(\mathsf y)] = \mathbb E_{\mathsf x\sim P_\mathsf x} [f^\ast_i (\mathsf x) \cdot \mathbb E[ g^\ast_j(\mathsf y)|\mathsf x]] = \mathbb E_{\mathsf x\sim P_\mathsf x} [f^\ast_i (\mathsf x) \cdot \sigma_j \cdot f^\ast_j(\mathsf x)] = \sigma_i\cdot \delta_{ij}
+:
+$$
+
+\mathbb E*{\mathsf{x,y} \sim P*{\mathsf{x,y}}} [ f^\ast_i (\mathsf x) \cdot g^\ast_j(\mathsf y)] = \mathbb E*{\mathsf x\sim P*\mathsf x} [f^\ast*i (\mathsf x) \cdot \mathbb E[ g^\ast_j(\mathsf y)|\mathsf x]] = \mathbb E*{\mathsf x\sim P*\mathsf x} [f^\ast_i (\mathsf x) \cdot \sigma_j \cdot f^\ast_j(\mathsf x)] = \sigma_i\cdot \delta*{ij}
+
 $$
 
 ---
@@ -247,8 +259,11 @@ This result says that each feature, $$f^\ast_i(\mathsf x)$$, is only correlated 
 
 >In this [1959 paper](https://static.renyi.hu/renyi_cikkek/1959_on_measures_of_dependence.pdf), the HGR maximal correlation is defined for a given joint distribution $$P_{\mathsf {xy}}$$ as
 >
->$$
-\rho_{\mathrm{HGR}} \stackrel{\Delta}{=} \max_{f \in \mathcal {F_X}, g \in \mathcal {F_Y}} \; \rho (f(\mathsf x), g(\mathsf y)),
+>
+$$
+
+\rho*{\mathrm{HGR}} \stackrel{\Delta}{=} \max*{f \in \mathcal {F_X}, g \in \mathcal {F_Y}} \; \rho (f(\mathsf x), g(\mathsf y)),
+
 $$
 >
 >where $$\rho$$ denotes the [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient).
@@ -263,8 +278,11 @@ $$\mathrm{PMI}= \log\frac{P_{\mathsf{xy}}}{P_\mathsf x P_\mathsf y} = \sum_{i=1}
 
 then the conditional distribution $$P_{\mathsf {x \vert y}}(\cdot \vert y)$$, for different values of $$y$$, are on a $$k$$ - dimensional exponential family with $$f_i(\cdot), i=1, \ldots, k$$ as the natural statistics, and $$g_i(y), i=1, \ldots k$$ as the corresponding parameters. The Fisher information for this family is a $$k\times k$$ matrix $$\mathcal I$$, with entries
 
+
 $$
-[\mathcal I]_{ij} = \mathbb E_{\mathbb x \sim P_\mathsf x} \left[ \left(\frac{\partial}{\partial g_i} \mathrm {PMI}\right) \cdot \left(\frac{\partial}{\partial g_j} \mathrm {PMI}\right)\right] = \mathbb E_{\mathbb x \sim P_\mathsf x} [f_i(\mathsf x) f_j(\mathsf x)] = \langle f_i, f_j \rangle
+
+[\mathcal I]_{ij} = \mathbb E_{\mathbb x \sim P*\mathsf x} \left[ \left(\frac{\partial}{\partial g_i} \mathrm {PMI}\right) \cdot \left(\frac{\partial}{\partial g_j} \mathrm {PMI}\right)\right] = \mathbb E*{\mathbb x \sim P\_\mathsf x} [f_i(\mathsf x) f_j(\mathsf x)] = \langle f_i, f_j \rangle
+
 $$
 
 which is exactly the definition of the inner product we started with. In this context, we can also understand the [orthogonal modal decomposition](#modal-decomposition) as a special and nice case where the Fisher information matrix is diagonalized.
@@ -317,7 +335,8 @@ Here is a [colab demo](https://colab.research.google.com/drive/1n4qk69shPL0LvGca
 
 
 
-<br> 
+<br>
 
 ---
 This post is based on the joint work with [Dr. Xiagxiang Xu](https://www.linkedin.com/in/xiangxiangxu/).
+$$

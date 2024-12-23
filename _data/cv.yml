@@ -20,7 +20,6 @@
       year: 2002
       location: Berkeley, CA, USA
       description:
-
         - "Thesis: 'Diversity-Multiplexing Tradeoff - A Comprehensive View of Multiple Antenna Systems', advisor: David N.C. Tse"
         - Minor in Mathematics and Statistics
         - Eli Jury Award
@@ -35,7 +34,6 @@
       location: Beijing, PRC.
       institution: Department of Electronic Engineering, Tsinghua University
       year: 1994
-
 
 - title: Experience
   type: time_table
@@ -58,8 +56,7 @@
       institution: Tsinghua Berkeley Shenzhen Institute (TBSI)
       location: Shenzhen, PRC.
       year: 2017-2018
-      description:
-        Data Science and Information Technology Center
+      description: Data Science and Information Technology Center
 
     - title: Visiting Scientist at the AI Lab.
       institution: Tencent Inc.
@@ -224,7 +221,7 @@
     - "Xiangxiang Xu and Lizhong Zheng: <b>Neural Feature Learning in Function Space,</b><i> Journal of Machine Learning Research (JMLR), 25(142), 2024</i>"
     - "J Jon Ryu, Xiangxiang Xu, HS Erol, Yuheng Bu, Lizhong Zheng, Gregory W Wornell, <b>Operator SVD with Neural Networks via Nested Low-Rank Approximation,</b><i> ICML, 2024 </i>"
     - "Shao-Lun Huang, Anuran Makur, Gregory W. Wornell and Lizhong Zheng (2024), <b>Universal Features for High-Dimensional Learning and Inference,</b><i> Foundations and Trends® in Communications and Information Theory: Vol. 21: No. 1-2, pp 1-299.</i>"
-    -  "Lianjun Li, Jiarui Xu, Lizhong Zheng, Lingjia Liu: <b>Real-Time Machine Learning for Multi-User Massive MIMO:Symbol Detection Using Multi-Mode StructNet. </b>  <i>IEEE Trans. Wireless Commun. 22(12): 9172-9186, 2023 </i>"
+    - "Lianjun Li, Jiarui Xu, Lizhong Zheng, Lingjia Liu: <b>Real-Time Machine Learning for Multi-User Massive MIMO:Symbol Detection Using Multi-Mode StructNet. </b>  <i>IEEE Trans. Wireless Commun. 22(12): 9172-9186, 2023 </i>"
     - "Shashank Jere, Ramin Safavinejad, Lizhong Zheng, Lingjia Liu: <b>Channel Equalization Through Reservoir Computing:A Theoretical Perspective. </b>  <i> IEEE Wireless Communication Letter 12(5): 774-778, 2023 </i>"
     - "Xiangxiang Xu, Lizhong Zheng: <b>Sequential Dependence Decomposition and Feature Learning.</b>  <i> Allerton 2023 </i>"
     - "Xiangxiang Xu, Lizhong Zheng, Ishank Agrawal: <b>Neural Feature Learning for Engineering Problems.</b>  <i> Allerton 2023</i>"
