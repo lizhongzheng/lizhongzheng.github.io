@@ -125,13 +125,43 @@ The goal of this page is to develop a generic solution to this family of problem
 
 ## A solution using nested H-score networks
 
-We write the channel state information as one random variable $$\mathsf{s} = [h_1, h_2]^T$$. We write the target random variable, i.e., the one we would like to make a decision on, as $$\mathsf {x} = \mathsf {x}_1 \in \{0, 1\}$$. We write the observed variable as $$\mathsf{y}$$, and include the randomness from the interfering signal $$\mathsf{x}_2$$ in the conditional distribution $$P_{\mathsf{y|x, s}}$$. With these notations, the probability law that is relevant to this problem is the 3-way dependence of $$\mathsf{x, y, s}$$.
+We write the channel state information as one random variable $$\mathsf{s} = [h_1, h_2]^T$$. We write the target random variable, i.e., the one we would like to make a decision on, as $$\mathsf {x} = \mathsf {x}_1 \in \{0, 1\}$$. We write the observed variable as $$\mathsf{y}$$, and include the randomness from the interfering signal $$\mathsf{x}_2$$ in the conditional distribution $$P_{\mathsf{y\vert x, s}}$$. With these notations, the probability law that is relevant to this problem is the 3-way dependence of $$\mathsf{x, y, s}$$.
 
 In the literature of wireless communications, a standard way to work with such a multi-variate dependence is by using the [chain rule](https://en.wikipedia.org/wiki/Conditional_mutual_information).
 
-$$ I(\mathsf{y; (x, s)}) = I(\mathsf{y;s} ) + I(\mathsf{y;x|s})$$
+$$ I(\mathsf{y; (x, s)}) = I(\mathsf{y;s} ) + I(\mathsf{y;x|s}),$$
 
-where the second conditional mutual information term is often referred to as the data rate with channel state information at the receiver (CSIR).
+The quantity of interest is $$I(\mathsf{y;x\vert s})$$, which is maximized by choosing the optimal distribution of $$\mathsf{x}$$ and a corresponding coding scheme. The resulting maximum of this conditional mutual information is called the [coherent capacity of the channel](https://web.stanford.edu/~dntse/Chapters_PDF/Fundamentals_Wireless_Communication_chapter5.pdf). 
+
+The point is we would like to separate the contribution of $$\mathsf{x}$$ and that of $$\mathsf{s}$$ in the three-way dependence. This is a problem we have just studied in the previous [post](https://lizhongzheng.github.io/blog/2024/Side-Information/). The key is to use a nested H-score network, as shown below, to make this separation computationally. 
+
+|![test image](/assets/img/nn_side2.png){: width="400" } |
+|<b> Nested H-Score Network for Learning with Side Information </b>|
+
+
+<br>
+<br>
+
+### The assembling step
+
+Different from the common procedure of training a neural network and use it in the same place, here, we need an extra assembling step to connect the trained feature function modules into the desired decision maker. 
+
+After training the nested H-score network above, we have four modules $$f, g, \overline{f}, \overline{g}$$, with the following meanings
+
+$$
+\begin{align*}
+P_{\mathsf{y,s}} &\approx P_{\mathsf{y}} \cdot P_{\mathsf{s}} \cdot \left(1 + \overline{f} \otimes \overline{g}\right)\\
+P_{\mathsf{y,s,x}} &\approx P_{\mathsf{y}} \cdot P_{\mathsf{s}} P_{\mathsf{x}} \cdot \left(1 + \overline{f} \otimes \overline{g} + f \otimes g\right)
+\end{align*}
+$$
+
+We need a simple step of using the Bayes rule to get an approximated version of 
+
+$$P_{\mathsf {x \vert s,y}} = \frac{P_{\mathsf{y,s,x}}}{P_{\mathsf{y,s}}}$$
+
+which can be used as the decision maker: use $$\mathsf{y}$$ and $$\mathsf{s}$$ as inputs, we can decide which value of $$\mathsf{x}$$ is more likely. 
+
+We emphasize here that the extra assembling step is the direct consequence of training not to learn a specific decision-maker, but to learn the useful features. This allows the learned feature modules to be evaluated and reused in different problems. This procedure is a key step to move away from task-specific learning and toward learning reusable information contents. It is also a key step in breaking the blackbox of end-to-end training.
 
 ### $$\blacktriangle$$ Demo: Pytorch implemntation
 
