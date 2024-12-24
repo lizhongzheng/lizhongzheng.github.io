@@ -163,14 +163,53 @@ which can be used as the decision maker: use $$\mathsf{y}$$ and $$\mathsf{s}$$ a
 
 We emphasize here that the extra assembling step is the direct consequence of training not to learn a specific decision-maker, but to learn the useful features. This allows the learned feature modules to be evaluated and reused in different problems. This procedure is a key step to move away from task-specific learning and toward learning reusable information contents. It is also a key step in breaking the blackbox of end-to-end training.
 
-### $$\blacktriangle$$ Demo: Pytorch implemntation
+### $$\blacktriangle$$ Demo: Pytorch implementation
+
+[Here](https://colab.research.google.com/drive/18z_9zt7Ey_gqszPeHNbvjqvPQnuS3jYL?usp=sharing) is a code for this experiment. The key performance result given in the following figure compares the current state-of-art decision after linear processing, the proposed solution based on the nested H-score network, and the theoretical optimal MAP decisions. 
+
+|![test image](/assets/img/SymbolDetectionPlots/BER_plot.png){: width="200" }|
+|<b> Performance Comparison between the Current and the Proposed Solutions</b>|
+
+We have two disclaimers:
+
+1. The training and the performance evaluation of this experiment both take some time. The training can be done offline, which is basically free for communication systems. The performance evaluation part is left in the experiment. Readers are recommended to select a subset to run. 
+2. The above curve is plotted by fixing the strengths of the signal and the interference: $$\vert h_1\vert \in [0.0 .. 8.0], \vert h_2\vert =1$$ at fixed values. This is not common for communication engineers. A more commonly used approach would choose signal strengths to be random, following certain distribution e.g. Rayleigh Fading, and make the plot with average interference strength. This plot is also included in our code. We choose to this one as it reveals the non-linear nature of the problem and the fact that the proposed solution can follow the non-linear behavior of the theoretical optimal solution quite well. 
 
 ## The Lessons
 
-### What neural networks to use?
+We take a little time to reflect on the lessons we learned through this experiment.
 
-### What metrics to use?
+### Good engineering solutions
+
+We are quite happy with the final result of this experiment. It shows that we can indeed use neural-network-based solutions in very mature engineering problems. The symbol detection problem is a well-understood and widely used problem in the industry, with well-defined performance measures and benchmarks. It is also known to require very precise processing and has a very limited online computation budget. The fact that our solution can outperform the existing solutions, which run on everybody's cell phone, is quite impressive.
+
+The especially remarkable part is that by using the nested H-score network, our solution is optimal not for a single scenario but a parameterized sequence of scenarios, with our choice of the parameters as the channel state information. Our solution also shifted the computation requirement: we used extensive offline training, allowing us to have zero online retraining or re-adaptation beyond simply setting the CSI parameter to indicate which scenario we are in. These are all desired/required by the target application.
 
 ### The separation: feature learning and assembling
 
-## Going Forward
+A key conceptual change we propose with this sequence of blogs and experiments is the shift from learning for a specific inference task to learning information-carrying feature functions. This concept is analogous to the separation of source and channel coding in information theory. We believe this is a critical step to make training large neural networks, which consume vast amounts of data and computation, contribute to learning reusable knowledge.
+
+There are two key technical components in such a conceptual shift. First, we can no longer rely on task-specific performance metrics to train the neural networks. Instead, a metric directly evaluating the information contents, on its quality and relevance, is needed in the training process. The geometric concept and the H-score in our works are for this purpose. Second, after training, there needs to be a separate assembling stage, where feature functions from different sources are put together to form a decision-maker. We also see this process in this experiment.
+
+## Going Forward: What is a "White Box Solution" ?
+
+There are many discussions about "applying AI to specific domains" or "verticals." These are, of course, correct visions for the future development that we embrace. The question is, how do we do that? How do we turn a black box solution into a white box solution? What exactly is interpretable learning? Does it count if we just add some metrics, maybe an information-theoretic metric, as a regulator in the training? This sequence of blogs tries to answer these questions by examples.
+
+First, conceptually, we believe that fundamentally new information metrics are needed. In these learning problems, information carriers are no longer bits, and the information carried by a feature function should not only be measured by "how much information there is" but also by "what the information is about?". A vector description of the information is thus needed. This concept is a fundamental extension of the classical information theory. We show in this series that such a concept leads to the definition of the H-score and a collection of new operations.
+
+Second, at an operational level, we should expect concrete operations when we open a black box. We summarize them into the following three capabilities, which we call the "SET" capabilities.
+
+* **Separable:** When we train a neural network for a complex task, we should be able to extract its answer to a simple sub-task and know which part of the network is responsible for that answer. For example, if we can recognize a person from an image, we should know his/her gender or hair color; if we train a neural network to detect symbols from the received signal, then somewhere in the neural network, we must have an estimate of the channel state.
+
+* **Exchangeable:** We should be able to replace the answer of a large neural network to an element question with a different answer and still run the rest of the system, as a way to control the behavior of the overall system. We have seen such experiments as changing the gender of the object in an image. Our experiment changing the channel state information as a parameter is another example.
+
+* **Transferrable:** Here, we do not mean to train a large network with one dataset and then directly use it on a different problem to see how it goes. Instead, we would like to take only the necessary elements of the learned results and use them as components in the solution for a different task. For example, we can use the trained modules in our experiments in a channel estimation task.  
+
+The point of these SET capabilities is to define a clear set of goals of tangible performance improvements based on better interpretability of neural networks. With this, the way forward is simply to generate more examples with such capabilities.
+
+
+<br>
+
+---
+
+This post is based on the joint work with [Dr. Xiagxiang Xu](https://www.linkedin.com/in/xiangxiangxu/).
