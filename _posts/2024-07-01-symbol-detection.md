@@ -46,7 +46,7 @@ The main point of this sequence of works is to introduce the key concepts and bu
 
 ## A Wireless Communication Problem
 
-|![test image](/assets/img/interferenceChannel.png){: width="350" }|
+|![Interference Channel](/assets/img/interferenceChannel.png){: width="300" }|
 |<b> A Wireless Fading Interference Channel </b>|
 
 <br>
