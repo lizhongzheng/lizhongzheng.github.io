@@ -131,9 +131,9 @@ In the literature of wireless communications, a standard way to work with such a
 
 $$ I(\mathsf{y; (x, s)}) = I(\mathsf{y;s} ) + I(\mathsf{y;x|s}),$$
 
-The quantity of interest is $$I(\mathsf{y;x\vert s})$$, which is maximized by choosing the optimal distribution of $$\mathsf{x}$$ and a corresponding coding scheme. The resulting maximum of this conditional mutual information is called the [coherent capacity of the channel](https://web.stanford.edu/~dntse/Chapters_PDF/Fundamentals_Wireless_Communication_chapter5.pdf). 
+The quantity of interest is $$I(\mathsf{y;x\vert s})$$, which is maximized by choosing the optimal distribution of $$\mathsf{x}$$ and a corresponding coding scheme. The resulting maximum of this conditional mutual information is called the [coherent capacity of the channel](https://web.stanford.edu/~dntse/Chapters_PDF/Fundamentals_Wireless_Communication_chapter5.pdf).
 
-The point is we would like to separate the contribution of $$\mathsf{x}$$ and that of $$\mathsf{s}$$ in the three-way dependence. This is a problem we have just studied in the previous [post](https://lizhongzheng.github.io/blog/2024/Side-Information/). The key is to use a nested H-score network, as shown below, to make this separation computationally. 
+The point is we would like to separate the contribution of $$\mathsf{x}$$ and that of $$\mathsf{s}$$ in the three-way dependence. This is a problem we have just studied in the previous [post](https://lizhongzheng.github.io/blog/2024/Side-Information/). The key is to use a nested H-score network, as shown below, to make this separation computationally.
 
 |![test image](/assets/img/nn_side2.png){: width="400" } |
 |<b> Nested H-Score Network for Learning with Side Information </b>|
@@ -144,7 +144,7 @@ The point is we would like to separate the contribution of $$\mathsf{x}$$ and th
 
 ### The assembling step
 
-Different from the common procedure of training a neural network and use it in the same place, here, we need an extra assembling step to connect the trained feature function modules into the desired decision maker. 
+Different from the common procedure of training a neural network and use it in the same place, here, we need an extra assembling step to connect the trained feature function modules into the desired decision maker.
 
 After training the nested H-score network above, we have four modules $$f, g, \overline{f}, \overline{g}$$, with the following meanings
 
@@ -155,25 +155,25 @@ P_{\mathsf{y,s,x}} &\approx P_{\mathsf{y}} \cdot P_{\mathsf{s}} P_{\mathsf{x}} \
 \end{align*}
 $$
 
-We need a simple step of using the Bayes rule to get an approximated version of 
+We need a simple step of using the Bayes rule to get an approximated version of
 
 $$P_{\mathsf {x \vert s,y}} = \frac{P_{\mathsf{y,s,x}}}{P_{\mathsf{y,s}}}$$
 
-which can be used as the decision maker: use $$\mathsf{y}$$ and $$\mathsf{s}$$ as inputs, we can decide which value of $$\mathsf{x}$$ is more likely. 
+which can be used as the decision maker: use $$\mathsf{y}$$ and $$\mathsf{s}$$ as inputs, we can decide which value of $$\mathsf{x}$$ is more likely.
 
 We emphasize here that the extra assembling step is the direct consequence of training not to learn a specific decision-maker, but to learn the useful features. This allows the learned feature modules to be evaluated and reused in different problems. This procedure is a key step to move away from task-specific learning and toward learning reusable information contents. It is also a key step in breaking the blackbox of end-to-end training.
 
 ### $$\blacktriangle$$ Demo: Pytorch implementation
 
-[Here](https://colab.research.google.com/drive/18z_9zt7Ey_gqszPeHNbvjqvPQnuS3jYL?usp=sharing) is a code for this experiment. The key performance result given in the following figure compares the current state-of-art decision after linear processing, the proposed solution based on the nested H-score network, and the theoretical optimal MAP decisions. 
+[Here](https://colab.research.google.com/drive/18z_9zt7Ey_gqszPeHNbvjqvPQnuS3jYL?usp=sharing) is a code for this experiment. The key performance result given in the following figure compares the current state-of-art decision after linear processing, the proposed solution based on the nested H-score network, and the theoretical optimal MAP decisions.
 
 |![test image](/assets/img/SymbolDetectionPlots/BER_plot.png){: width="200" }|
 |<b> Performance Comparison between the Current and the Proposed Solutions</b>|
 
 We have two disclaimers:
 
-1. The training and the performance evaluation of this experiment both take some time. The training can be done offline, which is basically free for communication systems. The performance evaluation part is left in the experiment. Readers are recommended to select a subset to run. 
-2. The above curve is plotted by fixing the strengths of the signal and the interference: $$\vert h_1\vert \in [0.0 .. 8.0], \vert h_2\vert =1$$ at fixed values. This is not common for communication engineers. A more commonly used approach would choose signal strengths to be random, following certain distribution e.g. Rayleigh Fading, and make the plot with average interference strength. This plot is also included in our code. We choose to this one as it reveals the non-linear nature of the problem and the fact that the proposed solution can follow the non-linear behavior of the theoretical optimal solution quite well. 
+1. The training and the performance evaluation of this experiment both take some time. The training can be done offline, which is basically free for communication systems. The performance evaluation part is left in the experiment. Readers are recommended to select a subset to run.
+2. The above curve is plotted by fixing the strengths of the signal and the interference: $$\vert h_1\vert \in [0.0 .. 8.0], \vert h_2\vert =1$$ at fixed values. This is not common for communication engineers. A more commonly used approach would choose signal strengths to be random, following certain distribution e.g. Rayleigh Fading, and make the plot with average interference strength. This plot is also included in our code. We choose to this one as it reveals the non-linear nature of the problem and the fact that the proposed solution can follow the non-linear behavior of the theoretical optimal solution quite well.
 
 ## The Lessons
 
@@ -203,7 +203,7 @@ Second, at an operational level, we should expect concrete operations when we op
 
 * **Exchangeable:** We should be able to replace the answer of a large neural network to an element question with a different answer and still run the rest of the system, as a way to control the behavior of the overall system. We have seen such experiments as changing the gender of the object in an image. Our experiment changing the channel state information as a parameter is another example.
 
-* **Transferrable:** Here, we do not mean to train a large network with one dataset and then directly use it on a different problem to see how it goes. Instead, we would like to take only the necessary elements of the learned results and use them as components in the solution for a different task. For example, we can use the trained modules in our experiments in a channel estimation task.  
+* **Transferrable:** Here, we do not mean to train a large network with one dataset and then directly use it on a different problem to see how it goes. Instead, we would like to take only the necessary elements of the learned results and use them as components in the solution for a different task. For example, we can use the trained modules in our experiments in a channel estimation task.
 
 The point of these SET capabilities is to define a clear set of goals of tangible performance improvements based on better interpretability of neural networks. With this, the way forward is simply to generate more examples with such capabilities.
 
@@ -213,3 +213,6 @@ The point of these SET capabilities is to define a clear set of goals of tangibl
 ---
 
 This post is based on the joint work with [Dr. Xiagxiang Xu](https://www.linkedin.com/in/xiangxiangxu/).
+
+
+
