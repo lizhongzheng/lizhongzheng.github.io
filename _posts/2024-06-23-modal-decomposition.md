@@ -105,11 +105,12 @@ This optimization is, in fact, a well-studied one. For the case with finite alph
 
 Definition: Rank-1 Approximation
 : For a function $$B \in \mathcal {F_{X\times Y}}$$, and a given reference distribution $$R_{\mathsf {xy}} = R_\mathsf x R_\mathsf y$$, the rank-1 approximation of $$B$$ is a map: $$B \mapsto (\sigma, f^\ast, g^\ast)$$,
-: $$
-(\sigma, f^\ast, g^\ast)\stackrel{\Delta}{=} \arg\min\_{\sigma, f, g} \; \Vert B - \sigma\cdot f\otimes g\Vert^2
 
 $$
-: where the optimization has the constraints: $$\sigma \geq 0$$, $$f^\ast \in \mathcal {F_X}, g^\ast\in \mathcal {F_Y}$$, are standard feature functions, i.e., $$f^\ast, g^\ast$$ both have zero mean and unit variance w.r.t. $$R_\mathsf{x}, R_\mathsf{y}$$, respectively.
+(\sigma, f^\ast, g^\ast)\stackrel{\Delta}{=} \arg\min_{\sigma, f, g} \; \Vert B - \sigma\cdot f\otimes g\Vert^2
+$$
+
+where the optimization has the constraints: $$\sigma \geq 0$$, $$f^\ast \in \mathcal {F_X}, g^\ast\in \mathcal {F_Y}$$, are standard feature functions, i.e., $$f^\ast, g^\ast$$ both have zero mean and unit variance w.r.t. $$R_\mathsf{x}, R_\mathsf{y}$$, respectively.
 
 ---
 
@@ -119,12 +120,10 @@ We will state here without proof an intuitive property of this approximation, wh
 
 
 $$
-
 \begin{align*}
-&\sum*{x\in \mathcal X} \; R*{\mathsf x}(x) \cdot \left[ \left(B(x,y) - \sigma\cdot f^\ast (x) g^\ast (y)\right) \cdot f^\ast (x) \right] = 0 , \qquad \forall y\\
-&\sum*{y\in \mathcal Y} \; R*{\mathsf y}(y) \cdot \left[ \left(B(x,y) - \sigma\cdot f^\ast (x) g^\ast (y)\right) \cdot g^\ast (y) \right] = 0 , \qquad \forall x
+&\sum_{x\in \mathcal X} \; R_{\mathsf x}(x) \cdot \left[ \left(B(x,y) - \sigma\cdot f^\ast (x) g^\ast (y)\right) \cdot f^\ast (x) \right] = 0 , \qquad \forall y\\
+&\sum_{y\in \mathcal Y} \; R_{\mathsf y}(y) \cdot \left[ \left(B(x,y) - \sigma\cdot f^\ast (x) g^\ast (y)\right) \cdot g^\ast (y) \right] = 0 , \qquad \forall x
 \end{align*}
-
 $$
 
 Based on this, we have the following definition of modal decomposition.
@@ -135,20 +134,18 @@ Based on this, we have the following definition of modal decomposition.
 Definition: Modal Decomposition $$\zeta$$
 
 : For a given joint distribution $$P_{\mathsf {xy}}$$ on $$\mathcal {X \times Y}$$ and a reference distribution $$R_{\mathsf {xy}} = R_\mathsf x R_\mathsf y$$. We denote the rank-1 approximation of the PMI as
-:
-$$
-
-\zeta*1(P*{\mathsf {xy}}) = (\sigma*1, f_1^\ast, g_1^\ast) \stackrel{\Delta}{=} \arg \min*{\sigma, f, g}\;\left\Vert \left(\log \frac{P*{\mathsf {xy}}}{P*\mathsf xP\_\mathsf y}\right) - \sigma\cdot f\otimes g\right\Vert^2
 
 $$
-: and for $$i=2, 3, \ldots$$, $$\zeta_i$$ as the rank-1 approximation of the approximation error of all the previous steps:
-:
+\zeta_1(P_{\mathsf {xy}}) = (\sigma_1, f_1^\ast, g_1^\ast) \stackrel{\Delta}{=} \arg \min_{\sigma, f, g}\;\left\Vert \left(\log \frac{P_{\mathsf {xy}}}{P_\mathsf xP\_\mathsf y}\right) - \sigma\cdot f\otimes g\right\Vert^2
 $$
 
-\zeta*i(P*{\mathsf{xy}}) = (\sigma*i, f_i^\ast, g_i^\ast ) \stackrel{\Delta}{=} \arg\min*{\sigma, f, g} \left\Vert\left(\mathrm{PMI} - \sum\_{j=1}^{i-1} \sigma_j \cdot f_j^\ast \otimes g_j^\ast \right) - \sigma\cdot f\otimes g\right\Vert^2
+and for $$i=2, 3, \ldots$$, $$\zeta_i$$ as the rank-1 approximation of the approximation error of all the previous steps:
 
 $$
-: Collectively, $$\lbrace \zeta_i \rbrace : P_{\mathsf {xy}} \mapsto \lbrace(\sigma_i, f^\ast_i, g^\ast_i), i=1, 2, \ldots\rbrace$$ is called the **modal decomposition operation**
+\zeta_i(P_{\mathsf{xy}}) = (\sigma_i, f_i^\ast, g_i^\ast ) \stackrel{\Delta}{=} \arg\min_{\sigma, f, g} \left\Vert\left(\mathrm{PMI} - \sum_{j=1}^{i-1} \sigma_j \cdot f_j^\ast \otimes g_j^\ast \right) - \sigma\cdot f\otimes g\right\Vert^2
+$$
+ 
+Collectively, $$\lbrace \zeta_i \rbrace : P_{\mathsf {xy}} \mapsto \lbrace(\sigma_i, f^\ast_i, g^\ast_i), i=1, 2, \ldots\rbrace$$ is called the **modal decomposition operation**
 
 ---
 
@@ -179,7 +176,7 @@ One technical issue is the **local assumption**. Many nice properties and connec
 
 $$
 
-\mathrm{PMI}(x,y) = \log \left( \frac{P*{\mathsf {xy}}(x,y)}{P*\mathsf x(x) P*\mathsf y(y)} \right)\approx \widetilde{\mathrm{PMI}}(x,y) = \frac{P*{\mathsf {xy}}(x,y) - P*\mathsf x(x) P*\mathsf y(y)}{P*\mathsf x(x) P*\mathsf y(y)}
+\mathrm{PMI}(x,y) = \log \left( \frac{P_{\mathsf {xy}}(x,y)}{P_\mathsf x(x) P*\mathsf y(y)} \right)\approx \widetilde{\mathrm{PMI}}(x,y) = \frac{P_{\mathsf {xy}}(x,y) - P_\mathsf x(x) P_\mathsf y(y)}{P_\mathsf x(x) P_\mathsf y(y)}
 
 $$
 
@@ -197,17 +194,16 @@ We start with the interesting fact about $${\mathrm{PMI}}$$: when viewed as an o
 <br>
 
 ---
-Property 1
+Property 1: PMI and the Conditional Expectation Operator
 : Let $$B : \mathcal {F_X} \to \mathcal {F_Y}$$ be defined as: for $$a\in \mathcal {F_X}$$, $$B(a) \in \mathcal {F_Y}$$ with
-:
+
+
 $$
-
 \begin{align*}
-\left(B(a)\right) (y) &\stackrel{\Delta}{=} \sum*{x\in \mathcal X} {\mathrm{PMI}}(x,y)\cdot (P*\mathsf x (x) \cdot a(x))\\
-&= \sum*{x\in \mathcal X}\frac{P*{\mathsf {xy}}(x,y) - P*\mathsf x(x) P*\mathsf y(y)}{P*\mathsf x(x) P*\mathsf y(y)} \cdot (P\_\mathsf x(x) \cdot a(x))\\
-&= \mathbb E [a(\mathsf x) | \mathsf y = y ]
+\left(B(a)\right) (y) &\stackrel{\Delta}{=} \sum_{x\in \mathcal X} {\mathrm{PMI}}(x,y)\cdot (P_{\mathsf x} (x) \cdot a(x))\\
+&= \sum_{x\in \mathcal X}\frac{P_{\mathsf {xy}}(x,y) - P_{\mathsf x}(x) P_{\mathsf y}(y)}{P_{\mathsf x}(x) P_{\mathsf y}(y)} \cdot (P_{\mathsf x}(x) \cdot a(x))\\
+&= \mathbb {E} [a({\mathsf x}) | {\mathsf y} = y ]
 \end{align*}
-
 $$
 
 ---
@@ -218,9 +214,7 @@ One can also define a transpose operator $$B^T: \mathcal {F_Y}\to \mathcal {F_X}
 
 
 $$
-
-\left(B^T(b)\right)(x) = \sum*{y\in \mathcal Y}\frac{P*{\mathsf {xy}}(x,y) - P*\mathsf x(x) P*\mathsf y(y)}{P*\mathsf x(x) P*\mathsf y(y)} \cdot (P\_\mathsf y(y) \cdot b(y))= \mathbb E[b(\mathsf y)|\mathsf x=x], \forall x.
-
+\left(B^T(b)\right)(x) = \sum_{y\in \mathcal Y}\frac{P_{\mathsf {xy}}(x,y) - P_{\mathsf x}(x) P_{\mathsf y}(y)}{P_{\mathsf x}(x) P_{\mathsf y}(y)} \cdot (P_{\mathsf y}(y) \cdot b(y))= \mathbb E[b({\mathsf y})|{\mathsf x}=x], \forall x.
 $$
 
 
@@ -233,40 +227,45 @@ What this property says is that the model $$\mathrm{PMI}$$ that we try to learn 
 <br>
 
 ---
-Property 2: Mode Correlation
-:
-$$
+Property 2: Correlation Between  $$f_i^\ast({\mathsf x}), g_i^\ast({\mathsf y})$$
 
-(B(f^\ast*j))(y) = \sum_x \left(\sum_i \sigma_i \cdot f^\ast_i(x) g^\ast_i(y)\right) \cdot \left(P*{\mathsf x}(x) \cdot f^\ast_j(x)\right) = \sigma_j g^\ast_j(y), \quad \forall y
+: Let $$f_i^\ast, g_i^\ast$$ as the modal decomposition defined above for a given dependence model, then 
 
 $$
-: since $$\mathbb E[f^\ast_i(\mathsf x) f^\ast_j(\mathsf x)] = \delta_{ij}$$. With the same math, we also have $$B^T(g^\ast_j) = \sigma_j \cdot f^\ast_j$$.
-
-: That is, each $$g^\ast_j$$ is the image of the $$B(\cdot)$$ operator acting on $$f^\ast_j$$, scaled by the corresponding $$\sigma_i$$, and vice versa.
-
-: Now, we have
-
-:
+{\mathbb E}_{\mathsf{x,y} \sim P_{\mathsf{x,y}}} [ f^\ast_i ({\mathsf x}) \cdot g^\ast_j({\mathsf y})] =\sigma_i \cdot \delta_{ij}
 $$
 
-\mathbb E*{\mathsf{x,y} \sim P*{\mathsf{x,y}}} [ f^\ast_i (\mathsf x) \cdot g^\ast_j(\mathsf y)] = \mathbb E*{\mathsf x\sim P*\mathsf x} [f^\ast*i (\mathsf x) \cdot \mathbb E[ g^\ast_j(\mathsf y)|\mathsf x]] = \mathbb E*{\mathsf x\sim P*\mathsf x} [f^\ast_i (\mathsf x) \cdot \sigma_j \cdot f^\ast_j(\mathsf x)] = \sigma_i\cdot \delta*{ij}
+
+{% details Proof: %}
+
+Consider
 
 $$
+(B(f^\ast_j))(y) = \sum_x \left(\sum_i \sigma_i \cdot f^\ast_i(x) g^\ast_i(y)\right) \cdot \left(P_{\mathsf x}(x) \cdot f^\ast_j(x)\right) = \sigma_j g^\ast_j(y), \quad \forall y
+$$
 
----
+since $$\mathbb E[f^\ast_i({\mathsf x}) f^\ast_j({\mathsf x})] = \delta_{ij}$$. With the same math, we also have $$B^T(g^\ast_j) = \sigma_j \cdot f^\ast_j$$.
+
+That is, each $$g^\ast_j$$ is the image of the $$B(\cdot)$$ operator acting on $$f^\ast_j$$, scaled by the corresponding $$\sigma_i$$, and vice versa.
+
+Now, we have
+$$
+{\mathbb E}_{\mathsf{x,y} \sim P_{\mathsf{x,y}}} [ f^\ast_i ({\mathsf x}) \cdot g^\ast_j({\mathsf y})]= {\mathbb E}[f^\ast_i ({\mathsf x}) \cdot {\mathbb E}[g^\ast_j({\mathsf y})|{\mathsf x}]] =\sigma_i \cdot \delta_{ij}
+$$
+
+{% enddetails %}
+
+<hr>
 
 This result says that each feature, $$f^\ast_i(\mathsf x)$$, is only correlated with the corresponding $$g^\ast_i$$ feature of $$\mathsf y$$, and uncorrelated with all other features. $$\sigma_i$$ is the correlation coefficient. This gives an alternative understanding of the strength value associated with each mode as the correlation coefficient between feature pairs. Furthermore, the dependence between $$\mathsf x$$ and $$\mathsf y$$ is, in fact, written as a sequence of correlation between feature pairs, each with a strength quantified by the corresponding $$\sigma_i$$.
 
->In this [1959 paper](https://static.renyi.hu/renyi_cikkek/1959_on_measures_of_dependence.pdf), the HGR maximal correlation is defined for a given joint distribution $$P_{\mathsf {xy}}$$ as
->
->
-$$
-
-\rho*{\mathrm{HGR}} \stackrel{\Delta}{=} \max*{f \in \mathcal {F_X}, g \in \mathcal {F_Y}} \; \rho (f(\mathsf x), g(\mathsf y)),
+In this [1959 paper](https://static.renyi.hu/renyi_cikkek/1959_on_measures_of_dependence.pdf), the HGR maximal correlation is defined for a given joint distribution $$P_{\mathsf {xy}}$$ as
 
 $$
->
->where $$\rho$$ denotes the [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient).
+\rho_{\mathrm{HGR}} \stackrel{\Delta}{=} \max_{f \in \mathcal {F_X}, g \in \mathcal {F_Y}} \; \rho (f(\mathsf x), g(\mathsf y)),
+$$
+
+where $$\rho$$ denotes the [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient).
 This maximal correlation coefficient $$\rho_{\mathrm{HGR}}$$ is used as a measure of dependence between the two random variables. At this point, it should be clear that the modal decomposition structure is a natural generalization. $$\sigma_1$$, the correlation between the strongest correlated feature pairs is exactly the HGR maximal correlation coefficient. Beyond that, there is indeed a sequence of correlated feature pairs in descending order of strengths.
 
 <br>
@@ -281,7 +280,7 @@ then the conditional distribution $$P_{\mathsf {x \vert y}}(\cdot \vert y)$$, fo
 
 $$
 
-[\mathcal I]_{ij} = \mathbb E_{\mathbb x \sim P*\mathsf x} \left[ \left(\frac{\partial}{\partial g_i} \mathrm {PMI}\right) \cdot \left(\frac{\partial}{\partial g_j} \mathrm {PMI}\right)\right] = \mathbb E*{\mathbb x \sim P\_\mathsf x} [f_i(\mathsf x) f_j(\mathsf x)] = \langle f_i, f_j \rangle
+[\mathcal I]_{ij} = \mathbb E_{\mathbb x \sim P_\mathsf x} \left[ \left(\frac{\partial}{\partial g_i} \mathrm {PMI}\right) \cdot \left(\frac{\partial}{\partial g_j} \mathrm {PMI}\right)\right] = \mathbb E_{\mathbb x \sim P_\mathsf x} [f_i(\mathsf x) f_j(\mathsf x)] = \langle f_i, f_j \rangle
 
 $$
 
