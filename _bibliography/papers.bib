@@ -2,8 +2,600 @@
 ---
 
 @string{aps = {American Physical Society,}}
+@string{tit = {IEEE Transactions on Information Theory}}
+@string{isit = {IEEE International Symposium on Information Theory}}
+@string{allerton = {Allerton Conference on Communication, Control, and Computing}}
+@string{jmlr ={Journal of Machine Learning Research (JMLR)}}
+@string{icml ={International Conference on Machine Learning (ICML)}}
+@string{twc ={IEEE Transactions on  Wireless Communication}}
+@string{milcom = {IEEE Military Communications Conference (MILCOM)}}
 
-@book{einstein1920relativity,
+@article{jxTWC24,
+    abbr={TWC},
+    bibtex_show={true},
+    title={2D-RC: Two-Dimensional Neural Network Approach for OTFS Symbol Detection},
+    author={Xu, Jiarui and Said, Karim and Zheng, Lizhong and Liu, Lingjia},
+    journal=twc,
+    volume ={23},
+    number={12},
+    year={2024},
+    html={https://ieeexplore.ieee.org/document/10623419},
+    abstract = {Orthogonal Time Frequency Space (OTFS) is a promising modulation scheme for wireless communication in high-mobility scenarios. Recently, a reservoir computing (RC) based approach has been introduced for online subframe-based symbol detection in the OTFS system, where only a limited number of over-the-air (OTA) pilot symbols are utilized for training. However, this approach does not leverage the domain knowledge specific to the OTFS system to fully unlock the potential of RC. This paper introduces a novel two-dimensional RC (2D-RC) method that incorporates the domain knowledge of the OTFS system into the design for symbol detection in an online subframe-based manner. Specifically, as the channel interaction in the delay-Doppler (DD) domain is a two-dimensional (2D) circular operation, the 2D-RC is designed to have the 2D circular padding procedure and the 2D filtering structure to embed this knowledge. With the introduced architecture, 2D-RC can operate in the DD domain with only a single neural network, instead of necessitating multiple RCs to track channel variations in the time domain as in previous work. Numerical experiments demonstrate the advantages of the 2D-RC approach over the previous RC-based approach and compared model-based methods across different OTFS system variants and modulation orders.}
+}
+
+
+@article{xxJMLR24,
+  abbr={JMLR},
+  bibtex_show={true},
+  title={Neural Feature Learning in Function Space},
+  author={Xu, Xiangxiang and Zheng, Lizhong},
+  journal=jmlr,
+  volume ={25},
+  number={142},
+  year={2024},
+  html={https://jmlr.org/papers/volume25/23-1202/23-1202.pdf},
+  abstract = {We present a novel framework for learning system design with neural feature extractors. First, we introduce the feature geometry, which unifies statistical dependence and feature representations in a function space equipped with inner products. This connection defines function-space concepts on statistical dependence, such as norms, orthogonal projection, and spectral decomposition, exhibiting clear operational meanings. In particular, we associate each learning setting with a dependence component and formulate learning tasks as finding corresponding feature approximations. We propose a nesting technique, which provides systematic algorithm designs for learning the optimal features from data samples with off-the-shelf network architectures and optimizers. We further demonstrate multivariate learning applications, including conditional inference and multimodal learning, where we present the optimal features and reveal their connections to classical approaches.},
+  selected = {true}
+}
+
+@article{RyuICML24,
+  abbr={ICML},
+  bibtex_show={true},
+  title={Operator SVD with Neural Networks via Nested Low-Rank Approximation},
+  author={Ryu, J Jon and Xu, Xiangxiang and Erol, HS and Bu, Yuheng and Zheng, Lizhong and Wornell, Gregory W.},
+  journal=icml,
+  year={2024},
+  html={https://arxiv.org/html/2402.03655v1},
+  abstract = {Computing eigenvalue decomposition (EVD) of a given linear operator, or finding its leading eigenvalues and eigenfunctions, is a fundamental task in many machine learning and scientific computing problems. For high-dimensional eigenvalue problems, training neural networks to parameterize the eigenfunctions is considered as a promising alternative to the classical numerical linear algebra techniques. This paper proposes a new optimization framework based on the low-rank approximation characterization of a truncated singular value decomposition, accompanied by new techniques called nesting for learning the top-L singular values and singular functions in the correct order. The proposed method promotes the desired orthogonality in the learned functions implicitly and efficiently via an unconstrained optimization formulation, which is easy to solve with off-the-shelf gradient-based optimization algorithms. We demonstrate the effectiveness of the proposed optimization framework for use cases in computational physics and machine learning.},
+  selected = {true}
+}
+
+@article{xxAllerton23,
+    abbr= {Allerton},
+    bibtex_show={true},
+    title={Sequential Dependence Decomposition and Feature Learning},
+    author={Xu, Xiangxiang and Zheng, Lizhong},
+    journal =allerton,
+    year = {2023},
+    html ={https://ieeexplore.ieee.org/document/10313384},
+    abstract ={In this paper, we introduce an approach to decompose statistical dependence and learn informative features from sequential data. We first present a sequential decomposition of dependence, which extends the chain rule of mutual information. To learn this decomposition from data, we investigate the optimal feature representations associated with decomposed dependence modes and develop corresponding learning algorithms. Specifically, for stationary processes, we demonstrate applications of the learned features in computing optimal Markov approximation and testing the order of Markov processes.}
+}
+
+@article{xzaAllerton23,
+    abbr= {Allerton},
+    bibtex_show={true},
+    title={Neural Feature Learning for Engineering Problems.},
+    author={Xu, Xiangxiang and Zheng, Lizhong and Agrawal, Ishank},
+    journal =allerton,
+    year = {2023},
+    html ={https://ieeexplore.ieee.org/document/10313476},
+    abstract = {Using deep neural networks as elements of engineering solutions can potentially enhance the overall performance of the system. However, most existing practices that use DNNs as black boxes make integrating DNN modules in engineering systems hard. In this paper, we address one of such difficulties: in engineering solutions, we often look for parameterized solutions that perform well in a collection of scenarios. In most problems, this means the DNN modules are trained and used in different environments. Instead of using a transfer learning or multi-task learning formulation, which are common in the literature, we argue that such problems are intrinsically about the multivariate dependence between the input, the target, and the environment parameters. Using an example of symbol detection over wireless fading channels with interference, we demonstrate that such problems can generally be formulated as a decomposition of multivariate dependence. We establish a geometric structure for the space of feature functions, based on which we develop new metrics to measure the information contents of features. We also develop some basic neural network architectures to perform geometric operations on features. With these building blocks, we discuss the steps to build a receiver that does not require any online training but can adapt to different fading scenarios when given the channel state information (CSI). We also discuss some key issues and steps to include DNN modules in general engineering systems.}
+}
+
+@article{erolISIT23,
+    abbr= {ISIT},
+    bibtex_show={true},
+    title={On Semi-Supervised Estimation of Distributions.},
+    author={Erol, H.S. Melihcan and Sula, Erixhen and Zheng, Lizhong and Agrawal, Ishank},
+    journal =isit,
+    year = {2023},
+    html ={https://ieeexplore.ieee.org/document/10206752},
+    abstract = {We study the problem of estimating the joint probability mass function (pmf) over two random variables. In particular, the estimation is based on the observation of m samples containing both variables and n samples missing one fixed variable. We adopt the minimax framework with l^p loss functions, and we show that the composition of uni-variate minimax estimators achieves minimax risk with the optimal first-order constant for p ≥ 2, in the regime m = o(n).}
+}
+
+@article{xxlISIT23,
+    abbr= {ISIT},
+    bibtex_show={true},
+    title={Kernel Subspace and Feature Extraction.},
+    author={Xu, Xiangxiang and Zheng, Lizhong and Agrawal, Ishank},
+    journal =isit,
+    year = {2023},
+    html ={https://ieeexplore.ieee.org/document/10206532},
+    abstract = {We study kernel methods in machine learning from the perspective of feature subspace. We establish a one-to-one correspondence between feature subspaces and kernels and propose an information-theoretic measure for kernels. In particular, we construct a kernel from Hirschfeld–Gebelein–Rényi maximal correlation functions, coined the maximal correlation kernel, and demonstrate its information-theoretic optimality. We use the support vector machine (SVM) as an example to illustrate a connection between kernel methods and feature extraction approaches. We show that the kernel SVM on maximal correlation kernel achieves minimum prediction error. Finally, we interpret the Fisher kernel as a special maximal correlation kernel and establish its optimality.}
+}
+
+@article{huangFN24,
+    abbr= {FN},
+    bibtex_show={true},
+    title={Universal Features for High-Dimensional Learning and Inference},
+    author={Huang, Shao-Lun and Makur, Anuran and Wornell, Gregory W. and Zheng, Lizhong},
+    journal ={Foundations and Trends, in Communications and Information Theory},
+    volume =  {21},
+    number = {1-2},
+    pages = {1-299},
+    html = {https://www.nowpublishers.com/article/Details/CIT-107},
+    publisher = {NOW publishers},
+    year = {2024},
+    abstract ={This monograph develops unifying perspectives on the problem of identifying universal low-dimensional features from high-dimensional data for inference tasks in settings involving learning. For such problems, natural notions of universality are introduced, and a local equivalence among them is established. The analysis is naturally expressed via information geometry, which provides both conceptual and computational insights. The development reveals the complementary roles of the singular value decomposition, Hirschfeld-Gebelein-Rényi maximal correlation, the canonical correlation and principle component analyses of Hotelling and Pearson, Tishby’s information bottleneck, Wyner’s and Gács-Körner common information, Ky Fan k-norms, and Breiman and Friedman’s alternating conditional expectations algorithm. Among other uses, the framework facilitates understanding and optimizing aspects of learning systems, including multinomial logistic (softmax) regression and neural network architecture, matrix factorization methods for collaborative filtering and other applications, rank-constrained multivariate linear regression, and forms of semi-supervised learning.},
+    selected = {true}
+}
+@article{jereJSTSP24,
+    abbr= {JSTSP},
+    bibtex_show={true},
+    title={Universal Approximation of Linear Time-Invariant (LTI) Systems through RNNs: Power of Randomness in Reservoir Computing},
+    author={Jere, Shashank and  Zheng, Lizhong and Said, Karim and Liu, Lingjia},
+    journal ={IEEE Journal of Selected Topics in Signal Processing},
+    pages = {1-14},
+    html = {https://arxiv.org/abs/2308.02464},
+    year = {2024},
+    abstract ={Recurrent neural networks (RNNs) are known to be universal approximators of dynamic systems under fairly mild and general assumptions. However, RNNs usually suffer from the issues of vanishing and exploding gradients in standard RNN training. Reservoir computing (RC), a special RNN where the recurrent weights are randomized and left untrained, has been introduced to overcome these issues and has demonstrated superior empirical performance especially in scenarios where training samples are extremely limited. On the other hand, the theoretical grounding to support this observed performance has not yet been fully developed. In this work, we show that RC can universally approximate a general linear time-invariant (LTI) system. Specifically, we present a clear signal processing interpretation of RC and utilize this understanding in the problem of approximating a generic LTI system. Under this setup, we analytically characterize the optimum probability density function for configuring (instead of training and/or randomly generating) the recurrent weights of the underlying RNN of the RC. Extensive numerical evaluations are provided to validate the optimality of the derived distribution for configuring the recurrent weights of the RC to approximate a general LTI system. Our work results in clear signal processing-based model interpretability of RC and provides theoretical explanation/justification for the power of randomness in randomly generating instead of training RC's recurrent weights. Furthermore, it provides a complete optimum analytical characterization for configuring the untrained recurrent weights, marking an important step towards explainable machine learning (XML) to incorporate domain knowledge for efficient learning.}
+}
+
+@article{liTWC23,
+    abbr= {TWC},
+    bibtex_show={true},
+    title={Real-Time Machine Learning for Multi-User Massive MIMO: Symbol Detection Using Multi-Mode StructNet},
+    author={Li, Lianjun and Xu, Jiarui and  Zheng, Lizhong and Liu, Lingjia},
+    journal = twc,
+    volume ={22},
+    number ={12},
+    pages = {9172-9186},
+    html = {https://ieeexplore.ieee.org/document/10109683},
+    year = {2023},
+    abstract ={In this paper, we develop a learning-based symbol detection algorithm for massive MIMO-OFDM systems. To exploit the structure information inherited in the received signals from massive antenna array, multi-mode reservoir computing is adopted as the building block to facilitate over-the-air training in time domain. In addition, alternating recursive least square optimization method, and decision feedback mechanism are utilized in our algorithm to achieve the real-time learning capability. That is, the neural network is trained purely online with its weights updated on an OFDM symbol basis to promptly and adaptively track the dynamic environment. Furthermore, an online learning-based module is devised to compensate the nonlinear distortion caused by RF circuit components. On top of that, a learning-efficient classifier named StructNet is introduced in frequency domain to further improve the symbol detection performance by utilizing the QAM constellation structural pattern. Evaluation results demonstrate that our algorithm achieves substantial gain over traditional model-based approach and state-of-the-art learning-based techniques under dynamic channel environment and RF circuit nonlinear distortion. Moreover, empirical result reveals our NN model is robust to training label error, which benefits the decision feedback mechanism.}
+}
+@article{jereTWC23,
+    abbr= {TWC},
+    bibtex_show={true},
+    title={Channel Equalization Through Reservoir Computing: A Theoretical Perspective.},
+    author={Jere, Shashank and Safavinejad, Ramin and  Zheng, Lizhong and Liu, Lingjia},
+    journal = twc,
+    volume ={12},
+    number ={5},
+    pages = {774-778},
+    html = {https://ieeexplore.ieee.org/document/10009000},
+    year = {2023},
+    abstract ={Deep learning practice, including in wireless communications, often relies on trial and error to optimize neural network (NN) structures and their corresponding hyperparameters. We show that Reservoir Computing, especially the Echo State Network (ESN), is an ideal learning-based equalizer for a general fading channel and for an ESN equalizing a channel with known statistics, theoretically derive its optimum reservoir weights which are randomly initialized in state-of-the-art and lack interpretability. The theoretical results are validated with simulations. In contrast to existing literature, this letter analytically adapts the NN structure to the problem being addressed, guaranteeing optimum equalization under known channel statistics.}
+}
+
+@article{jereMilcom23,
+  abbr = {Milcom},
+  bibtex_show={true},
+  author={Jere, Shashank and Said, Karim and Zheng, Lizhong and Liu, Lingjia},
+  journal = milcom, 
+  title={Towards Explainable Machine Learning: The Effectiveness of Reservoir Computing in Wireless Receive Processing}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={667-672},
+  keywords={Wireless communication;Military communication;Equalizers;Computational modeling;XML;Signal processing;Reservoirs;Deep learning;reservoir computing;echo state network;equalization;receive processing;symbol detection;model interpretability and explainable machine learning},
+  doi={10.1109/MILCOM58377.2023.10356295},
+  html={https://ieeexplore.ieee.org/document/10356295},
+  abstract ={Deep learning has seen a rapid adoption in a variety of wireless communications applications, including at the physical layer. While it has delivered impressive performance in tasks such as channel equalization and receive processing/symbol detection, it leaves much to be desired when it comes to explaining this superior performance. In this work, we investigate the specific task of channel equalization by applying a popular learning-based technique known as Reservoir Computing (RC), which has shown superior performance compared to conventional methods and other learning-based approaches. Specifically, we apply the echo state network (ESN) as a channel equalizer and provide a first principles-based signal processing understanding of its operation. With this groundwork, we incorporate the available domain knowledge in the form of the statistics of the wireless channel directly into the weights of the ESN model. This paves the way for optimized initialization of the ESN model weights, which are traditionally untrained and randomly initialized. Finally, we show the improvement in receive processing/symbol detection performance with this optimized initialization through simulations. This is a first step towards explainable machine learning (XML) and assigning practical model interpretability that can be utilized together with the available domain knowledge to improve performance and enhance detection reliability.}
+}
+
+@article{xxEntropy22,
+  abbr={Entropy},
+  bibtex_show={true},
+  AUTHOR = {Xu, Xiangxiang and Huang, Shao-Lun and Zheng, Lizhong and Wornell, Gregory W.},
+  TITLE = {An Information Theoretic Interpretation to Deep Neural Networks},
+  JOURNAL = {Entropy},
+  VOLUME = {24},
+  YEAR = {2022},
+  NUMBER = {1},
+  ARTICLE-NUMBER = {135},
+  HTML = {https://www.mdpi.com/1099-4300/24/1/135},
+  PubMedID = {35052161},
+  ISSN = {1099-4300},
+  ABSTRACT = {With the unprecedented performance achieved by deep learning, it is commonly believed that deep neural networks (DNNs) attempt to extract informative features for learning tasks. To formalize this intuition, we apply the local information geometric analysis and establish an information-theoretic framework for feature selection, which demonstrates the information-theoretic optimality of DNN features. Moreover, we conduct a quantitative analysis to characterize the impact of network structure on the feature extraction process of DNNs. Our investigation naturally leads to a performance metric for evaluating the effectiveness of extracted features, called the H-score, which illustrates the connection between the practical training process of DNNs and the information-theoretic framework. Finally, we validate our theoretical results by experimental designs on synthesized data and the ImageNet dataset.},
+  DOI = {10.3390/e24010135}
+}
+
+@article{jiaruiTWC22,
+  abbr={TWC},
+  bibtex_show={true},
+  author={Xu, Jiarui and Zhou, Zhou and Li, Lianjun and Zheng, Lizhong and Liu, Lingjia},
+  journal=twc, 
+  title={RC-Struct: A Structure-Based Neural Network Approach for MIMO-OFDM Detection}, 
+  year={2022},
+  volume={21},
+  number={9},
+  pages={7181-7193},
+  keywords={Wireless communication;Training;Artificial neural networks;Modulation;OFDM;Time-frequency analysis;Time-domain analysis;MIMO-OFDM receive processing;neural networks;structure knowledge;online learning;5G;5G-advanced and QAM constellation},
+  doi={10.1109/TWC.2022.3155945},
+  html={https://ieeexplore.ieee.org/document/9745828},
+  abstract={In this paper, we introduce a structure-based neural network architecture, namely RC-Struct, for MIMO-OFDM symbol detection. The RC-Struct exploits the temporal structure of the MIMO-OFDM signals through reservoir computing (RC). A binary classifier leverages the repetitive constellation structure in the system to perform multi-class detection. The incorporation of RC allows the RC-Struct to be learned in a purely online fashion with extremely limited pilot symbols in each OFDM subframe. The binary classifier enables the efficient utilization of the precious online training symbols and allows an easy extension to high-order modulations without a substantial increase in complexity. Experiments show that the introduced RC-Struct outperforms both the conventional model-based symbol detection approaches and the state-of-the-art learning-based strategies in terms of bit error rate (BER). The advantages of RC-Struct over existing methods become more significant when rank and link adaptation are adopted. The introduced RC-Struct sheds light on combining communication domain knowledge and learning-based receive processing for 5G/5G-Advanced and Beyond.}
+}
+
+@article{tongNeurIPS21,
+  abbr={NeurIPS},
+  bibtex_show={true},
+  author = {Tong, Xinyi and Xu, Xiangxiang and Huang, Shao-Lun and Zheng, Lizhong},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS 2021)},
+  editor = {M. Ranzato and A. Beygelzimer and Y. Dauphin and P.S. Liang and J. Wortman Vaughan},
+  pages = {26103--26116},
+  publisher = {Curran Associates, Inc.},
+  title = {A Mathematical Framework for Quantifying Transferability in Multi-source Transfer Learning},
+  html = {https://proceedings.neurips.cc/paper_files/paper/2021/file/db9ad56c71619aeed9723314d1456037-Paper.pdf},
+  volume = {34},
+  year = {2021},
+  abstract = {Current transfer learning algorithm designs mainly focus on the similarities between source and target tasks, while the impacts of the sample sizes of these tasks are often not sufficiently addressed. This paper proposes a mathematical framework for quantifying the transferability in multi-source transfer learning problems, with both the task similarities and the sample complexity of learning models taken into account. In particular, we consider the setup where the models learned from different tasks are linearly combined for learning the target task, and use the optimal combining coefficients to measure the transferability. Then, we demonstrate the analytical expression of this transferability measure, characterized by the sample sizes, model complexity, and the similarities between source and target tasks, which provides fundamental insights of the knowledge transferring mechanism and the guidance for algorithm designs. Furthermore, we apply our analyses for practical learning tasks, and establish a quantifiable transferability measure by exploiting a parameterized model. In addition, we develop an alternating iterative algorithm to implement our theoretical results for training deep neural networks in multi-source transfer learning tasks. Finally, experiments on image classification tasks show that our approach outperforms existing transfer learning algorithms in multi-source and few-shot scenarios.}
+}
+
+@article{huangJSAIT17,
+  abbr={JSAIT},
+  bibtex_show={true},
+  author={Huang, Shao-Lun and Xu, Xiangxiang and Zheng, Lizhong},
+  journal={IEEE Journal on Selected Areas in Information Theory}, 
+  title={An Information-Theoretic Approach to Unsupervised Feature Selection for High-Dimensional Data}, 
+  year={2020},
+  volume={1},
+  number={1},
+  pages={157-166},
+  keywords={Random variables;Correlation;Information theory;Data mining;Principal component analysis;Unsupervised learning;Eigenvalues and eigenfunctions;Alternating conditional expectations algorithm;information geometry;informative representation;total correlation;unsupervised learning},
+  doi={10.1109/JSAIT.2020.2981538}, 
+  html ={https://ieeexplore.ieee.org/document/9039588},
+  abstract ={In this paper, we propose an information-theoretic approach to design the functional representations to extract the hidden common structure shared by a set of random variables. The main idea is to measure the common information between the random variables by Watanabe's total correlation, and then find the hidden attributes of these random variables such that the common information is reduced the most given these attributes. We show that these attributes can be characterized by an exponential family specified by the eigen-decomposition of some pairwise joint distribution matrix. Then, we adopt the log-likelihood functions for estimating these attributes as the desired functional representations of the random variables, and show that such representations are informative to describe the common structure. Moreover, we design both the multivariate alternating conditional expectation (MACE) algorithm to compute the proposed functional representations for discrete data, and a novel neural network training approach for continuous or high-dimensional data. Furthermore, we show that our approach has deep connections to existing techniques, such as Hirschfeld-Gebelein-Rényi (HGR) maximal correlation, linear principal component analysis (PCA), and consistent functional map, which establishes insightful connections between information theory and machine learning. Finally, the performances of our algorithms are validated by numerical simulations.}
+}
+
+@article{chungTIT18,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Chung, Hye Won and Sadler, Brian M. and Zheng, Lizhong and Hero, Alfred O.},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Unequal Error Protection Querying Policies for the Noisy 20 Questions Problem}, 
+  year={2018},
+  volume={64},
+  number={2},
+  pages={1105-1131},
+  keywords={Noise measurement;Encoding;Error correction codes;Estimation error;Games;Random variables;Noisy 20 questions problem;estimation;superposition coding;unequal error protection;error exponents},
+  doi={10.1109/TIT.2017.2760634},
+  html ={https://ieeexplore.ieee.org/document/8060545},
+  abstract ={In this paper, we propose an open-loop unequal-error-protection querying policy based on superposition coding for the noisy 20 questions problem. In this problem, a player wishes to successively refine an estimate of the value of a continuous random variable by posing binary queries and receiving noisy responses. When the queries are designed non-adaptively as a single block and the noisy responses are modeled as the output of a binary symmetric channel, the 20 questions problem can be mapped to an equivalent problem of channel coding with unequal error protection (UEP). A new non-adaptive querying strategy based on UEP superposition coding is introduced, whose estimation error decreases with an exponential rate of convergence that is significantly better than that of the UEP repetition coding introduced by Variani et al. (2015). With the proposed querying strategy, the rate of exponential decrease in the number of queries matches the rate of a closed-loop adaptive scheme, where queries are sequentially designed with the benefit of feedback. Furthermore, the achievable error exponent is significantly better than that of random block codes employing equal error protection.}
+}
+@article{makurTIT18,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Makur, Anuran and Zheng, Lizhong},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Polynomial Singular Value Decompositions of a Family of Source-Channel Models}, 
+  year={2017},
+  volume={63},
+  number={12},
+  pages={7716-7728},
+  keywords={Correlation;Density measurement;Hilbert space;Random variables;Loss measurement;Probability density function;Singular value decomposition;Singular value decomposition;natural exponential family;conjugate prior;orthogonal polynomials},
+  doi={10.1109/TIT.2017.2760626},
+  html ={https://ieeexplore.ieee.org/abstract/document/8060600},
+  abstract = {In this paper, we show that the conditional expectation operators corresponding to a family of source-channel models, defined by natural exponential families with quadratic variance functions and their conjugate priors, have orthonormal polynomials as singular vectors. These models include the Gaussian channel with Gaussian source, the Poisson channel with gamma source, and the binomial channel with beta source. To derive the singular vectors of these models, we prove and employ the equivalent condition that their conditional moments are strictly degree preserving polynomials.}
+}
+
+@article{ligongTIT16,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Wang, Ligong and Wornell, Gregory W. and Zheng, Lizhong},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Fundamental Limits of Communication With Low Probability of Detection}, 
+  year={2016},
+  volume={62},
+  number={6},
+  pages={3493-3503},
+  keywords={Transmitters;Receivers;Entropy;AWGN channels;Monte Carlo methods;Memoryless systems;Switches;Low probability of detection;covert communication;information-theoretic security;Fisher information;Low probability of detection;covert communication;information-theoretic security;Fisher information},
+  doi={10.1109/TIT.2016.2548471},
+  html ={https://ieeexplore.ieee.org/document/7447769},
+  abstract ={This paper considers the problem of communication over a discrete memoryless channel (DMC) or an additive white Gaussian noise (AWGN) channel subject to the constraint that the probability that an adversary who observes the channel outputs can detect the communication is low. In particular, the relative entropy between the output distributions when a codeword is transmitted and when no input is provided to the channel must be sufficiently small. For a DMC whose output distribution induced by the “off” input symbol is not a mixture of the output distributions induced by other input symbols, it is shown that the maximum amount of information that can be transmitted under this criterion scales like the square root of the blocklength. The same is true for the AWGN channel. Exact expressions for the scaling constant are also derived.}
+}
+
+@article{chungTIT16,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Chung, Hye Won and Guha, Saikat and Zheng, Lizhong},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Superadditivity of Quantum Channel Coding Rate With Finite Blocklength Joint Measurements}, 
+  year={2016},
+  volume={62},
+  number={10},
+  pages={5938-5959},
+  keywords={Receivers;Channel coding;Decoding;Information rates;Monte Carlo methods;Measurement uncertainty;Pure-state classical input-quantum output (cq) channel;Holevo capacity;superadditivity of capacity;joint measurement;concatenated codes},
+  doi={10.1109/TIT.2016.2597285},
+  html={https://ieeexplore.ieee.org/document/7529100},
+  abstract ={The maximum rate at which classical information can be reliably transmitted per use of a quantum channel strictly increases in general with N , the number of channel outputs that are detected jointly by the quantum joint-detection receiver (JDR). This phenomenon is known as superadditivity of the maximum achievable information rate over a quantum channel. We study this phenomenon for a pure-state classical-quantum channel and provide a lower bound on C_N /N, the maximum information rate when the JDR is restricted to making joint measurements over no more than N quantum channel outputs, while allowing arbitrary classical error correction. We also show the appearance of a superadditivity phenomenon-of mathematical resemblance to the aforesaid problem-in the channel capacity of a classical discrete memoryless channel when a concatenated coding scheme is employed, and the inner decoder is forced to make hard decisions on N -length inner codewords. Using this correspondence, we develop a unifying framework for the above two notions of superadditivity, and show that for our lower bound to C_N /N to be equal to a given fraction of the asymptotic capacity C of the respective channel, N must be proportional to V/C 2 , where V is the respective channel dispersion quantity}
+}
+
+@article{KCJSAC16,
+  abbr={JSAC},
+  bibtex_show={true},
+  author={Chen, Kwang-Cheng and Huang, Shao-Lun and Zheng, Lizhong and Poor, H. Vincent},
+  journal={IEEE Journal on Selected Areas in Communications}, 
+  title={Communication Theoretic Data Analytics}, 
+  year={2015},
+  volume={33},
+  number={4},
+  pages={663-675},
+  keywords={Data analysis;Social network services;Equalizers;Indexes;Data mining;Data models;Knowledge discovery;big data;social networks;data analysis;communication theory;information theory;information coupling;equalization;information fusion;data mining;knowledge discovery;information centric processing;Big data;social networks;data analysis;communication theory;information theory;information coupling;equalization;information fusion;data mining;knowledge discovery;information centric processing},
+  doi={10.1109/JSAC.2015.2393471},
+  html ={https://ieeexplore.ieee.org/document/7012041},
+  abstract ={Widespread use of the Internet and social networks invokes the generation of big data, which is proving to be useful in a number of applications. To deal with explosively growing amounts of data, data analytics has emerged as a critical technology related to computing, signal processing, and information networking. In this paper, a formalism is considered in which data are modeled as a generalized social network and communication theory and information theory are thereby extended to data analytics. First, the creation of an equalizer to optimize information transfer between two data variables is considered, and financial data are used to demonstrate the advantages of this approach. Then, an information coupling approach based on information geometry is applied for dimensionality reduction, with a pattern recognition example to illustrate the effectiveness of this formalism. These initial trials suggest the potential of communication theoretic data analytics for a wide range of applications.}
+}
+
+@article{huangTIT15,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Huang, Shao-Lun and Suh, Changho and Zheng, Lizhong},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Euclidean Information Theory of Networks}, 
+  year={2015},
+  volume={61},
+  number={12},
+  pages={6795-6814},
+  keywords={Approximation methods;Spread spectrum communication;Couplings;Optimization;Receivers;Throughput;Linear Information Coupling (LIC) Problem;Divergence Transition Matrix (DTM);Kullback-Leibler Divergence Approximation;Deterministic Model;Feedback;Linear information coupling (LIC) problem;divergence transition matrix (DTM);Kullback-Leibler divergence approximation;deterministic model;feedback},
+  doi={10.1109/TIT.2015.2484066},
+  html ={https://ieeexplore.ieee.org/document/7283641},
+  abstract ={In this paper, we extend the information theoretic framework that was developed in earlier works to multi-hop network settings. For a given network, we construct a novel deterministic model that quantifies the ability of the network in transmitting private and common messages across users. Based on this model, we formulate a linear optimization problem that explores the throughput of a multi-layer network, thereby offering the optimal strategy as to what kind of common messages should be generated in the network to maximize the throughput. With this deterministic model, we also investigate the role of feedback for multi-layer networks, from which we identify a variety of scenarios in which feedback can improve transmission efficiency. Our results provide fundamental guidelines as to how to coordinate cooperation between users to enable efficient information exchanges across them.}
+}
+
+@article{chanTIT14,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Chan, Chung and Zheng, Lizhong},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Multiterminal Secret Key Agreement}, 
+  year={2014},
+  volume={60},
+  number={6},
+  pages={3379-3412},
+  keywords={Emulation;Channel models;Entropy;Network coding;Upper bound;Laboratories;Educational institutions;Secret key agreement;general multiterminal network;secrecy capacity;pure and mixed source emulations},
+  doi={10.1109/TIT.2014.2313566},
+  html ={https://ieeexplore.ieee.org/document/6803068},
+  abstract ={The problem of secret key agreement by public discussion is studied under a general multiterminal network, where each user can both send and receive over a private channel. Single-letter upper and lower bounds are for the maximum achievable key rate. The bounds are shown to match for a large class of private channels. A counter-example shows that the bounds do not match in general, and a better cooperative scheme can narrow the gap.}
+}
+@article{barisTIT13,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Nakiboğlu, Bariş and Gorantla, Siva K. and Zheng, Lizhong and Coleman, Todd P.},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Bit-Wise Unequal Error Protection for Variable-Length Block Codes With Feedback}, 
+  year={2013},
+  volume={59},
+  number={3},
+  pages={1475-1504},
+  abstract={The bit-wise unequal error protection problem, for the case when the number of groups of bits ${\ell}$  is fixed, is considered for variable-length block codes with feedback. An encoding scheme based on fixed-length block codes with erasures is used to establish inner bounds to the achievable performance for finite expected decoding time. A new technique for bounding the performance of variable-length block codes is used to establish outer bounds to the performance for a given expected decoding time. The inner and the outer bounds match one another asymptotically and characterize the achievable region of rate-exponent vectors, completely. The single-message message-wise unequal error protection problem for variable-length block codes with feedback is also solved as a necessary step on the way.},
+  keywords={Block codes;Decoding;Error probability;Vectors;Markov processes;Random variables;Error correction codes;Block codes;Burnashev's exponent;discrete memoryless channels (DMCs);error exponents;errors- and-erasures decoding variable-length block coding;feedback;Kudryashov's signaling;unequal error protection (UEP);variable-length communication;Yamamoto–Itoh scheme},
+  doi={10.1109/TIT.2012.2227671},
+  ISSN={1557-9654},
+  month={March},
+  html ={https://ieeexplore.ieee.org/document/6355688}
+ }
+ 
+ @article{shashiTIT12,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Borade, Shashi and Zheng, Lizhong},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Writing on Fading Paper, Dirty Tape With Little Ink: Wideband Limits for Causal Transmitter CSI}, 
+  year={2012},
+  volume={58},
+  number={8},
+  pages={5388-5397},
+  abstract={A wideband Rayleigh fading channel is considered with causal channel state information (CSI) at the transmitter and no receiver CSI. A simple orthogonal code with energy detection rule at the receiver (similar to pulse position modulation in IEEE Trans. Inf. Theory, vol. 46, no. 4, Apr. 2000 and IEEE Trans. Inf. Theory, vol. 52 no. 5, May 2006) is shown to achieve the capacity of this channel in the wideband limit. This strategy transmits energy only when the channel gain exceeds a threshold, hence only needs causal transmitter CSI. In the wideband limit, this capacity without any receiver CSI is the same as the capacity with full receiver CSI, which is proportional to the logarithm of the bandwidth. Similar threshold-based pulse position modulation is shown to achieve the capacity per unit cost of the dirty-tape channel (dirty paper channel with causal transmitter CSI and no receiver CSI), which equals its capacity per unit cost with full receiver CSI. Then, a general discrete channel with i.i.d. states is considered. Each input has an associated cost and a zero cost input “0” exists. The channel state is assumed to be known at the transmitter in a causal manner. Capacity per unit cost is found for this channel and a simple orthogonal code is shown to achieve this capacity. Later, a novel orthogonal coding scheme is proposed for the case of causal transmitter CSI and a condition for equivalence of capacity per unit cost for causal and noncausal transmitter CSI is derived.},
+  keywords={Transmitters;Receivers;Fading;Wideband;Encoding;Interference;Capacity per unit cost;causal channel state information (CSI);dirty paper channel;dirty tape;low SNR;opportunistic communication;orthogonal code;transmitter CSI (CSIT);wideband channel},
+  doi={10.1109/TIT.2012.2201330},
+  ISSN={1557-9654},
+  month={Aug},
+  html ={https://ieeexplore.ieee.org/document/6204335}
+}
+
+@article{abbeTIT12,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Abbe, Emmanuel and Zheng, Lizhong},
+  journal={IEEE Transactions on Information Theory}, 
+  title={A Coordinate System for Gaussian Networks}, 
+  year={2012},
+  volume={58},
+  number={2},
+  pages={721-733},
+  abstract={This paper investigates network information theory problems where the external noise is Gaussian distributed. In particular, the Gaussian broadcast channel with coherent fading and the Gaussian interference channel are considered. It is shown that in these problems, non-Gaussian code ensembles can achieve higher rates than the Gaussian ones. It is also shown that the strong Shamai-Laroia conjecture on the Gaussian ISI channel does not hold. In order to analyze non-Gaussian code ensembles over Gaussian networks, a geometrical tool using the Hermite polynomials is proposed. This tool provides a coordinate system to analyze a class of non-Gaussian input distributions that are invariant over Gaussian networks.},
+  keywords={Fading;Interference;Gaussian distribution;Polynomials;Gaussian noise;Receivers;Broadcast channel;Gaussian channels;Hermite polynomials;information geometry;interference;network information theory},
+  doi={10.1109/TIT.2011.2169536},
+  ISSN={1557-9654},
+  month={Feb},
+  html ={https://ieeexplore.ieee.org/document/6145470}
+}
+@article{barisTIT12,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Nakiboğlu, Bariş and Zheng, Lizhong},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Errors-and-Erasures Decoding for Block Codes With Feedback}, 
+  year={2012},
+  volume={58},
+  number={1},
+  pages={24-49},
+  abstract={Inner and outer bounds are derived on the optimal performance of fixed-length block codes on discrete memoryless channels with feedback and errors-and-erasures decoding. First, an inner bound is derived using a two-phase encoding scheme with communication and control phases together with the optimal decoding rule for the given encoding scheme, among decoding rules that can be represented in terms of pairwise comparisons between the messages. Then, an outer bound is derived using a generalization of the straight-line bound to errors-and-erasures decoders and the optimal error-exponent tradeoff of a feedback encoder with two messages. In addition, upper and lower bounds are derived, for the optimal erasure exponent of error-free block codes in terms of the rate. Finally, a proof is provided for the fact that the optimal tradeoff between error exponents of a two-message code does not improve with feedback on discrete memoryless channels (DMCs).},
+  keywords={Decoding;Block codes;Monte Carlo methods;Transmitters;Receivers;Upper bound;Decision feedback;discrete memoryless channels (DMCs);error exponent;errors-and-erasures decoding;feedback;feedback encoding schemes;soft decoding;two-phase encoding schemes;variable-length coding},
+  doi={10.1109/TIT.2011.2169529},
+  ISSN={1557-9654},
+  month={Jan},
+  html ={https://ieeexplore.ieee.org/document/6121997}
+}
+@article{krishnaTIT12,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Jagannathan, Krishna and Modiano, Eytan and Zheng, Lizhong},
+  journal={IEEE Transactions on Information Theory}, 
+  title={On the Role of Queue Length Information in Network Control}, 
+  year={2011},
+  volume={57},
+  number={9},
+  pages={5884-5896},
+  abstract={We study the role played by queue length information in the operation of flow control and server allocation policies. We first consider a simple model of a single server queue with congestion-based flow control. The input rate at any instant is decided by a flow control policy, based on the queue occupancy. We identify a simple “two-threshold” control policy, which achieves the best possible exponential scaling for the queue congestion probability, for any rate of control. We show that when the control channel is reliable, the control rate needed to ensure the optimal decay exponent for the congestion probability can be made arbitrarily small. However, if control channel erasures occur probabilistically, we show the existence of a critical erasure probability threshold beyond which the congestion probability undergoes a drastic increase due to the frequent loss of control packets. We also determine the optimal amount of error protection to apply to the control signals by using a simple bandwidth sharing model. Finally, we show that the queue length based server allocation problem can also be treated using this framework and that the results obtained for the flow control setting can also be applied to the server allocation case.},
+  keywords={Throughput;Resource management;Servers;Steady-state;Markov processes;Observers;Control systems;Buffer overflow;congestion control;large deviations;queue length information;resource allocation},
+  doi={10.1109/TIT.2011.2162155},
+  ISSN={1557-9654},
+  month={Sep.},
+  html ={https://ieeexplore.ieee.org/document/6006587}
+}
+@article{abbeTIT10,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Abbe, Emmanuel and Zheng, Lizhong},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Linear Universal Decoding for Compound Channels}, 
+  year={2010},
+  volume={56},
+  number={12},
+  pages={5999-6013},
+  abstract={Over discrete memoryless channels (DMC), linear decoders (maximizing additive metrics) afford several nice properties. In particular, if suitable encoders are employed, the use of decoding algorithms with manageable complexities is permitted. For a compound DMC, decoders that perform well without the channel's knowledge are required in order to achieve capacity. Several such decoders have been studied in the literature, however, there is no such known decoder which is linear. Hence, the problem of finding linear decoders achieving capacity for compound DMC is addressed, and it is shown that under minor concessions, such decoders exist and can be constructed. A geometric method based on the very noisy transformation is developed and used to solve this problem.},
+  keywords={Memoryless systems;Information geometry;Noise measurement;Maximum likelihood detection;Decoding;Additive decoders;compound channels;hypothesis testing;information geometry;mismatch;universal decoders},
+  doi={10.1109/TIT.2010.2080910},
+  ISSN={1557-9654},
+  month={Dec},
+  html ={https://ieeexplore.ieee.org/document/5625623}
+}
+@article{shashiTIT10,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Borade, Shashi and Zheng, Lizhong},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Wideband Fading Channels With Feedback}, 
+  year={2010},
+  volume={56},
+  number={12},
+  pages={6058-6065},
+  abstract={The Rayleigh flat fading channel at low SNR is considered. With full channel state information (CSI) at the transmitter and receiver, its capacity is shown to be essentially SNR log(1SNR) nats/symbol, as SNR goes to zero. In fact, this rate can be achieved with a just one bit of CSI at the transmitter (per fading realization) and with no receiver CSI. The capacity for the case of noisy transmitter CSI is also found. Then a Rayleigh block fading channel of coherence interval T ≤ 1/ SNR is considered which has causal feedback and no a priori CSI. A training based scheme is proposed for such channels, which achieves a rate of SNR logT nats/symbol in the limit of small SNR and large T. Thus, when coherence interval T is of the order 1/SNR, without any a priori CSI at either end, the capacity with full CSI at both ends is achievable. For smaller values of T, a rate of SNR logT nats/symbol is shown to be achievable.},
+  keywords={Fading;Channel state information;Coherence;Wideband;Signal to noise ratio;Feedback;Block fading;channel state information;coherence interval;fading channel;feedback capacity;low SNR;noisy CSI;wideband},
+  doi={10.1109/TIT.2010.2080490},
+  ISSN={1557-9654},
+  month={Dec},
+  html ={https://ieeexplore.ieee.org/document/5625617}
+}
+@article{shashiTIT09,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Borade, Shashi and Nakiboğlu, Bariş and Zheng, Lizhong},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Unequal Error Protection: An Information-Theoretic Perspective}, 
+  year={2009},
+  volume={55},
+  number={12},
+  pages={5511-5539},
+  abstract={An information-theoretic framework for unequal error protection is developed in terms of the exponential error bounds. The fundamental difference between the bit-wise and message-wise unequal error protection ( UEP) is demonstrated, for fixed-length block codes on discrete memoryless channels (DMCs) without feedback. Effect of feedback is investigated via variable-length block codes. It is shown that, feedback results in a significant improvement in both bit-wise and message-wise UEPs (except the single message case for missed detection). The distinction between false-alarm and missed-detection formalizations for message-wise UEP is also considered. All results presented are at rates close to capacity.},
+  keywords={Error correction codes;Protection;Block codes;Feedback;Information theory;Wireless networks;Communication system control;Payloads;Decoding;Memoryless systems;Block codes;blowing-up lemma;error exponents;false alarm;feedback;missed detection;unequal error protection (UEP);variable-length block coding},
+  doi={10.1109/TIT.2009.2032819},
+  ISSN={1557-9654},
+  month={Dec},
+  html ={https://ieeexplore.ieee.org/document/5319734}
+}
+@article{shashiTIT07,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Borade, Shashibhushan and Zheng, Lizhong and Gallager, Robert},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Amplify-and-Forward in Wireless Relay Networks: Rate, Diversity, and Network Size}, 
+  year={2007},
+  volume={53},
+  number={10},
+  pages={3302-3318},
+  abstract={A wireless network with fading and a single source-destination pair is considered. The information reaches the destination via multiple hops through a sequence of layers of single-antenna relays. At high signal-to-noise ratio (SNR), the simple amplify-and-forward strategy is shown to be optimal in terms of degrees of freedom, because it achieves the degrees of freedom equal to a point-to-point multiple-input multiple-output (MIMO) system. Hence, the lack of coordination in relay nodes does not reduce the achievable degrees of freedom. The performance of this amplify-and-forward strategy degrades with increasing network size. This phenomenon is analyzed by finding the tradeoffs between network size, rate, and diversity. A lower bound on the diversity-multiplexing tradeoff for concatenation of multiple random Gaussian matrices is obtained. Also, it is shown that achievable network size in the outage formulation (short codes) is a lot smaller than the ergodic formulation (long codes).},
+  keywords={MIMO;Receiving antennas;Wireless networks;Fading;Digital relays;Symmetric matrices;Signal to noise ratio;Decoding;Performance gain;Transmitting antennas;Cooperation;diversity;multiple antennas;multiple-input multiple-output (MIMO);random matrices;relay network},
+  doi={10.1109/TIT.2007.904774},
+  ISSN={1557-9654},
+  month={Oct},
+  html ={https://ieeexplore.ieee.org/document/4305387}
+}
+@article{rayTIT07,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Ray, Siddharth and Medard, Muriel and Zheng, Lizhong},
+  journal={IEEE Transactions on Information Theory}, 
+  title={On Noncoherent MIMO Channels in the Wideband Regime: Capacity and Reliability}, 
+  year={2007},
+  volume={53},
+  number={6},
+  pages={1983-2009},
+  abstract={ We consider a multiple-input multiple-output (MIMO) wideband Rayleigh block-fading channel where the channel state is unknown to both the transmitter and the receiver and there is only an average power constraint on the input. We compute the capacity and analyze its dependence on coherence length, number of antennas and receive signal-to-noise ratio (SNR) per degree of freedom. We establish conditions on the coherence length and number of antennas for the noncoherent channel to have a “near-coherent” performance in the wideband regime. We also propose a signaling scheme that is near-capacity achieving in this regime. We compute the error probability for this wideband noncoherent MIMO channel and study its dependence on SNR, number of transmit and receive antennas and coherence length. We show that error probability decays inversely with coherence length and exponentially with the product of the number of transmit and receive antennas. Moreover, channel outage dominates error probability in the wideband regime. We also show that the critical as well as cutoff rates are much smaller than channel capacity in this regime. },
+  keywords={MIMO;Wideband;Bandwidth;Signal to noise ratio;Rayleigh channels;Receiving antennas;Broadband antennas;Error probability;Information theory;AWGN;Energy efficiency;low signal-to-noise ratio (SNR);multiple-input multiple-output (MIMO);noncoherent;wideband channels},
+  doi={10.1109/TIT.2007.896869},
+  ISSN={1557-9654},
+  month={June},
+  html ={https://ieeexplore.ieee.org/document/4215148}
+}
+@article{zhengTIT07,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Zheng, Lizhong and Tse, David N. C. and Medard, Muriel},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Channel Coherence in the Low-SNR Regime}, 
+  year={2007},
+  volume={53},
+  number={3},
+  pages={976-997},
+  abstract={ Channel capacity in the limit of vanishing signal-to-noise ratio (SNR) per degree of freedom is known to be linear in SNR for fading and nonfading channels, regardless of channel state information at the receiver (CSIR). It has recently been shown that the significant engineering difference between the coherent and the noncoherent fading channels, including the requirement of peaky signaling and the resulting spectral efficiency, is determined by how the capacity limit is approached as SNR tends to zero, or in other words, the sublinear term in the capacity expression. In this paper, we show that this sublinear term is determined by the channel coherence level, which we define to quantify the relation between the SNR and the channel coherence time. This allows us to trace a continuum between the case with perfect CSIR and the case with no CSIR at all. Using this approach, we also evaluate the performance of suboptimal training schemes. },
+  keywords={Fading;AWGN;Channel state information;Rayleigh channels;Signal to noise ratio;Network address translation;Ultra wideband communication;Energy efficiency;Bandwidth;Channel state information (CSI);coherence level;energy efficiency;noncoherent;wideband communication},
+  doi={10.1109/TIT.2006.890777},
+  ISSN={1557-9654},
+  month={March},
+  html={https://ieeexplore.ieee.org/document/4106146}
+}
+@article{wenTIT05,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Yonggang Wen and Chan, V.W.S. and Lizhong Zheng},
+  journal={Journal of Lightwave Technology}, 
+  title={Efficient fault-diagnosis algorithms for all-optical WDM networks with probabilistic link failures}, 
+  year={2005},
+  volume={23},
+  number={10},
+  pages={3358-3371},
+  abstract={This paper investigates the fault-diagnosis problem for all-optical wavelength-division-multiplexing (WDM) networks. A family of failure-localization algorithms that exploit the unique properties of all-optical networks is proposed. Optical probe signals are sequentially sent along a set of designed lightpaths, and the network state is inferred from the result of this set of end-to-end measurements. The design objective is to minimize the diagnosis effort (e.g., the average number of probes) to locate failures. By establishing a mathematical equivalence between the fault-diagnosis problem and the source-coding problem in information theory, we obtain a tight lower bound for the minimum average number of probes per edge (of the network modeled as a graph) as H/sub b/(p), the entropy of the individual edges. Using the rich set of results from coding theory to solve the fault-diagnosis problem, it is shown that the "2/sup m/-splitting" probing scheme is optimum for the special case of single failure over a linear network. A class of near-optimum run-length probing schemes that have low computation complexity is then developed. Analytical and numerical results suggest that the average number of probes per edge for the run-length probing scheme is uniformly bounded above by (1+/spl epsiv/)H/sub b/(p) and converges to the entropy lower bound as the failure probability decreases. From an information-theoretic perspective, it is shown that the run-length probing scheme outperforms the greedy probing scheme of the same computational complexity. The investigation reveals a guideline for efficient fault-diagnosis schemes: Each probe should provide approximately 1 bit of information, and the total number of probes required is approximately equal to the entropy of the state of the network. This result provides an insightful guideline to reduce the overhead cost of fault management for all-optical networks and can further the understanding of the relationship between information entropy and network management. Several practical issues are also addressed in the implementation of run-length probing schemes over all-optical WDM networks.},
+  keywords={WDM networks;Probes;Entropy;All-optical networks;Guidelines;Wavelength division multiplexing;Optical fiber networks;Optical design;Signal design;Wavelength measurement;All-optical networks;fault diagnosis;fault management;network management;run-length code},
+  doi={10.1109/JLT.2005.855695},
+  ISSN={1558-2213},
+  month={Oct},
+  html ={https://ieeexplore.ieee.org/document/1522424}
+}
+@article{tseTIT04,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Tse, D.N.C. and Viswanath, P. and Lizhong Zheng},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Diversity-multiplexing tradeoff in multiple-access channels}, 
+  year={2004},
+  volume={50},
+  number={9},
+  pages={1859-1874},
+  abstract={In a point-to-point wireless fading channel, multiple transmit and receive antennas can be used to improve the reliability of reception (diversity gain) or increase the rate of communication for a fixed reliability level (multiplexing gain). In a multiple-access situation, multiple receive antennas can also be used to spatially separate signals from different users (multiple-access gain). Recent work has characterized the fundamental tradeoff between diversity and multiplexing gains in the point-to-point scenario. In this paper, we extend the results to a multiple-access fading channel. Our results characterize the fundamental tradeoff between the three types of gain and provide insights on the capabilities of multiple antennas in a network context.},
+  keywords={Diversity methods;Fading;Receiving antennas;Signal to noise ratio;AWGN;Context;Additive white noise;MIMO;Telecommunication network reliability},
+  doi={10.1109/TIT.2004.833347},
+  ISSN={1557-9654},
+  month={Sep.},
+  html ={https://ieeexplore.ieee.org/document/1327793}
+}
+@article{zhengTIT03,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Lizhong Zheng and Tse, D.N.C.},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Diversity and multiplexing: a fundamental tradeoff in multiple-antenna channels}, 
+  year={2003},
+  volume={49},
+  number={5},
+  pages={1073-1096},
+  abstract={Multiple antennas can be used for increasing the amount of diversity or the number of degrees of freedom in wireless communication systems. We propose the point of view that both types of gains can be simultaneously obtained for a given multiple-antenna channel, but there is a fundamental tradeoff between how much of each any coding scheme can get. For the richly scattered Rayleigh-fading channel, we give a simple characterization of the optimal tradeoff curve and use it to evaluate the performance of existing multiple antenna schemes.},
+  keywords={Rayleigh channels;Receiving antennas;Transmitting antennas;MIMO;Fading;Channel capacity;Diversity methods;Wireless communication;Rayleigh scattering;Transmitters},
+  doi={10.1109/TIT.2003.810646},
+  ISSN={1557-9654},
+  month={May},
+  html={https://ieeexplore.ieee.org/document/1197843}
+}
+@article{zhengTIT02,
+  abbr={TIT},
+  bibtex_show={true},
+  author={Lizhong Zheng and Tse, D.N.C.},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Communication on the Grassmann manifold: a geometric approach to the noncoherent multiple-antenna channel}, 
+  year={2002},
+  volume={48},
+  number={2},
+  pages={359-383},
+  keywords={Information rates},
+  doi={10.1109/18.978730},
+  html ={https://ieeexplore.ieee.org/document/978730},
+  abstract ={We study the capacity of multiple-antenna fading channels. We focus on the scenario where the fading coefficients vary quickly; thus an accurate estimation of the coefficients is generally not available to either the transmitter or the receiver. We use a noncoherent block fading model proposed by Marzetta and Hochwald (see ibid. vol.45, p.139-57, 1999). The model does not assume any channel side information at the receiver or at the transmitter, but assumes that the coefficients remain constant for a coherence interval of length T symbol periods. We compute the asymptotic capacity of this channel at high signal-to-noise ratio (SNR) in terms of the coherence time T, the number of transmit antennas M, and the number of receive antennas N. While the capacity gain of the coherent multiple antenna channel is min{M, N} bits per second per Hertz for every 3-dB increase in SNR, the corresponding gain for the noncoherent channel turns out to be M* (1 - M*/T) bits per second per Hertz, where M*=min{M, N, [T/2]}. The capacity expression has a geometric interpretation as sphere packing in the Grassmann manifold.}
+}
+
+
+%book{einstein1920relativity,
   title={Relativity: the Special and General Theory},
   author={Einstein, Albert},
   year={1920},
@@ -11,7 +603,7 @@
   html={relativity.html}
 }
 
-@book{einstein1956investigations,
+%book{einstein1956investigations,
   bibtex_show={true},
   title={Investigations on the Theory of the Brownian Movement},
   author={Einstein, Albert},
@@ -20,7 +612,7 @@
   preview={brownian-motion.gif}
 }
 
-@article{einstein1950meaning,
+%article{einstein1950meaning,
   abbr={AJP},
   bibtex_show={true},
   title={The meaning of relativity},
@@ -33,7 +625,7 @@
   publisher={American Association of Physics Teachers}
 }
 
-@article{PhysRev.47.777,
+%article{PhysRev.47.777,
   abbr={PhysRev},
   title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
   author={Einstein*†, A. and Podolsky*, B. and Rosen*, N.},
@@ -57,38 +649,13 @@
   video={https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
   additional_info={. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
   annotation={* Example use of superscripts<br>† Albert Einstein},
-  selected={true},
-  inspirehep_id = {3255}
+  selected={true}
 }
 
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
-}
 
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.},
-  volume={17},
-  pages={549--560},
-  year={1905}
-}
 
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
-}
 
-@Article{einstein1905photoelectriceffect,
+@%rticle{einstein1905photoelectriceffect,
   bibtex_show={true},
   abbr={Ann. Phys.},
   title="{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}",
@@ -102,14 +669,4 @@
   doi={10.1002/andp.19053220607},
   award={Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
   award_name={Nobel Prize}
-}
-
-@book{przibram1967letters,
-  bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif},
-  abbr={Vision}
 }
