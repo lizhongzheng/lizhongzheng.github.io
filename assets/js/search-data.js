@@ -58,15 +58,70 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/people/";
           },
-        },{id: "post-a-post-with-image-galleries",
+        },{id: "post-delay-doppler-domain-signaling-and-otfs",
       
-        title: "a post with image galleries",
+        title: "Delay-Doppler Domain Signaling and OTFS",
       
-      description: "this is what included image galleries could look like",
+      description: "",
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/2024/photo-gallery/";
+          window.location.href = "/blog/2025/OTFS/";
+        
+      },
+    },{id: "post-symbol-detection-in-wireless-communication",
+      
+        title: "Symbol Detection in Wireless Communication",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2024/symbol-detection/";
+        
+      },
+    },{id: "post-learning-with-side-information",
+      
+        title: "Learning with Side Information",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2024/Side-Information/";
+        
+      },
+    },{id: "post-the-nested-h-score-network",
+      
+        title: "The Nested H-Score Network",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2024/nested-H-score/";
+        
+      },
+    },{id: "post-the-h-score",
+      
+        title: "The H Score",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2024/H-Score/";
+        
+      },
+    },{id: "post-modal-decomposition",
+      
+        title: "Modal Decomposition",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2024/modal-decomposition/";
         
       },
     },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
@@ -111,6 +166,17 @@ ninja.data = [{
       handler: () => {
         
           window.location.href = "/blog/2024/post-citation/";
+        
+      },
+    },{id: "post-a-post-that-can-be-cited",
+      
+        title: "a post that can be cited",
+      
+      description: "this is what a post that can be cited looks like",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2024/post-citation-2/";
         
       },
     },{id: "post-a-post-with-pseudo-code",
@@ -199,6 +265,17 @@ ninja.data = [{
       handler: () => {
         
           window.location.href = "/blog/2023/tikzjax/";
+        
+      },
+    },{id: "post-a-post-with-image-galleries",
+      
+        title: "a post with image galleries",
+      
+      description: "this is what included image galleries could look like",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2023/photo-gallery/";
         
       },
     },{id: "post-a-post-with-bibliography",
