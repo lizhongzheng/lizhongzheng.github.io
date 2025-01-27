@@ -1,97 +1,252 @@
-- title: General Information
+- title: Contact Information
   type: map
   contents:
-    - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
-    - name: Languages
-      value: English, German
+    - name: name
+      value: Lizhong Zheng
+    - name: address
+      value: 36-660, 77 Mass Ave. Cambridge, MA 02139, USA
+    - name: Tel.
+      value: (617) 452-2941
+    - name: email
+      value: lizhong@mit.edu
+    - name: url
+      value: https//lizhongzheng.mit.edu
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - institution: Department of Electrical Engineering and Computer Science, University of California, Berkeley
+      title: PhD
+      year: 2002
+      location: Berkeley, CA, USA
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+        - "Thesis: 'Diversity-Multiplexing Tradeoff - A Comprehensive View of Multiple Antenna Systems', advisor: David N.C. Tse"
+        - Minor in Mathematics and Statistics
+        - Eli Jury Award
+        - Tong Leong Lim Pre-Doctoral Prize
+    - title: M.S.
+      location: Beijing, PRC.
+      institution: Department of Electronic Engineering, Tsinghua University
+      year: 1997
       description:
-        - Description 1.
-        - Description 2.
+        - "Thesis: 'Video Compression Algorithm and Hardware Implementation', advisor: Xianyuan Meng"
+    - title: B.S.
+      location: Beijing, PRC.
+      institution: Department of Electronic Engineering, Tsinghua University
+      year: 1994
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Professor
+      institution: Department of Electrical Engineering and Computer Sciences, MIT
+      year: 2012 - present
+      location: Cambridge, MA, USA
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
+        - Research Laboratory of Electronic (RLE)
+        - "2009 - 2012: Associate Professor (with tenure)"
+        - "2006 - 2009: Associate Professor (without tenure), the KDD Career Development Professor"
+        - "2002 - 2006: Assistant Professor"
+    - title: Distinguished Visiting Professor
+      institution: Tsinghua University
+      location: Beijing, PRC
+      year: 2024 - present
+
     - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
-      description:
-        - Description 1.
-        - Description 2.
+      institution: Tsinghua Berkeley Shenzhen Institute (TBSI)
+      location: Shenzhen, PRC.
+      year: 2017-2018
+      description: Data Science and Information Technology Center
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
+    - title: Visiting Scientist at the AI Lab.
+      institution: Tencent Inc.
+      location: Shenzhen, PRC.
+      year: 2017 - 2018
 
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
-      description:
+    - title: Distinguished Visiting Scientist at the Corporate Research Center
+      institution: Foxconn Techonolgy Group
+      location: Shenzhen, PRC.
+      year: 2017 - 2018
 
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
+    - title: Consultant on Wireless Commnication Standard and ML Algorithms
+      institution: 2012 Lab, Huawai Co.
+      location: Shanghai, PRC.
+      year: 2008 - 2018
 
-- title: Open Source Projects
+    - title: Consultant on Wireless Commnications and Data Management Systems
+      institution: Qualcomm Inc.
+      location: Concord, MA, USA
+      year: 2003 - 2019
+
+    - title: Consultant in the Division of Information Technology Systems
+      institution: Sharp Labs Inc.
+      location: Camas, WA, USA
+      year: 2006 - 2019
+
+    - title: Consultant at the Airforce Research Labs (AFRL)
+      institution: Rome Research Corp
+      location: Rome, NY, USA
+      year: 2007 - 2010
+
+- title: Professional Actitivities
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: General co-Chair
+      institution: IEEE International Symposium on Information Theory (ISIT'2012)
+      location: Boston, MA, USA
+      year: 2012
 
-- title: Honors and Awards
-  type: time_table
-  contents:
-    - year: 1921
-      items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
-      items:
-        - Max Planck Medal
+    - title: TPC co-Chair
+      institution: IEEE Information Theory Workshop (ITW'2024)
+      location: Shenzhen, PRC
+      year: 2024
 
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Topic 1.
-      items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
+    - title: TPC co-Chair
+      institution: IEEE International Symposium on Information Theory (ISIT'2026)
+      location: Guangzhou, PRC
+      year: 2026
 
-- title: Other Interests
+    - title: Area Editor
+      year: 2023 - present
+      institution: IEEE Transactions on Information Theory
+      description:
+        - Associate Editor (2007-2011)
+
+    - title: Section Board Member
+      year: 2023 - present
+      institution: MDPI Editorial Board for Information Theory, Probability, and Statistics
+      description:
+        - Guest Editor (2022)
+
+    - title: Organizing Committee Member
+      year: 2019, 2023
+      institution: Workshop on Learning and Information Theory (WOLIT)
+      location: Shenzhen, PRC.
+
+    - title: Invited Lecturer
+      year: 2022
+      institution: East Asia School of Information Theory (EASIT)
+
+    - title: Invited Lecturer
+      year: 2021
+      institution: North America School of Information Theory (AASIT)
+
+    - title: TPC Member
+      institution: International Symposium on Information Theory (ISIT), IEEE Information Theory Workshop (ITW), Workshop on Adaptive Sensor Array Processing (ASAP), International Conference on Ultra Wide-band (ICUWB)”, International Zurich Seminar on Communications (IZS), etc.
+
+    - title: Member
+      institution: MIT Committee on Undergraduate Programs (CUP)
+      year: 2023 - present
+      location: Cambridge, MA, USA
+
+    - title: Member
+      institution: MIT Committee on Academic Performance (CAP)
+      year: 2019 - 2022
+      location: Cambridge, MA, USA
+
+    - title: Member/Chair
+      institution: MIT Committee on Student Lifes (CSL)
+      year: 2015 -2018
+      location: Cambridge, MA, USA
+
+    - title: Member
+      institution: MIT EECS Faculty Search Committee
+      year: 2009 - present
+      location: Cambridge, MA, USA
+    - title: Member / Area Chair
+      institution: MIT EECS Graduate Admissiion Committee
+      year: 2003 - present
+      location: Cambridge, MA, USA
+
+    - title: Mentor
+      institution: Research Science Institute (RSI)
+      year: 2005 - present
+      location: Cambridge, MA, USA
+      description: Mentor for the Center of Excellence in Education (CEE) on the high school summer research program, with multiple students received national awards and admitted to top universities.
+
+    - title: Mentor
+      institution: Boston University Research in Science and Engineering (RISE) program}
+      year: 2022 - present.
+      description: Mentor for high school summer research programs.
+
+- title: Selected Honors and Awards
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - IEEE Fellow
+    - IEEE Information Theory Society Paper Award
+    - NSF CAREER Award
+    - AFOSR Yound Investigator Award
+
+- title: Selected Recent Projects
+  type: time_table
+  contents:
+    - title: "CAREER: Towards Unified Theory of Wireless Communications"
+      institution: NSF
+      year: 2004-2010
+      description: This is an NSF early career award that helped us to establish the theoretical foundation of the modern wireless physical-layer communication theory.
+
+    - title: Information Theory for Mobile Adhoc Networks (ITMANET)
+      year: 2007-2011
+      institution: DARPA
+      description: This is a large joint program between Stanford, MIT, Caltech, and UIUC, led by Prof. Andrea Goldsmith of Staford, to develop the theory for network communications.
+
+    - title: Information Geometry and Applications in Data Science
+      institution: AFOSR
+      year: 2012 - 2017
+      description: This is a project on fundamental theoretic development of new tools of mathematical analysis that is aimed at broadening the application of information theory to topics on learning and data science
+
+    - title: "MLWiNS: Deep Neural Networks Meet Physical Layer Communications -- Learning with Knowledge of Structure"
+      institution: NSF / Intel
+      year: 2020-2023
+      description: This is a joint project to tudy the use of machine learning techniques in wireless communication systems. Our project was chosen as the "highlighted" project at the end for its direct impacts on industrial practice.
+
+    - title: "MURI: Science of Tracking, Control and Optimization of Information Latency for Dynamic Military IoT Systems"
+      institution: ONR
+      year: 2019 - 2024
+      description: This is a large joint project with Virginia Tech. on applying new tools in data science for better control of large data networks, to improve the latency property and security of communications.
+
+    - title: "HAYSTAC: Hidden Activity Signal and Trajectory Anomaly Charactorization"
+      institution: IRAPA
+      year: 2022 - 2026
+      description: This is a collaborative project with industrial partner STR Inc. to simulate and detect abnormal behaviors in ultra-large user-trajectory datasets.
+
+    - title: Learning-based ORAN Testing
+      year: 2023-2027
+      institution: National Telecommunications and Information Administration (NTIA)
+      description: This recent project is a part of the Biden administration's wireless innovation funds. The goal is to develop machine-learning-based ORAN development tools.
+
+- title: Selected Publications
+  type: list
+  contents:
+    - "Xiangxiang Xu and Lizhong Zheng: <b>Neural Feature Learning in Function Space,</b><i> Journal of Machine Learning Research (JMLR), 25(142), 2024</i>"
+    - "J Jon Ryu, Xiangxiang Xu, HS Erol, Yuheng Bu, Lizhong Zheng, Gregory W Wornell, <b>Operator SVD with Neural Networks via Nested Low-Rank Approximation,</b><i> ICML, 2024 </i>"
+    - "Shao-Lun Huang, Anuran Makur, Gregory W. Wornell and Lizhong Zheng (2024), <b>Universal Features for High-Dimensional Learning and Inference,</b><i> Foundations and Trends® in Communications and Information Theory: Vol. 21: No. 1-2, pp 1-299.</i>"
+    - "Lianjun Li, Jiarui Xu, Lizhong Zheng, Lingjia Liu: <b>Real-Time Machine Learning for Multi-User Massive MIMO:Symbol Detection Using Multi-Mode StructNet. </b>  <i>IEEE Trans. Wireless Commun. 22(12): 9172-9186, 2023 </i>"
+    - "Shashank Jere, Ramin Safavinejad, Lizhong Zheng, Lingjia Liu: <b>Channel Equalization Through Reservoir Computing:A Theoretical Perspective. </b>  <i> IEEE Wireless Communication Letter 12(5): 774-778, 2023 </i>"
+    - "Xiangxiang Xu, Lizhong Zheng: <b>Sequential Dependence Decomposition and Feature Learning.</b>  <i> Allerton 2023 </i>"
+    - "Xiangxiang Xu, Lizhong Zheng, Ishank Agrawal: <b>Neural Feature Learning for Engineering Problems.</b>  <i> Allerton 2023</i>"
+    - "Xiangxiang Xu, Lizhong Zheng: <b> Kernel Subspace and Feature Extraction. </b>  <i>IEEE International Symposium on Information Theory (ISIT) 1032-1037, 2023. </i>"
+    - "H. S. Melihcan Erol, Erixhen Sula, Lizhong Zheng: <b>On Semi-Supervised Estimation of Distributions. </b><i>IEEE International Symposium on Information Theory (ISIT) 1866-1871,  2023.</i>"
+    - "Shashank Jere, Karim Said, Lizhong Zheng, Lingjia Liu: <b> Towards Explainable Machine Learning: The Effectiveness of Reservoir Computing in Wireless Receive Processing.</b><i> MILCOM, 667-672, 2023 </i>"
+    - "Xiangxiang Xu, Shao-Lun Huang, Lizhong Zheng, Gregory W. Wornell: <b> An Information Theoretic Interpretation to Deep Neural Networks. </b><i>Entropy 24(1): 135, 2022 </i>"
+    - "Jiarui Xu, Zhou Zhou, Lianjun Li, Lizhong Zheng, Lingjia Liu: <b> RC-Struct: A Structure-Based Neural Network Approach for MIMO-OFDM Detection. </b><i> IEEE Trans. Wireless Commun. 21(9): 7181-7193, 2022 </i>"
+    - "Xinyi Tong, Xiangxiang Xu, Shao-Lun Huang, Lizhong Zheng: <b> A Mathematical Framework for Quantifying Transferability in Multi-source Transfer Learning. </b><i>26103-26116, NeurIPS 2021</i>"
+    - "Shao-Lun Huang, Xiangxiang Xu, Lizhong Zheng: <b> An Information Theoretic Approach to Unsupervised Feature Selection for High Dimensional Data, </b><i>IEEE Journal on Selected Areas in Information Theory (JSAIT), Vol. 1, pp157-166, 2020.</i>"
+    - "Hye Won Chung, Brian M. Sadler, Lizhong Zheng, Alfred O. Hero III: <b> Unequal Error Protection Querying Policies for the Noisy 20 Questions Problem.</b><i> IEEE Trans. Information Theory 64(2): 1105-1131, 2018 </i>"
+    - "Anuran Makur, Lizhong Zheng: <b>Polynomial Singular Value Decompositions of a Family of Source-Channel Models. </b><i>IEEE Trans. Information Theory 63(12): 7716-7728, 2017</i>"
+    - "Ligong Wang, Gregory W. Wornell, Lizhong Zheng: <b>Fundamental Limits of Communication With Low Probability of Detection. </b><i>IEEE Trans. Information Theory 62(6): 3493-3503, 2016 </i>"
+    - "Hye Won Chung, Saikat Guha, Lizhong Zheng: <b> Superadditivity of Quantum Channel Coding Rate With Finite Blocklength Joint Measurements. </b><i>IEEE Trans. Information Theory 62(10): 5938-5959, 2016</i>"
+    - "Shao-Lun Huang, Changho Suh, Lizhong Zheng:<b>Euclidean Information Theory of Networks. </b><i>IEEE Trans. Information Theory 61(12): 6795-6814, 2015 </i>"
+    - "Chung Chan, Lizhong Zheng: <b> Multiterminal Secret Key Agreement. </b><i>IEEE Trans. Information Theory 60(6): 3379-3412, 2014</i>"
+    - "Baris Nakiboglu, Siva K. Gorantla, Lizhong Zheng, Todd P. Coleman:<b> Bit-Wise Unequal Error Protection for Variable-Length Block Codes With Feedback.</b><i> IEEE Trans. Information Theory 59(3): 1475-1504, 2013 </i>"
+    - "Baris Nakiboglu, Lizhong Zheng:<b> Errors-and-Erasures Decoding for Block Codes With Feedback. </b><i>IEEE Trans. Information Theory 58(1): 24-49, 2012</i>"
+    - "Shashi Borade, Lizhong Zheng: <b>Writing on Fading Paper, Dirty Tape With Little Ink: Wideband Limits for Causal Transmitter CSI. </b><i>IEEE Trans. Information Theory 58(8): 5388-5397, 2012</i>"
+    - "Emmanuel Abbe, Lizhong Zheng: <b>A Coordinate System for Gaussian Networks.</b><i> IEEE Trans. Information Theory 58(2): 721-733, 2012 </i>"
+    - "Krishna P. Jagannathan, Eytan Modiano, Lizhong Zheng: <b>On the Role of Queue Length Information in Network Control. </b><i>IEEE Trans. Information Theory 57(9): 5884-5896, 2011</i>"
+    - "Emmanuel Abbe, Lizhong Zheng: <b>Linear Universal Decoding for Compound Channels. </b><i>IEEE Trans. Information Theory 56(12): 5999-6013, 2010</i>"
+    - "Shashi Borade, Lizhong Zheng: <b>Wideband Fading Channels With Feedback. </b><i>IEEE Trans. Information Theory 56(12): 6058-6066, 2010</i>"
+    - "Shashi Borade, Baris Nakiboglu, Lizhong Zheng: <b>Unequal error protection: an information-theoretic perspective. </b><i>IEEE Trans. Information Theory 55(12): 5511-5539, 2009</i>"
+    - "Shashi Borade, Lizhong Zheng, Robert .G. Gallager: <b>Amplify and Forward in Wireless Relay Networks: Rate, Diversity, and Network Size, </b><i>IEEE Transactions on Information Theory, special issue on 'Models, Theory, and Codes for Relaying and Cooperation in Communication Networks', October, 2007</i>"
+    - "Lizhong Zheng, David.N.C. Tse, Muriel. Medard : <b> Channel Coherence in the Low SNR Regime. </b><i> IEEE International Symposium on Information Theory, June 2004 </i>"
+    - "Lizhong Zheng, David N.C. Tse,  <b>Diversity and Multiplexing: A Fundamental Tradeoff in Multiple Antenna Channels. </b><i> IEEE Transactions on Information Theory. Vol. 49, No. 5, pp. 1073-96, May, 2003 </i>"
+    - "Lizhong Zheng, David. N.C. Tse, <b>Communication on the Grassmann Manifold: A Geometric Approach to the Non-Coherent Multiple Antenna Channel. </b><i> IEEE Transactions on Information Theory, vol. 48, No. 2, pp 359-84., February, 2002 </i>"
