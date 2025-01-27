@@ -176,7 +176,7 @@ One technical issue is the **local assumption**. Many nice properties and connec
 
 $$
 
-\mathrm{PMI}(x,y) = \log \left( \frac{P_{\mathsf {xy}}(x,y)}{P_\mathsf x(x) P*\mathsf y(y)} \right)\approx \widetilde{\mathrm{PMI}}(x,y) = \frac{P_{\mathsf {xy}}(x,y) - P_\mathsf x(x) P_\mathsf y(y)}{P_\mathsf x(x) P_\mathsf y(y)}
+\mathrm{PMI}(x,y) = \log \left( \frac{P_{\mathsf {xy}}(x,y)}{P_\mathsf x(x) P_\mathsf y(y)} \right)\approx \widetilde{\mathrm{PMI}}(x,y) = \frac{P_{\mathsf {xy}}(x,y) - P_\mathsf x(x) P_\mathsf y(y)}{P_\mathsf x(x) P_\mathsf y(y)}
 
 $$
 
@@ -337,5 +337,5 @@ Here is a [colab demo](https://colab.research.google.com/drive/1n4qk69shPL0LvGca
 <br>
 
 ---
-This post is based on the joint work with [Dr. Xiagxiang Xu](https://www.linkedin.com/in/xiangxiangxu/).
-$$
+This post is based on the joint work with [Dr. Xiagxiang Xu](https://www.linkedin.com/in/xiangxiangxu/). 
+
