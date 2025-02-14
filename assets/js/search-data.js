@@ -58,7 +58,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/people/";
           },
-        },{id: "post-delay-doppler-domain-signaling-and-otfs",
+        },{id: "post-hermite-polynomials-and-applications",
+      
+        title: "Hermite Polynomials and Applications",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/Hermite/";
+        
+      },
+    },{id: "post-delay-doppler-domain-signaling-and-otfs",
       
         title: "Delay-Doppler Domain Signaling and OTFS",
       
