@@ -58,9 +58,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/people/";
           },
-        },{id: "post-hermite-polynomials-and-applications",
+        },{id: "post-hermite-polynomials-and-applications-in-ml",
       
-        title: "Hermite Polynomials and Applications",
+        title: "Hermite Polynomials and Applications in ML",
       
       description: "",
       section: "Posts",
