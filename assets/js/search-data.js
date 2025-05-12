@@ -58,7 +58,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/people/";
           },
-        },{id: "post-hermite-polynomials-and-applications-in-ml",
+        },{id: "post-extended-properties-of-hermite-polynomials",
+      
+        title: "Extended Properties of Hermite Polynomials",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/Hermite-Extension/";
+        
+      },
+    },{id: "post-hermite-polynomials-and-applications-in-ml",
       
         title: "Hermite Polynomials and Applications in ML",
       
