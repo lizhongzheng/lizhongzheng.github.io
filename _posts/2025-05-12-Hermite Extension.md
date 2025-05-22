@@ -210,7 +210,7 @@ $$
 
 </div>
 
-{% details Proof:%}
+{% details Proof: (checked) %}
 
 We take the Taylor expansion to function $s \mapsto \phi_k(a s)$ at $s=x$: 
 
@@ -236,3 +236,30 @@ The Hermite expansion of $\phi_n(\gamma x)$ is
 \end{equation}
 
 ---
+Example:
+
+$$\phi_5(2x+3) = 8\sqrt{\frac{2}{15}}x^5 + 4\sqrt{30} x^4 + 32\sqrt{\frac{10}{3}} x^3 + 12\sqrt{30} x^2 + 5\sqrt{30} x + 3\sqrt{\frac{3}{10}}$$
+
+Combining Corollary 4 and Theorem 5, we would like to evaluate 
+
+$$
+r_{n,m}(a,b) \stackrel{\Delta}{=} \langle \phi_n(a x + b), \phi_m(x) \rangle
+$$
+
+where the inner product has ${\mathcal N}(0,1)$ as the reference distribution. In other words, we try to find the expansion of $\phi_n(ax+b)$ with respect to the standard Hermite basis. 
+
+We do this with two separate cass: $n-m = 2k$ and $n-m = 2k +1$, for $k=0, 1, \ldots, \lfloor\frac{n}{2}\rfloor$.
+
+For the case that $n-m = 2k$:
+
+$$
+\begin{align*}
+\langle \phi_n(ax+b),\phi_m\rangle &= \left\langle \sum_{i=0}^k \frac{1}{\sqrt{(2i)!}} \cdot \sqrt{n \choose (2i)} \cdot\phi_{n-2i}(ax) \cdot b^{2i}, \phi_m \right\rangle  \\
+\\
+& \qquad \mbox{ Corollary 4 : } k\leftarrow n, m \leftarrow 2i \\
+&= \sum_{i=0}^k \frac{1}{\sqrt{(2i)!}} \cdot \sqrt{n \choose (2i)}  \cdot b^{2i} \\
+& \quad \cdot  \sqrt{\frac{(n-2i)!}{m!}}\cdot \frac{1}{2^{k-i} (k-i)!} \cdot (a^2-1)^{k-i} \cdot a^m \\
+\\
+&\qquad \mbox{ Theorem 5 :} n\leftarrow n-2i; n-2k \leftarrow m ; k\leftarrow k-i
+\end{align*}
+$$
