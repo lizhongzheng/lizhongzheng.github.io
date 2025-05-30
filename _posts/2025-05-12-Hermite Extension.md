@@ -260,6 +260,25 @@ $$
 &= \sum_{i=0}^k \frac{1}{\sqrt{(2i)!}} \cdot \sqrt{n \choose (2i)}  \cdot b^{2i} \\
 & \quad \cdot  \sqrt{\frac{(n-2i)!}{m!}}\cdot \frac{1}{2^{k-i} (k-i)!} \cdot (a^2-1)^{k-i} \cdot a^m \\
 \\
-&\qquad \mbox{ Theorem 5 :} n\leftarrow n-2i; n-2k \leftarrow m ; k\leftarrow k-i
+&\qquad \mbox{ Theorem 5 :} n\leftarrow n-2i; n-2k \leftarrow m ; k\leftarrow k-i\\
+&= \sqrt{\frac{n!}{m!}} \cdot a^m \cdot \sum_{i=0}^k \frac{1}{(2i)! (k-i)!} b^{2i} \left(\frac{a^2-1}{2}\right)^{k-i}\\
+&= \left(\frac{a^2-1}{2}\right)^k \cdot M \left(-k, \frac{1}{2}, -\frac{b^2}{2(a^2-1)}\right)
+\end{align*}
+$$
+
+where $M(a, b, z)$ is called [Kummer' confluent hypergeommetric function](https://en.wikipedia.org/wiki/Confluent_hypergeometric_function), also written as ${}_1F_1(a, b, z)$, defined as 
+
+$$
+M(a,b, z) = \sum_{n=0}^\infty \frac{a^{(n)} z^n}{b^{(n)} n!}
+$$
+
+with $a^{(n)} = a\cdot (a+1) \cdot (a+2) \cdots (a+n-1)$. 
+
+The most likely to be used property of the Kummer's function is 
+
+$$
+\begin{align*}
+M(a,b, z) &= e^z\cdot M(b-a, b, -z)\\\\
+\mathbb{E}\left[ \left| \mathcal N(\mu, \sigma^2)\right|^p\right] &= \frac{(2\sigma^2)^{\frac{p}{2}}\Gamma\left(\frac{1+p}{2}\right)}{\sqrt{\pi}} \cdot M\left(-\frac{p}{2}, \frac{1}{2}, - \frac{\mu^2}{2\sigma^2}\right)
 \end{align*}
 $$
