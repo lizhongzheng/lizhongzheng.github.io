@@ -256,17 +256,34 @@ $$
 \begin{align*}
 \langle \phi_n(ax+b),\phi_m\rangle &= \left\langle \sum_{i=0}^k \frac{1}{\sqrt{(2i)!}} \cdot \sqrt{n \choose (2i)} \cdot\phi_{n-2i}(ax) \cdot b^{2i}, \phi_m \right\rangle  \\
 \\
-& \qquad \mbox{ Corollary 4 : } k\leftarrow n, m \leftarrow 2i \\
+& \qquad \mbox{ Corollary 4 : } k\leftarrow n, m \leftarrow 2i \\\\
 &= \sum_{i=0}^k \frac{1}{\sqrt{(2i)!}} \cdot \sqrt{n \choose (2i)}  \cdot b^{2i} \\
 & \quad \cdot  \sqrt{\frac{(n-2i)!}{m!}}\cdot \frac{1}{2^{k-i} (k-i)!} \cdot (a^2-1)^{k-i} \cdot a^m \\
 \\
-&\qquad \mbox{ Theorem 5 :} n\leftarrow n-2i; n-2k \leftarrow m ; k\leftarrow k-i\\
+&\qquad \mbox{ Theorem 5 :} n\leftarrow n-2i; n-2k \leftarrow m ; k\leftarrow k-i\\\\
 &= \sqrt{\frac{n!}{m!}} \cdot a^m \cdot \sum_{i=0}^k \frac{1}{(2i)! (k-i)!} b^{2i} \left(\frac{a^2-1}{2}\right)^{k-i}\\
-&= \left(\frac{a^2-1}{2}\right)^k \cdot M \left(-k, \frac{1}{2}, -\frac{b^2}{2(a^2-1)}\right)
+&= \sqrt{\frac{n!}{m!}} \cdot a^m \cdot \frac{1}{k!}\left(\frac{a^2-1}{2}\right)^k \cdot M \left(-k, \frac{1}{2}, -\frac{b^2}{2(a^2-1)}\right)
 \end{align*}
 $$
 
-where $M(a, b, z)$ is called [Kummer' confluent hypergeommetric function](https://en.wikipedia.org/wiki/Confluent_hypergeometric_function), also written as ${}_1F_1(a, b, z)$, defined as 
+
+For the case that $n-m = 2k+1$: 
+
+$$
+\begin{align*}
+\langle \phi_n(ax+b),\phi_m\rangle &= \left\langle \sum_{i=0}^k \frac{1}{\sqrt{(2i+1)!}} \cdot \sqrt{n \choose (2i+1)} \cdot\phi_{n-2i-1}(ax) \cdot b^{2i+1}, \phi_m \right\rangle  \\
+\\
+& \qquad \mbox{ Corollary 4 : } k\leftarrow n, m \leftarrow 2i+1\\\\
+&= \sum_{i=0}^k \frac{1}{\sqrt{(2i+1)!}} \cdot \sqrt{n \choose (2i+1)}  \cdot b^{2i+1} \\
+& \quad \cdot  \sqrt{\frac{(n-2i-1)!}{m!}}\cdot \frac{1}{2^{k-i} (k-i)!} \cdot (a^2-1)^{k-i} \cdot a^m \\
+\\
+&\qquad \mbox{ Theorem 5 :} n\leftarrow n-2i-1; n-2k-1 \leftarrow m ; k\leftarrow k-i\\\\
+&= \sqrt{\frac{n!}{m!}} \cdot a^m \cdot \sum_{i=0}^k \frac{1}{(2i+1)! (k-i)!} b^{2i+1} \left(\frac{a^2-1}{2}\right)^{k-i}\\
+&=\sqrt{\frac{n!}{m!}} \cdot a^m \cdot \frac{1}{k!} \cdot b \cdot \left(\frac{a^2-1}{2}\right)^k \cdot M \left(-k, \frac{3}{2}, -\frac{b^2}{2(a^2-1)}\right)
+\end{align*}
+$$
+
+In the above,  $M(a, b, z)$ is called [Kummer' confluent hypergeommetric function](https://en.wikipedia.org/wiki/Confluent_hypergeometric_function), also written as ${}_1F_1(a, b, z)$, defined as 
 
 $$
 M(a,b, z) = \sum_{n=0}^\infty \frac{a^{(n)} z^n}{b^{(n)} n!}
