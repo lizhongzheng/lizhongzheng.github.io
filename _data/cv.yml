@@ -106,10 +106,12 @@
       location: Guangzhou, PRC
       year: 2026
 
-    - title: Area Editor
-      year: 2023 - present
+
+    - title: Editor in Chief
+      year: 2025 - present
       institution: IEEE Transactions on Information Theory
       description:
+        - Area Editor for Shannon Theory and Information Measures (2023-2025)
         - Associate Editor (2007-2011)
 
     - title: Section Board Member
@@ -172,6 +174,7 @@
 - title: Selected Honors and Awards
   type: list
   contents:
+    - MIT School of Engineering Ruth and Joel Award for Excellence in Teaching
     - IEEE Fellow
     - IEEE Information Theory Society Paper Award
     - NSF CAREER Award
