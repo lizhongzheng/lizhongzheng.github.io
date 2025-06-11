@@ -525,7 +525,12 @@ ninja.data = [{
             },},{id: "news-xiangxiang-xu-will-join-the-cs-of-the-university-of-rochester",
           title: 'Xiangxiang Xu will join the CS of the University of Rochester',
           description: "",
-          section: "News",},{id: "projects-project-1",
+          section: "News",},{id: "news-the-ruth-and-joel-spria-teaching-award",
+          title: 'The Ruth and Joel Spria Teaching Award',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/announcement_8/";
+            },},{id: "projects-project-1",
           title: 'project 1',
           description: "with background image",
           section: "Projects",handler: () => {
