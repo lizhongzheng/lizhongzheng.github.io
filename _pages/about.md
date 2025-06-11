@@ -18,8 +18,8 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ---
 
-Lizhong Zheng is a Professor at the [Department of Electrical Engineering and Computer Science](https://www.eecs.mit.edu/) at [MIT](https://web.mit.edu/). He works in the general area of information theory, statistical inference, data processing, wireless communications, and networks.
+Lizhong Zheng is the [Elihu Thomson](https://en.wikipedia.org/wiki/Elihu_Thomson) Professor at the [Department of Electrical Engineering and Computer Science](https://www.eecs.mit.edu/) at [MIT](https://web.mit.edu/). He works in the general area of information theory, statistical inference, data processing, wireless communications, and networks.
 
-Lizhong Zheng received the B.S. and M.S. degrees from the Department of Electronic Engineering at Tsinghua University and the PhD degree from the Department of Electrical Engineering and Computer Science at UC Berkeley. Since 2002, he has been teaching at MIT, where he is currently a professor of Electrical Engineering and Computer Science.
+Lizhong Zheng received the B.S. and M.S. degrees from the Department of Electronic Engineering at Tsinghua University and the PhD degree from the Department of Electrical Engineering and Computer Science at UC Berkeley. He joined the faculty of Electrical Engineering and Computer Science at MIT in 2002. 
 
-Lizhong Zheng is a PI in the [Research Laboratory of Electronics (RLE)](https://www.rle.mit.edu/). His current research interest includes statistics, information theory, and their applications in data science. He received the NSF CAREER Award, AFOSR Young Investigator Award, the IEEE Information Theory Society Paper Award. He is an IEEE Fellow and currently an area editor for the IEEE Transactions on Information Theory.
+Lizhong Zheng is a PI in the [Research Laboratory of Electronics (RLE)](https://www.rle.mit.edu/). His current research interest includes statistics, information theory, and their applications in data science. He received the NSF CAREER Award, AFOSR Young Investigator Award, the IEEE Information Theory Society Paper Award. He is an IEEE Fellow. He is currently the  editor-in-chief for the IEEE Transactions on Information Theory.

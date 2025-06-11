@@ -38,12 +38,13 @@
 - title: Experience
   type: time_table
   contents:
-    - title: Professor
+    - title: Elihu Thomson Professor
       institution: Department of Electrical Engineering and Computer Sciences, MIT
-      year: 2012 - present
+      year: 2025 - present
       location: Cambridge, MA, USA
       description:
         - Research Laboratory of Electronic (RLE)
+        - "2012 - present: Professor"
         - "2009 - 2012: Associate Professor (with tenure)"
         - "2006 - 2009: Associate Professor (without tenure), the KDD Career Development Professor"
         - "2002 - 2006: Assistant Professor"
