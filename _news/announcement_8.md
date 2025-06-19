@@ -1,11 +1,18 @@
 ---
 layout: post
-title: The Ruth and Joel Spria Teaching Award 
-date: 2025-6-10 15:59:00-0400
+title: Visiting HKUST
+date: 2025-7-10 15:59:00-0400
 inline: false
 related_posts: false
 ---
 
-This is the  <a href="https://engineering.mit.edu/faculty-research/faculty-awards/teaching-awards/">School of Engineering Teaching Award</a>, which I received last year, but somehow just found out today.
+I start visiting HKUST for a year. 
 
-{% include figure.liquid loading="eager" path="assets/img/SpiraAward2024.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+My new email address is [eelizhong@ust.hk](mailto:eelizhong@ust.hk). 
+
+My new address is 
+
+RM2421 2/F (Lifts 25-26), Academic Building\
+Department of Electronic and Computer Engineering\
+The Hong Kong University of Science and Technology\
+Clear Water Bay, Kowloon, Hong Kong 
